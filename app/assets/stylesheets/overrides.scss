@@ -1,0 +1,25 @@
+$white: #ffffff;
+$brown: #712212;
+$brown--dark: #5f1f0f;
+$brown--light: #834031;
+$brown--lighter: #e2d3d0;
+
+$navbar__bg-color: $brown;
+$navbar-element-dark__bg-color: $brown--dark;
+$navbar__bg-color--darker: $brown--dark;
+$navbar-element-hover__bg-color: $brown--light !default;
+$navbar-element-active__bg-color: $brown--dark !default;
+
+$link__color: $brown !default;
+$link__color--hover: $brown--light !default;
+$link__color--pressed: $brown--dark !default;
+$link__color--visited: $brown--light !default;
+
+$big-button__color: $white !default;
+$big-button__bg-color: $brown !default;
+$big-button__bg-color--hover: $brown--light !default;
+$big-button__bg-color--pressed: $brown--dark !default;
+$big-button__bg-color--visited: $brown--light !default;
+$big-button__bg-color--disabled: $brown--lighter !default;
+
+$footer-element-with-separator__border-left-color: $brown--dark;

@@ -1,0 +1,27 @@
+source 'https://rubygems.org'
+
+# Frameworks
+gem 'rails', '4.2.5.1'
+gem 'comfortable_mexican_sofa', '~> 1.12.8'
+
+# Assets
+gem 'bower-rails', '~> 0.10.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'sassc-rails', '~> 1.2.0'
+gem 'sassc', '1.8.3'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+
+# DB
+gem 'pg', '~> 0.18.4'
+
+group :development, :test do
+  gem 'byebug'
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
+  gem 'spring'
+end
+

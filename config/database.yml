@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: icca_registry_development
+test:
+  <<: *default
+  database: icca_registry_test
+staging:
+  <<: *default
+  database: icca_registry_staging
+production:
+  <<: *default
+  database: icca_registry_production

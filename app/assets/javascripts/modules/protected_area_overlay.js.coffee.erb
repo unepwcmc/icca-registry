@@ -1,0 +1,93 @@
+window.ProtectedAreaOverlay = class ProtectedAreaOverlay
+  POLYGONS_TABLE = 'wdpa_poly_production'
+  POINTS_TABLE   = 'wdpa_point_production'
+
+  @_generateCartocssSelector: (args) ->
+    tables = args.table
+    tables = [tables] unless $.isArray(tables)
+
+    if args.attrName and args.attrVal
+      value = if typeof args.attrVal is "number" then args.attrVal else "\"#{args.attrVal}\""
+      comparator = "[#{args.attrName} = #{value}]"
+      mapFunction = (value) -> "##{value}#{comparator}"
+    else
+      mapFunction = (value) -> "##{value}"
+
+    return tables.map(mapFunction).join(',')
+
+  @_generateCartocss: (args) ->
+    args = $.extend({
+      opacity: 0.7
+      lineWidth: 0.05
+      lineColor: '2B3146'
+      polygonFill: '2B3146',
+      polygonCompOp: 'dst-over'
+    }, args)
+
+    """
+      #{@_generateCartocssSelector(args)} {
+        line-color:##{args.lineColor};
+        line-width:#{args.lineWidth};
+        polygon-fill:##{args.polygonFill};
+        polygon-opacity:#{args.opacity};
+        polygon-comp-op:#{args.polygonCompOp};
+      }
+    """
+
+  @_wdpaTiles: (config) ->
+    {
+      sql: """
+          SELECT the_geom, the_geom_webmercator, wdpaid, marine
+          FROM #{POINTS_TABLE}
+          WHERE wdpaid = '#{config.wdpaId}'
+        UNION ALL
+          SELECT the_geom, the_geom_webmercator, wdpaid, marine
+          FROM #{POLYGONS_TABLE}
+          WHERE wdpaid = '#{config.wdpaId}'
+      """
+      cartocss: @_generateCartocss(
+        table: [POLYGONS_TABLE, POINTS_TABLE]
+        attrName: 'wdpaid'
+        attrVal: config.wdpaId,
+        lineColor: 'FF6600',
+        lineWidth: 2,
+        opacity: 0.2,
+        polygonCompOp: 'src-over'
+      )
+    }
+
+  @render: (map, config) ->
+    @getBoundingBox(config.wdpaId, map.fitBounds.bind(map))
+    @getTiles(map, config)
+
+  @getBoundingBox: (wdpaId, done) ->
+    sql = new cartodb.SQL({ user: 'carbon-tool' })
+
+    sql.execute("""
+      SELECT ST_AsGeoJSON(Box2d(the_geom), 4, 1)
+      FROM #{POLYGONS_TABLE}
+      WHERE wdpaid = '{{wdpaId}}'
+      UNION ALL
+      SELECT ST_AsGeoJSON(Box2d(the_geom), 4, 1)
+      FROM #{POINTS_TABLE}
+      WHERE wdpaid = '{{wdpaId}}'
+    """, {wdpaId: wdpaId}).done( (data) ->
+      bbox = JSON.parse(data.rows[0].st_asgeojson).bbox
+
+      southWest = L.latLng(bbox[1], bbox[0])
+      northEast = L.latLng(bbox[3], bbox[2])
+      bounds = L.latLngBounds(southWest, northEast)
+
+      done(bounds)
+    )
+
+  @getTiles: (map, config) ->
+    carto_tiles = new cartodb.Tiles(
+      sublayers: [@_wdpaTiles(config)]
+      user_name: "carbon-tool"
+    )
+
+    map.on('baselayerchange', => @paOverlay.bringToFront())
+    carto_tiles.getTiles( (o) => @paOverlay = L.tileLayer(o.tiles[0]).addTo(map))
+
+
