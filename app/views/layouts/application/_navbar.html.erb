@@ -18,31 +18,31 @@
     <%= link_to "ICCA Registry", root_path %>
   </div>
 
-  <div class="navbar__element js-resources js-navbar-actionable navbar__element--right">
-    <button class="js-trigger"> About <i class="fa fa-chevron-down"></i> </button>
+  <div class="navbar__element js-dropdown navbar__element--right">
+    <button data-dropdown-trigger> About <i class="fa fa-chevron-down"></i> </button>
 
-    <div class="u-hide js-target dropdown">
+    <div data-dropdown-target class="u-hide dropdown">
       <div class="dropdown__inner">
         <% @about_page.children.each do |page| %>
-          <a class="dropdown__element" href="<%= page.full_path %>"><%= page.label %></a>
+          <a class="dropdown__element" href="<%= cms_page_path(page) %>"><%= page.label %></a>
         <% end %>
       </div>
     </div>
   </div>
   <div class="navbar__element navbar__element--right"><%= link_to 'Explore', explore_path %></div>
-  <div class="navbar__element js-resources js-navbar-actionable navbar__element--right">
-    <button class="js-trigger"> Participate <i class="fa fa-chevron-down"></i> </button>
+  <div class="navbar__element js-dropdown navbar__element--right">
+    <button data-dropdown-trigger> Participate <i class="fa fa-chevron-down"></i> </button>
 
-    <div class="u-hide js-target dropdown">
+    <div data-dropdown-target class="u-hide dropdown">
       <div class="dropdown__inner">
         <% @participate_page.children.each do |page| %>
-          <a class="dropdown__element" href="<%= page.full_path %>"><%= page.label %></a>
+          <a class="dropdown__element" href="<%= cms_page_path(page) %>"><%= page.label %></a>
         <% end %>
       </div>
     </div>
   </div>
   <div class="navbar__element navbar__element--right"><%= link_to 'Contact us', contact_us_path %></div>
-  <div class="<%= bem("navbar__element", "with-separator", "right") %>">
+  <div class="<%= bem("navbar__element", "with-separator", "right", "larger") %>">
     <a href="<%= root_path %>" class="link-with-icon link-with-icon--no-color"> <i class="fa fa-search"></i> Search</a>
   </div>
 </nav>
