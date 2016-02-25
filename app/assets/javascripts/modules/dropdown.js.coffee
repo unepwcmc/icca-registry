@@ -1,14 +1,15 @@
 window.Dropdown = class Dropdown
-  constructor: (@$triggerEl, @$el, @options) ->
-    if @$triggerEl.length is 0 or @$el.length is 0
-      return false
-
+  constructor: (@$el, @options) ->
     @options ||= {on: 'click'}
     @addEventListener()
 
   addEventListener: ->
-    @$triggerEl.on(@options.on, (event) =>
-      @$triggerEl.toggleClass('active')
-      @$el.slideToggle(100)
+    $triggerEl = @$el.find('[data-dropdown-trigger]')
+    $targetEl  = @$el.find('[data-dropdown-target]')
+
+    $triggerEl.on(@options.on, (event) ->
+      $triggerEl.toggleClass('active')
+      $targetEl.slideToggle(100)
+
       event.preventDefault()
     )

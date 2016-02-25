@@ -4,3 +4,4 @@ $(document).ready( ->
 
   $('.js-dropdown').each (i, el) -> new Dropdown($(el))
 )
+

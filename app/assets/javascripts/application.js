@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require modules/map
-//= require home
+//= require modules/dropdown
+//= require common
