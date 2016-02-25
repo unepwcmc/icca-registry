@@ -1,0 +1,48 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:IccaRegistry	inherits:Rails.Application
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c	inherits:ActionController.Base
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+AssetJoiner	lib/modules/asset_joiner.rb	/^class AssetJoiner$/;"	c
+BemHelper	app/helpers/bem_helper.rb	/^module BemHelper$/;"	m
+CmsHelper	app/helpers/cms_helper.rb	/^module CmsHelper$/;"	m
+ContactUsController	app/controllers/contact_us_controller.rb	/^class ContactUsController < ApplicationController$/;"	c	inherits:ApplicationController
+ContactUsControllerTest	test/controllers/contact_us_controller_test.rb	/^class ContactUsControllerTest < ActionController::TestCase$/;"	c	inherits:ActionController.TestCase
+ContactUsHelper	app/helpers/contact_us_helper.rb	/^module ContactUsHelper$/;"	m
+Country	app/models/country.rb	/^class Country < ActiveRecord::Base$/;"	c	inherits:ActiveRecord.Base
+CountryTest	test/models/country_test.rb	/^class CountryTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+CreateCms	db/migrate/20160211192643_create_cms.rb	/^class CreateCms < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
+CreateCountries	db/migrate/20160211163306_create_countries.rb	/^class CreateCountries < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
+CreateSites	db/migrate/20160211163045_create_sites.rb	/^class CreateSites < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
+ExploreController	app/controllers/explore_controller.rb	/^class ExploreController < ApplicationController$/;"	c	inherits:ApplicationController
+ExploreControllerTest	test/controllers/explore_controller_test.rb	/^class ExploreControllerTest < ActionController::TestCase$/;"	c	inherits:ActionController.TestCase
+ExploreHelper	app/helpers/explore_helper.rb	/^module ExploreHelper$/;"	m
+HomeController	app/controllers/home_controller.rb	/^class HomeController < ApplicationController$/;"	c	inherits:ApplicationController
+HomeControllerTest	test/controllers/home_controller_test.rb	/^class HomeControllerTest < ActionController::TestCase$/;"	c	inherits:ActionController.TestCase
+HomeHelper	app/helpers/home_helper.rb	/^module HomeHelper$/;"	m
+IccaRegistry	config/application.rb	/^module IccaRegistry$/;"	m
+Site	app/models/site.rb	/^class Site < ActiveRecord::Base$/;"	c	inherits:ActiveRecord.Base
+SiteTest	test/models/site_test.rb	/^class SiteTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
+TestCase	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c	class:ActiveSupport
+bem	app/helpers/bem_helper.rb	/^  def bem b_or_e, *modifiers$/;"	f	class:BemHelper
+build_country	app/models/site.rb	/^  belongs_to :country$/;"	F	class:Site
+call	lib/modules/asset_joiner.rb	/^  def call(input)$/;"	f	class:AssetJoiner
+change	db/migrate/20160211163045_create_sites.rb	/^  def change$/;"	f	class:CreateSites
+change	db/migrate/20160211163306_create_countries.rb	/^  def change$/;"	f	class:CreateCountries
+cms_page	app/helpers/cms_helper.rb	/^  def cms_page page, current_page$/;"	f	class:CmsHelper
+country	app/models/site.rb	/^  belongs_to :country$/;"	F	class:Site
+country=	app/models/site.rb	/^  belongs_to :country$/;"	F	class:Site
+create_country	app/models/site.rb	/^  belongs_to :country$/;"	F	class:Site
+create_country!	app/models/site.rb	/^  belongs_to :country$/;"	F	class:Site
+down	db/migrate/20160211192643_create_cms.rb	/^  def self.down$/;"	F	class:CreateCms
+index	app/controllers/contact_us_controller.rb	/^  def index$/;"	f	class:ContactUsController
+index	app/controllers/explore_controller.rb	/^  def index$/;"	f	class:ExploreController
+index	app/controllers/home_controller.rb	/^  def index$/;"	f	class:HomeController
+initialize	lib/modules/asset_joiner.rb	/^  def initialize first, second$/;"	f	class:AssetJoiner
+load_cms_pages	app/controllers/application_controller.rb	/^  def load_cms_pages$/;"	f	class:ApplicationController
+map_bounds	app/helpers/application_helper.rb	/^  def map_bounds protected_area=nil$/;"	f	class:ApplicationHelper
+site_ids	app/models/country.rb	/^  has_many :sites$/;"	F	class:Country
+site_ids=	app/models/country.rb	/^  has_many :sites$/;"	F	class:Country
+sites	app/models/country.rb	/^  has_many :sites$/;"	F	class:Country
+sites=	app/models/country.rb	/^  has_many :sites$/;"	F	class:Country
+up	db/migrate/20160211192643_create_cms.rb	/^  def self.up$/;"	F	class:CreateCms
