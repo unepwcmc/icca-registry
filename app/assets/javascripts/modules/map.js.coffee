@@ -6,8 +6,9 @@ window.Map = class Map
   initMap: ->
     bounds = L.latLngBounds(@config.boundFrom, @config.boundTo)
     window.map = map = new L.Map(@$mapEl.attr('id'), {
+      scrollWheelZoom: false,
       zoomControl: false,
-      center: [30, 20],
+      center: bounds.getCenter(),
       zoom: 3
     })
 
