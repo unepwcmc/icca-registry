@@ -1,0 +1,20 @@
+<div class="container--profile container--right-padded">
+  <nav class="breadcrumbs">
+    {{ cms:partial:cms/breadcrumbs }}
+  </nav>
+
+  <main>
+    {{ cms:partial:cms/parent_title }}
+    <aside class="one-fourths">
+      {{ cms:partial:cms/siblings_nav }}
+    </aside>
+
+    <article class="three-fourths article">
+      {{ cms:partial:cms/title }}
+
+      <div class="s-article">
+        {{ cms:page:content:rich_text }}
+      </div>
+    </article>
+  </main>
+</div>

@@ -1,0 +1,5 @@
+<div class="vertical-nav">
+  <% @cms_site.pages.root.children.each do |section| %>
+    <%= cms_section(section, @cms_page) %>
+  <% end %>
+</div>
