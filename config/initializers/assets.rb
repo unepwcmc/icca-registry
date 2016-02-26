@@ -5,6 +5,10 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
 Rails.application.config.assets.precompile += %w(html5shiv/dist/*)
+Rails.application.config.assets.precompile += %w(protectedplanet-frontend/src/images/*)
+Rails.application.config.assets.precompile += %w(protectedplanet-frontend/src/fonts/*)
+Rails.application.config.assets.precompile += %w(protectedplanet-frontend/dist/images/*)
+Rails.application.config.assets.precompile += %w(protectedplanet-frontend/dist/fonts/*)
 
 Sprockets.register_preprocessor('text/css',
   AssetJoiner.new('stylesheets/overrides.scss', 'protectedplanet-frontend/src/style/main')
