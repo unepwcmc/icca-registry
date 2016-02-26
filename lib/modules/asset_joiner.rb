@@ -5,7 +5,6 @@ class AssetJoiner
   end
 
   def call(input)
-    p "hey #{input[:name]}"
     if input[:name] == @second
       prefix = File.read(Rails.root.join('app/assets', @first))
       {data: prefix + "\n" + input[:data]}
