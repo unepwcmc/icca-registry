@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211192643) do
+ActiveRecord::Schema.define(version: 20160301150620) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160211192643) do
     t.boolean  "is_shared",      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "country_id"
+    t.integer  "icca_site_id"
   end
 
   add_index "comfy_cms_pages", ["parent_id", "position"], name: "index_comfy_cms_pages_on_parent_id_and_position", using: :btree
@@ -143,7 +145,7 @@ ActiveRecord::Schema.define(version: 20160211192643) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "sites", force: :cascade do |t|
+  create_table "icca_sites", force: :cascade do |t|
     t.string   "name"
     t.string   "lat"
     t.string   "lon"

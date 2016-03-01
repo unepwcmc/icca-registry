@@ -9,7 +9,7 @@
   </div>
 
   <div class="js-explore-target u-click-through o-overlay">
-    <div class="col-eight u-no-click-through <%= bem('info-box', 'white', 'hero') %>">
+    <div class="col-eight u-no-click-through <%= bem('info-box', 'fff', 'hero') %>">
       <h1 class="info-box__header info-box__header--with-padding <%= bem('header-with-delimiter', 'bigger', 'bold', 'no-margin-bottom') %>">
         Welcome to the global ICCA Registry
         <button class="right"><i class="fa fa-times u-link-color"></i></button>
@@ -20,7 +20,7 @@
           <div class="circle-story circle-story--flex">
             <div class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>"></div>
             <p class="circle-story__content u-center">Learn about ICCAs (indigenous peoples' and community conserved territories and areas).</p>
-            <a class="big-button u-push-top">Learn</a>
+            <%= link_to "Learn", cms_page_path(@about_page), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">

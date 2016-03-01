@@ -1,2 +1,6 @@
-<a class="breadcrumbs__link" href="/">Home</a> > <%= @cms_page.parent.label %>: <%= @cms_page.label %>
+<a class="breadcrumbs__link" href="/">Home</a> >
+<% unless @cms_page.parent.label == "Index" %>
+  <%= @cms_page.parent.label %>:
+<% end %>
+<%= @cms_page.label %>
 

@@ -1,0 +1,30 @@
+<% Country.order(:name).all.each do |country| %>
+  <div class="row accordion js-accordion">
+    <h3 class="js-trigger accordion__header">
+      <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
+    </h3>
+    <div class="js-target accordion__body u-hide">
+      <div class="s-article"><%= cms_block_render(:content, country.page) %></div>
+      <div class="row row--push2x">
+        <a class="link-with-icon u-bold" href="<%= cms_page_path(country.page) %>">
+          <i class="fa fa-arrow-right link-with-icon__icon"></i>See Country Page
+        </a>
+      </div>
+
+      <h4 class="article__title--subparagraph"> ICCA Sites in <%= country.name %> </h4>
+
+      <ul class="article__list article__list--less-margin">
+        <% country.icca_sites.each do |icca_site| %>
+          <li class="article__list-item">
+            <% if icca_site.page %>
+              <a class="article__link" href="<%= cms_page_path(icca_site.page) %>"><%= icca_site.name %></a>
+            <% else %>
+              <%= icca_site.name %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+

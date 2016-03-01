@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     pages = Comfy::Cms::Page
 
     @about_page       = pages.where(label: "About").includes(:children).first
+    @explore_page     = pages.where(label: "Explore").first
     @participate_page = pages.where(label: "Participate").includes(:children).first
   end
 end
