@@ -1,0 +1,14 @@
+<main class="container--profile container--right-padded">
+  <nav class="breadcrumbs">
+    {{ cms:partial:cms/case_breadcrumbs }}
+  </nav>
+
+  <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter"> Explore Case Studies </h1>
+  <article class="article col-nine">
+    {{ cms:partial:cms/case_title }}
+
+    <div class="s-article">
+      {{ cms:page:content:rich_text }}
+    </div>
+  </article>
+</main>

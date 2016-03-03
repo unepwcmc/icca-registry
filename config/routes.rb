@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :countries, except: [:show]
+    resources :photos, only: [:destroy]
+    resources :resources, only: [:destroy]
   end
 
   # Make sure this routeset is defined last

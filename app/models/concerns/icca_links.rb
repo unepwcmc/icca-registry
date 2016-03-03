@@ -5,6 +5,9 @@ module IccaLinks
     belongs_to :country
     belongs_to :icca_site
 
+    has_many :photos
+    has_many :resources
+
     before_save :link_icca_site, dependent: :destroy
     before_save :link_country, dependent: :destroy
 
