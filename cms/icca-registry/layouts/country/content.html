@@ -1,0 +1,19 @@
+<main class="container--profile container--right-padded">
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="/">Home</a> > ICCA Countries
+  </nav>
+
+  <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter"> Explore Case Studies </h1>
+  <article class="article col-nine">
+    {{ cms:partial:cms/title }}
+
+    {{ cms:partial:cms/country_map }}
+
+    {{ cms:partial:cms/country_info_box }}
+
+    <div class="s-article">
+      {{ cms:page:content:rich_text }}
+    </div>
+
+  </article>
+</main>

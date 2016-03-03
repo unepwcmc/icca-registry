@@ -1,0 +1,23 @@
+<aside class="info-box info-box--fill-color">
+  <section class="col-six">
+    <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">ICCA Sites in <%= @cms_page.label %></h2>
+    <ul class="article__list article__list--less-margin info-box__body">
+      <% @cms_page.country.icca_sites.each do |icca_site| %>
+        <li class="article__list-item">
+          <% if icca_site.page %>
+            <a class="article__link" href="<%= cms_page_path(icca_site.page) %>"><%= icca_site.name %></a>
+          <% else %>
+            <%= icca_site.name %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+  <section class="col-six">
+    <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Important Links</h2>
+    <p class="info-box__body">
+      <a class="link-with-icon u-block" href="">Link</a>
+      <a class="link-with-icon u-block" href="">Link</a>
+    </p>
+  </section>
+</aside>
