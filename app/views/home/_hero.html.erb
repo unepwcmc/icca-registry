@@ -1,5 +1,5 @@
 <div class="hero hero--push u-relative">
-  <div data-bound-from="<%= map_bounds['from'] %>" data-control-position="bottomleft" data-bound-to="<%= map_bounds['to'] %>" class="map map--main" id="map"></div>
+  <%= render partial: "shared/map", locals: {map_modifier: "map--main"} %>
   <div class="disclaimer">
     The designations employed and the presentation of material on this map do not
     imply the expression of any opinion whatsoever on the part of the Secretariat

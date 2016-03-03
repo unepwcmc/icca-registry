@@ -1,22 +1,25 @@
+$.support.cors = true
+
 window.Map = class Map
   constructor: (@$mapEl) ->
     @config = @$mapEl.data()
     @initMap()
 
   initMap: ->
-    bounds = L.latLngBounds(@config.boundFrom, @config.boundTo)
-    window.map = map = new L.Map(@$mapEl.attr('id'), {
-      scrollWheelZoom: false,
-      zoomControl: false,
-      center: bounds.getCenter(),
-      zoom: 3
-    })
+    @getBounds( (bounds) =>
+      window.map = map = new L.Map(@$mapEl.attr('id'), {
+        scrollWheelZoom: false,
+        zoomControl: false,
+        center: bounds.getCenter(),
+        zoom: 3
+      })
 
-    map.fitBounds(bounds)
-    map.addControl(L.control.zoom(position: 'bottomright'))
+      map.fitBounds(bounds)
+      map.addControl(L.control.zoom(position: 'bottomright'))
 
-    access_token = 'pk.eyJ1IjoidW5lcHdjbWMiLCJhIjoiY2lreHdmcmVlMDA0YndsbTQ5aHFwdm5vZyJ9.KsDsvf9FRGyv1BQYXblI0Q'
-    L.tileLayer("https://api.mapbox.com/v4/unepwcmc.l8gj1ihl/{z}/{x}/{y}.png?access_token=#{access_token}").addTo(map)
+      access_token = 'pk.eyJ1IjoidW5lcHdjbWMiLCJhIjoiY2lreHdmcmVlMDA0YndsbTQ5aHFwdm5vZyJ9.KsDsvf9FRGyv1BQYXblI0Q'
+      L.tileLayer("https://api.mapbox.com/v4/unepwcmc.l8gj1ihl/{z}/{x}/{y}.png?access_token=#{access_token}").addTo(map)
+    )
 
     #@addLayer(map)
 
@@ -45,3 +48,13 @@ window.Map = class Map
       })
       $('#map').append(info.render().el)
     )
+
+
+  getBounds: (next) ->
+    if @config.countryIso
+      $.getJSON("http://localhost:9292/v3/countries/#{@config.countryIso}?token=45f9c64f433267ccac46a5094fbfc332", (data) ->
+        next(L.geoJson(data.country.geojson).getBounds())
+      )
+    else
+      next(L.latLngBounds(@config.boundFrom, @config.boundTo))
+
