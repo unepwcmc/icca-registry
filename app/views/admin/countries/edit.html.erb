@@ -8,6 +8,9 @@
   <%= f.text_field :name %>
   <%= f.text_field :iso_3 %>
 
-  <%= f.submit "Update #{@country.name}" %>
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "Update #{@country.name}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_countries_path, :class => 'btn btn-link' %>
+  <% end %>
 <% end %>
 
