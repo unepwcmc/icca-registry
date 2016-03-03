@@ -10,8 +10,12 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-  comfy_route :cms_admin, :path => '/admin'
+
+  namespace :admin do
+    resources :countries, except: [:show]
+  end
 
   # Make sure this routeset is defined last
+  comfy_route :cms_admin, :path => '/admin'
   comfy_route :cms, :path => '/', :sitemap => false
 end
