@@ -1,0 +1,16 @@
+<li id="<%= dom_id(country) %>">
+  <div class="item">
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_country_path(country), :class => 'btn btn-default' %>
+    </div>
+    <div class="item-content">
+      <div class="item-title">
+        <%= link_to country.name, edit_admin_country_path(country) %>
+      </div>
+      <div class="item-meta">
+        <%= country.iso_3 %>
+      </div>
+    </div>
+  </div>
+</li>
+

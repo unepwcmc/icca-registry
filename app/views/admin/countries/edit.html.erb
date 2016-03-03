@@ -1,0 +1,13 @@
+<div class="page-header">
+  <h2>
+    <%= @country.name %>
+  </h2>
+</div>
+
+<%= comfy_form_for @country, url: {action: "update"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :iso_3 %>
+
+  <%= f.submit "Update #{@country.name}" %>
+<% end %>
+
