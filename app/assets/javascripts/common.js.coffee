@@ -1,12 +1,10 @@
 $(document).ready( ->
   if ($mapEl = $('#map')).length > 0
-    try
-      new Map($mapEl)
-    catch err
-      console.log(err)
+    new Map($mapEl)
 
-  $('.js-dropdown').each (i, el) -> new Dropdown($(el))
+  $('.js-dropdown').each (i, el)  -> new Dropdown($(el))
   $('.js-accordion').each (i, el) -> new Accordion($(el))
+  $('.js-gallery').each (i, el)   -> new Gallery($(el))
 
 )
 

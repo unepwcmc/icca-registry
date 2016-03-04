@@ -16,4 +16,5 @@
 //= require modules/accordion
 //= require modules/dropdown
 //= require modules/map
+//= require modules/gallery
 //= require common

@@ -1,0 +1,11 @@
+<div class="info-box info-box--fill-color info-box--padding-top-bottom">
+  <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Resources</h2>
+  <div class="info-box__body">
+    <% @cms_page.resources.each do |resource| %>
+      <a class="u-block u-bold <%= bem('link-with-icon', 'push')%>" href="<%= resource.file.url %>">
+        <i class="link-with-icon__icon fa fa-download"></i>
+        <%= resource.label %>
+      </a>
+  <% end %>
+  </div>
+</div>

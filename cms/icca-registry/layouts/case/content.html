@@ -4,11 +4,19 @@
   </nav>
 
   <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter"> Explore Case Studies </h1>
-  <article class="article col-nine">
+  <article class="article">
     {{ cms:partial:cms/case_title }}
 
-    <div class="s-article">
+    <div class="row">
+      {{ cms:partial:cms/case_gallery }}
+    </div>
+
+    <div class="s-article col-eight">
       {{ cms:page:content:rich_text }}
+    </div>
+
+    <div class="col-four">
+      {{ cms:partial:cms/case_resources }}
     </div>
   </article>
 </main>
