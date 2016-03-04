@@ -7,6 +7,7 @@ module IccaLinks
 
     has_many :photos
     has_many :resources
+    has_many :related_links
 
     before_save :link_icca_site, dependent: :destroy
     before_save :link_country, dependent: :destroy

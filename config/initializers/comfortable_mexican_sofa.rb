@@ -3,6 +3,7 @@
 require File.expand_path("../../../app/models/concerns/icca_links.rb", __FILE__)
 require File.expand_path("../../../app/controllers/concerns/icca_photos.rb", __FILE__)
 require File.expand_path("../../../app/controllers/concerns/icca_resources.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/icca_related_links.rb", __FILE__)
 ComfortableMexicanSofa.configure do |config|
   # Title of the admin area
   #   config.cms_title = 'ComfortableMexicanSofa CMS Engine'

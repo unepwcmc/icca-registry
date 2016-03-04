@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :countries, except: [:show]
     resources :photos, only: [:destroy]
     resources :resources, only: [:destroy]
+    resources :related_links, only: [:destroy]
   end
 
   # Make sure this routeset is defined last
