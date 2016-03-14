@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Frameworks
 gem 'rails', '4.2.5.1'
 gem 'comfortable_mexican_sofa', '~> 1.12.8'
+gem 'nokogiri', '~> 1.6.7.2'
 
 # Assets
 gem 'bower-rails', '~> 0.10.0'

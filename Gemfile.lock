@@ -234,6 +234,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   comfortable_mexican_sofa (~> 1.12.8)
   jquery-rails
+  nokogiri (~> 1.6.7.2)
   pg (~> 0.18.4)
   rails (= 4.2.5.1)
   sassc (= 1.8.3)
