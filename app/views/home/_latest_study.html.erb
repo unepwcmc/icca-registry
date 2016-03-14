@@ -1,10 +1,14 @@
 <div class="section">
   <h1 class="section__header">Latest case study</h1>
   <div class="section__body article">
-    <img class="cover-story__cover cover-story__cover--above" src="<%= @last_case_study.photos.first.file.url %>">
+    <% if @last_case_study.photos.any? %>
+      <img class="cover-story__cover cover-story__cover--above" src="<%= @last_case_study.photos.first.file.url %>">
+    <% end %>
+
     <p class="article__paragraph col-seven">
       <%= preview_page(@last_case_study) %>
     </p>
+
     <div class="col-four">
       <h2 class="article__title article__title--paragraph">
         <%= @last_case_study.label %>

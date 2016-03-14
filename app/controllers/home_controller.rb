@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @last_case_study = Comfy::Cms::Page.published.order(:created_at).last
+    @last_case_study = IccaSite.order(:created_at).last.page
   end
 end
