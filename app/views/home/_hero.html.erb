@@ -18,21 +18,21 @@
       <div class="<%= bem('info-box__body', 'no-padding', 'flex') %>">
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
-            <div class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>"></div>
+            <img src="<%= image_path("Binantazan.jpg") %>" srcset="<%= with2x("Binantazan.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center">Learn about ICCAs (indigenous peoples' and community conserved territories and areas).</p>
             <%= link_to "Learn", cms_page_path(@about_page), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
-            <div class="home-hero-2 <%= bem('circle-story__circle', 'above', 'smaller') %>"></div>
+            <img src="<%= image_path("Fish.jpg") %>" srcset="<%= with2x("Fish.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center">Participate by registering your own ICCA or submitting a case study.</p>
             <a class="big-button u-push-top">Participate</a>
           </div>
         </div>
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
-            <div class="home-hero-3 <%= bem('circle-story__circle', 'above', 'smaller') %>"></div>
+            <img src="<%= image_path("Dongwa_village.jpg") %>" srcset="<%= with2x("Dongwa_village.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center">Explore the world of ICCAs through the interactive map and case studies.</p>
             <a class="big-button u-push-top" href="<%= cms_page_path(@explore_page) %>">Explore</a>
           </div>

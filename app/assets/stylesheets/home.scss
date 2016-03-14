@@ -1,21 +1,13 @@
-.home-hero-1 {
-  background-image: url('http://lorempixel.com/200/200/nature');
-  background-size: cover;
-}
-
-.home-hero-2 {
-  background-image: url('http://lorempixel.com/200/200/nature');
-  background-size: cover;
-}
-
-.home-hero-3 {
-  background-image: url('http://lorempixel.com/200/200/nature');
-  background-size: cover;
-}
-
 .home-about-cover {
   height: 340px;
 
-  background-image: url('http://lorempixel.com/720/340/nature');
+  background-image: asset-url('ICCA_Registry_banner.jpg');
+  background-size: cover;
+}
+
+.home-toolkit-cover {
+  height: 340px;
+
+  background-image: asset-url('ICCA_Toolkit_Banner.jpg');
   background-size: cover;
 }
