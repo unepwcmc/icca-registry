@@ -12,7 +12,7 @@
     <div class="col-four">
       <h2 class="article__title article__title--paragraph">
         <%= @last_case_study.label %>
-        <a href="<%= cms_page_path(@last_case_study.icca_site.country.page) %>" class="u-bold link-with-icon link-with-icon--no-push link-with-icon--inherit u-link-color u-alt-font">
+        <a href="<%= cms_page_path(@last_case_study.icca_site.country.pages.first) %>" class="u-bold link-with-icon link-with-icon--no-push link-with-icon--inherit u-link-color u-alt-font">
           <%= @last_case_study.icca_site.country.name %>
         </a>
       </h2>

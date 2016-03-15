@@ -5,6 +5,7 @@ module IccaPhotos
     before_action :create_photos, :only => [:create, :update]
 
     def create_photos
+      @page.save!
       return unless params[:images]
 
       params[:images].each do |image|
