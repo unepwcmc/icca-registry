@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require modules/ui_state
 //= require modules/accordion
 //= require modules/dropdown
 //= require modules/map

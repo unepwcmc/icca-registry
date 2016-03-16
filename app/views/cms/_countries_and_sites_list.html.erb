@@ -4,9 +4,9 @@
       <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
     </h3>
     <div class="js-target accordion__body u-hide">
-      <div class="s-article"><%= cms_block_render(:content, country.page) %></div>
+      <div class="s-article"><%= cms_block_render(:content, country.pages.first) %></div>
       <div class="row row--push2x">
-        <a class="link-with-icon u-bold" href="<%= cms_page_path(country.page) %>">
+        <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.first) %>">
           <i class="fa fa-arrow-right link-with-icon__icon"></i>See Country Page
         </a>
       </div>
@@ -16,8 +16,8 @@
       <ul class="article__list article__list--less-margin">
         <% country.icca_sites.each do |icca_site| %>
           <li class="article__list-item">
-            <% if icca_site.page %>
-              <a class="article__link" href="<%= cms_page_path(icca_site.page) %>"><%= icca_site.name %></a>
+            <% if icca_site.pages.first %>
+              <a class="article__link" href="<%= cms_page_path(icca_site.pages.first) %>"><%= icca_site.name %></a>
             <% else %>
               <%= icca_site.name %>
             <% end %>

@@ -4,8 +4,8 @@
     <ul class="article__list article__list--less-margin info-box__body">
       <% @cms_page.country.icca_sites.each do |icca_site| %>
         <li class="article__list-item">
-          <% if icca_site.page %>
-            <a class="article__link" href="<%= cms_page_path(icca_site.page) %>"><%= icca_site.name %></a>
+          <% if icca_site.pages.first %>
+            <a class="article__link" href="<%= cms_page_path(icca_site.pages.first) %>"><%= icca_site.name %></a>
           <% else %>
             <%= icca_site.name %>
           <% end %>
