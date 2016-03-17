@@ -19,9 +19,17 @@ window.Map = class Map
 
       access_token = 'pk.eyJ1IjoidW5lcHdjbWMiLCJhIjoiY2lreHdmcmVlMDA0YndsbTQ5aHFwdm5vZyJ9.KsDsvf9FRGyv1BQYXblI0Q'
       L.tileLayer("https://api.mapbox.com/v4/unepwcmc.l8gj1ihl/{z}/{x}/{y}.png?access_token=#{access_token}").addTo(map)
+      @addMarkers()
     )
 
     #@addLayer(map)
+    #
+
+  addMarkers: =>
+    $.getJSON("/api/countries/#{@config.countryIso}", (data) ->
+      for index, site of data.icca_sites
+        L.marker([site.lat, site.lon]).addTo(window.map)
+    )
 
   addLayer: (map) ->
     countries_css = @generateCartocss(DemoUtils.countries)
@@ -52,7 +60,7 @@ window.Map = class Map
 
   getBounds: (next) ->
     if @config.countryIso
-      $.getJSON("http://localhost:9292/v3/countries/#{@config.countryIso}?token=45f9c64f433267ccac46a5094fbfc332", (data) ->
+      $.getJSON("http://protectedplanet-api-staging.protectedplanet.net/v3/countries/#{@config.countryIso}?token=0d6d9a0bf7a82b508e0d809eb78b0904", (data) ->
         next(L.geoJson(data.country.geojson).getBounds())
       )
     else

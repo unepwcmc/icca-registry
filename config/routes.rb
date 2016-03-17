@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :icca_sites
+    resources :countries
   end
 
   # Make sure this routeset is defined last

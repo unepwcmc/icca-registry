@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @last_case_study = IccaSite.order(:created_at).last.pages.first
+    @last_case_study = Photo.order(:created_at).first.page
   end
 end
