@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304110403) do
+ActiveRecord::Schema.define(version: 20160317131531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,19 +141,19 @@ ActiveRecord::Schema.define(version: 20160304110403) do
     t.string   "name"
     t.string   "lat"
     t.string   "lon"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "iso_3"
+    t.text     "description"
   end
 
   create_table "icca_sites", force: :cascade do |t|
     t.string   "name"
-    t.string   "lat"
-    t.string   "lon"
     t.integer  "country_id"
-    t.integer  "page_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "lon"
+    t.float    "lat"
   end
 
   create_table "photos", force: :cascade do |t|
