@@ -26,10 +26,23 @@ window.Map = class Map
     #
 
   addMarkers: =>
-    $.getJSON("/api/countries/#{@config.countryIso}", (data) ->
-      for index, site of data.icca_sites
-        L.marker([site.lat, site.lon]).addTo(window.map)
-    )
+    if @config.countryIso
+      $.getJSON("/api/countries/#{@config.countryIso}", (data) => @addSites(data.icca_sites))
+    else
+      $.getJSON("/api/icca_sites", @addSites)
+
+  addSites: (sites) ->
+    markersGroup = L.featureGroup()
+
+    for index, site of sites
+      marker = L.marker([site.lat, site.lon])
+      marker.bindPopup("""
+        <a class='link-with-icon' href='/#{site.pages[0].site.path}#{site.pages[0].full_path}'>#{site.name}</a>
+      """)
+      markersGroup.addLayer(marker)
+    markersGroup.addTo(window.map)
+    window.map.fitBounds(markersGroup.getBounds())
+
 
   addLayer: (map) ->
     countries_css = @generateCartocss(DemoUtils.countries)
