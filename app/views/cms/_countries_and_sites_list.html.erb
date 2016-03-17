@@ -4,7 +4,11 @@
       <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
     </h3>
     <div class="js-target accordion__body u-hide">
-      <div class="s-article"><%= cms_block_render(:content, country.pages.first) %></div>
+      <div class="s-article">
+        <p>
+          <%= country.description %>
+        </p>
+      </div>
       <div class="row row--push2x">
         <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.first) %>">
           <i class="fa fa-arrow-right link-with-icon__icon"></i>See Country Page
