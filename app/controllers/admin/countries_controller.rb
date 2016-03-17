@@ -1,6 +1,6 @@
 class Admin::CountriesController < Comfy::Admin::Cms::BaseController
   def index
-    @countries = Country.all
+    @countries = Country.order(:name).all
   end
 
   def edit
