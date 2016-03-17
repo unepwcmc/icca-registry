@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :related_links, only: [:destroy]
   end
 
+  namespace :api do
+    resources :icca_sites
+  end
+
   # Make sure this routeset is defined last
   comfy_route :cms_admin, :path => '/admin'
   comfy_route :cms, :path => '/', :sitemap => false
