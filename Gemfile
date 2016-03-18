@@ -18,6 +18,7 @@ gem 'turbolinks'
 
 # DB
 gem 'pg', '~> 0.18.4'
+gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'

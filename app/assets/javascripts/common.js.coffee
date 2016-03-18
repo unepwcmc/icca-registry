@@ -9,5 +9,8 @@ $(document).ready( ->
   $('.js-accordion').each (i, el) -> new Accordion($(el))
   $('.js-gallery').each (i, el)   -> new Gallery($(el))
 
+  $('.js-close-explore').click( (ev) ->
+    $('.js-explore-target').fadeOut()
+  )
 )
 

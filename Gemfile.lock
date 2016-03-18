@@ -152,6 +152,10 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    pg_search (1.0.5)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     plupload-rails (1.2.1)
       rails (>= 3.1)
     rack (1.6.4)
@@ -252,6 +256,7 @@ DEPENDENCIES
   jquery-rails
   nokogiri (~> 1.6.7.2)
   pg (~> 0.18.4)
+  pg_search
   rails (= 4.2.5.1)
   sassc (= 1.8.3)
   sassc-rails (~> 1.2.0)

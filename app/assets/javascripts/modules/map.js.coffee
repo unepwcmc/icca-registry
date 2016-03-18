@@ -14,6 +14,9 @@ window.Map = class Map
         zoom: 3
       })
 
+      map.on('dragstart click', @hideExplore)
+
+
       map.fitBounds(bounds)
       map.addControl(L.control.zoom(position: 'bottomright'))
 
@@ -79,3 +82,6 @@ window.Map = class Map
     else
       next(L.latLngBounds(@config.boundFrom, @config.boundTo))
 
+  hideExplore: ->
+    $('.js-explore-target').fadeOut()
+    $('.download-type-dropdown').fadeOut()
