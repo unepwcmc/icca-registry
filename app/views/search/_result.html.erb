@@ -1,0 +1,16 @@
+<div class="search-result">
+  <h2 class="search-result__title">
+    <a href="<%= cms_page_path(result) %>"><%= result.label %></a>
+  </h2>
+  <p class="search-result__body">
+    <%= preview_page(result) %>
+  </p>
+
+  <ul class="tag search-result__details">
+    <% if @countries.include? result %>
+      <li class="search-result__tag u-left">Country</li>
+    <% elsif @case_studies.include? result %>
+      <li class="search-result__tag u-left">Case study</li>
+    <% end %>
+  </ul>
+</div>
