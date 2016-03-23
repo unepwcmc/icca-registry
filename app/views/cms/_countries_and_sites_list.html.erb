@@ -4,30 +4,39 @@
       <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
     </h3>
     <div class="js-target accordion__body u-hide">
-      <div class="s-article">
-        <p>
-          <%= country.description %>
-        </p>
-      </div>
-      <div class="row row--push2x">
+      <div class="row <%= 'row--push2x' if country.icca_sites.any? %>">
         <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.first) %>">
           <i class="fa fa-arrow-right link-with-icon__icon"></i>See Country Page
         </a>
       </div>
 
-      <h4 class="article__title--subparagraph"> ICCA Sites in <%= country.name %> </h4>
+      <% if country.icca_sites.any? %>
+        <h4 class="article__title--subparagraph"> ICCA Sites in <%= country.name %> </h4>
 
-      <ul class="article__list article__list--less-margin">
-        <% country.icca_sites.each do |icca_site| %>
-          <li class="article__list-item">
-            <% if icca_site.pages.first %>
-              <a class="article__link" href="<%= cms_page_path(icca_site.pages.first) %>"><%= icca_site.name %></a>
-            <% else %>
-              <%= icca_site.name %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+        <ul class="article__list article__list--less-margin">
+          <% country.icca_sites.each do |icca_site| %>
+            <li class="article__list-item">
+              <% if icca_site.pages.first %>
+                <a class="article__link" href="<%= cms_page_path(icca_site.pages.first) %>"><%= icca_site.name %></a>
+              <% else %>
+                <%= icca_site.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <aside class="alert alert--flex">
+          <span class="fa-stack alert__icon alert__icon--info">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-info alert__icon-inner alert__icon-inner--info fa-stack-1x"></i>
+          </span>
+
+          <div>
+            <h4 class="alert__title alert__title--info">No ICCAs currently registered</h4>
+            <p class="alert__body">This does not equate to a lack of ICCAs on the ground</p>
+          </div>
+        </aside>
+      <% end %>
     </div>
   </div>
 <% end %>
