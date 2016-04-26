@@ -1,6 +1,9 @@
 $.support.cors = true
 
 window.Map = class Map
+  PP_API_BASE = "http://protectedplanet-api-staging.protectedplanet.net"
+  PP_API_KEY  = "0d6d9a0bf7a82b508e0d809eb78b0904"
+
   constructor: (@$mapEl) ->
     @config = @$mapEl.data()
     @initMap()
@@ -76,7 +79,7 @@ window.Map = class Map
 
   getBounds: (next) ->
     if @config.countryIso
-      $.getJSON("http://protectedplanet-api-staging.protectedplanet.net/v3/countries/#{@config.countryIso}?token=0d6d9a0bf7a82b508e0d809eb78b0904", (data) ->
+      $.getJSON("#{PP_API_BASE}/v3/countries/#{@config.countryIso}?token=#{PP_API_KEY}", (data) ->
         next(L.geoJson(data.country.geojson).getBounds())
       )
     else
