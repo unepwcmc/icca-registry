@@ -27,14 +27,14 @@
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Fish.jpg") %>" srcset="<%= with2x("Fish.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center">Participate by registering your own ICCA or submitting a case study.</p>
-            <a class="big-button u-push-top">Participate</a>
+            <%= link_to "Participate", cms_page_path(@participate_page), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Dongwa_village.jpg") %>" srcset="<%= with2x("Dongwa_village.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center">Explore the world of ICCAs through the interactive map and case studies.</p>
-            <a class="big-button u-push-top" href="<%= cms_page_path(@explore_page) %>">Explore</a>
+            <%= link_to "Explore", cms_page_path(@explore_page), class: "big-button u-push-top" %>
           </div>
         </div>
       </div>
