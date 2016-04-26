@@ -2,7 +2,9 @@
   <h1 class="section__header">Latest case study</h1>
   <div class="section__body article">
     <% if @last_case_study.photos.any? %>
-      <img class="cover-story__cover cover-story__cover--above" src="<%= @last_case_study.photos.first.file.url %>">
+      <div class="cover-story__cover cover-story__cover--above" style="overflow: hidden; max-height: 400px">
+        <img style="width: 100%" src="<%= @last_case_study.photos.first.file.url %>">
+      </div>
     <% end %>
 
     <p class="article__paragraph col-seven">
