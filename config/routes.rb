@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :countries, except: [:show]
+    resources :icca_sites, except: [:show]
     resources :photos, only: [:destroy]
     resources :resources, only: [:destroy]
     resources :related_links, only: [:destroy]

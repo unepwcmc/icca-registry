@@ -1,0 +1,16 @@
+<li id="<%= dom_id(icca_site) %>">
+  <div class="item">
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_icca_site_path(icca_site), :class => 'btn btn-default' %>
+    </div>
+    <div class="item-content">
+      <div class="item-title">
+        <%= link_to icca_site.name, edit_admin_icca_site_path(icca_site) %>
+      </div>
+      <div class="item-meta">
+        <strong>Lat:</strong> <%= icca_site.lat %> | <strong>Lon:</strong> <%= icca_site.lon %>
+      </div>
+    </div>
+  </div>
+</li>
+

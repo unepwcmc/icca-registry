@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h2>
+    <%= @icca_site.name %>
+  </h2>
+</div>
+
+<%= comfy_form_for @icca_site, url: {action: "update"} do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :lat %>
+  <%= f.text_field :lon %>
+
+  <%= f.form_group :class => 'form-actions' do %>
+    <%= f.submit "Update #{@icca_site.name}", :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), admin_icca_sites_path, :class => 'btn btn-link' %>
+  <% end %>
+<% end %>
+
