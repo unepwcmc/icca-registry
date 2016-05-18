@@ -5,7 +5,7 @@
 </div>
 
 <%= comfy_form_for @icca_site, url: {action: "update"} do |f| %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, disabled: true %>
   <%= f.text_field :lat %>
   <%= f.text_field :lon %>
 
