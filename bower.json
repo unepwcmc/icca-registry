@@ -7,7 +7,7 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
-      "protectedplanet-frontend": "11.2.1",
+      "protectedplanet-frontend": "11.0.0",
       "html5shiv": "latest"
     }
   }
