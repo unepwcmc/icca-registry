@@ -31,7 +31,7 @@ $(document).ready( ->
         ]
 
   setTimeout(->
-    window.CMS.wysiwyg if $(".redactor-box").length == 0
-  , 2000)
+    window.CMS.wysiwyg() if $(".redactor-box").length == 0
+  , 300)
 )
 
