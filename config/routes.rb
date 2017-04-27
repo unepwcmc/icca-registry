@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :countries, except: [:show]
     resources :icca_sites, except: [:show]
+    resources :interest_submissions, only: [:index] do
+      get 'download_csv', on: :collection
+    end
     resources :photos, only: [:destroy]
     resources :resources, only: [:destroy]
     resources :related_links, only: [:destroy]
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :icca_sites
     resources :countries
+    resources :interest_submissions, only: [:create]
   end
 
   # Make sure this routeset is defined last

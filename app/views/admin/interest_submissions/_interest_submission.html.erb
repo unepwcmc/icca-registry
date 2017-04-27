@@ -1,0 +1,32 @@
+<li id="<%= dom_id(interest_submission) %>">
+  <div class="item">
+    <div class="item-content">
+      <div class="item-title">
+        <p><strong>ICCA name: </strong><%= interest_submission.icca_name %></p>
+        <p>
+          <strong>Country: </strong>
+          <%= interest_submission.country %>
+        </p>
+        <p>
+          <strong>ICCA size:</strong>
+          <%= interest_submission.icca_size %>
+        </p>
+        <p>
+          <strong>Email address:</strong>
+          <%= interest_submission.email %>
+        </p>
+        <p>
+          <strong>Can contact?</strong>
+          <%= interest_submission.can_contact ? "Yes" : "No" %>
+        </p>
+        <p>
+          <strong>Submitted at:</strong>
+          <%= interest_submission.created_at.strftime("%d-%m-%Y %H:%m") %>
+        </p>
+      </div>
+      <div style="font-size: 1.5rem;" class="item-meta">
+      </div>
+    </div>
+  </div>
+</li>
+

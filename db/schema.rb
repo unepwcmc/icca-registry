@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318140930) do
+ActiveRecord::Schema.define(version: 20170427124401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -154,6 +154,16 @@ ActiveRecord::Schema.define(version: 20160318140930) do
     t.datetime "updated_at", null: false
     t.float    "lon"
     t.float    "lat"
+  end
+
+  create_table "interest_submissions", force: :cascade do |t|
+    t.text     "icca_name"
+    t.text     "country"
+    t.text     "icca_size"
+    t.text     "email"
+    t.boolean  "can_contact"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pg_search_documents", force: :cascade do |t|

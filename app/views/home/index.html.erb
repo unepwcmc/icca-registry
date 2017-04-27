@@ -1,5 +1,12 @@
 <div class="container--fullscreen">
   <div class="container--push">
+    <%= render layout: "banner" do %>
+      <span class="alert__title alert__title--success">Are you interested in engaging with the ICCA Registry?</span>
+      <br>
+      <span>
+        If you would like to express your interest, or would like further information, <button class="link-with-icon" data-toggle-trigger="interest">please let us know</button>
+      </span>
+    <% end %>
     <%= render partial: "hero" %>
     <%= render partial: "about" %>
     <%= render partial: "latest_study" %>
@@ -7,5 +14,6 @@
     <%= render partial: "toolkit" %>
   </div>
   <%= render partial: "partners" %>
+  <%= render partial: "interest_modal" %>
 </div>
 

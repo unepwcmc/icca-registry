@@ -1,0 +1,64 @@
+<div class="u-hide o-overlay o-overlay--with-color" data-interest-modal data-block-page-trigger="interest" data-toggle-target="interest">
+  <div class="modal u-base-color">
+    <h3 class="header-with-delimiter">
+      Submit your interest to the ICCA Registry
+      <button data-toggle-trigger="interest" style="padding: 0;" class="u-link-color u-right" href="#"><i class="fa fa-times"></i></button>
+    </h3>
+    <p class="article__paragraph">If you would like to express your interest without going through
+      the full registration process, or would like further information, please
+      let us know:
+    </p>
+    <form data-interest-form action="<%= api_interest_submissions_path %>" method="POST">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+      <label class="row u-block" for="icca_name">
+        <p>Name of ICCA</p>
+        <input id="icca_name" type="text" name="icca_name">
+      </label>
+
+      <label class="row u-block" for="country">
+        <p>Country</p>
+        <input id="country" type="text" name="country">
+      </label>
+
+      <label class="row u-block" for="icca_size">
+        <p>Size of ICCA (km<sup>2</sup>)</p>
+        <input id="icca_size" type="text" name="icca_size">
+      </label>
+
+      <label class="row u-block" for="email">
+        <p>Your email address</p>
+        <input id="email" type="email" name="email">
+      </label>
+
+      <label class="row u-block" for="can_contact">
+        <p>Are you happy for us to contact you to discuss this ICCA further?</p>
+        <div class="form__select-container">
+          <select class="form__select" id="can_contact" name="can_contact">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+      </label>
+
+      <hr class="row divider">
+
+      <div class="u-text-right">
+        <a style="margin-right: .75rem" class="u-link-color u-bold" data-toggle-trigger="interest" href="#">Cancel</a>
+        <button class="big-button">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="u-hide o-overlay o-overlay--with-color" data-interest-success data-block-page-trigger="success" data-toggle-target="success">
+  <div class="modal u-base-color">
+    <h3 class="header-with-delimiter">
+      Thank you!
+      <button data-toggle-trigger="interest" style="padding: 0;" class="u-link-color u-right" href="#"><i class="fa fa-times"></i></button>
+    </h3>
+    <p class="article__paragraph">Your interest has been submitted.</p>
+
+    <button data-toggle-trigger="success" class="big-button">Return to ICCA website</button>
+  </div>
+</div>
