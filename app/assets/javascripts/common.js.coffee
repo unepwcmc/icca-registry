@@ -20,5 +20,7 @@ $(document).ready( ->
 
   new Toggle("success")
   new BlockPage("success")
+
+  setTimeout((-> $(".banner").addClass("animated")), 750)
 )
 
