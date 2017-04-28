@@ -1,12 +1,12 @@
 class Admin::InterestSubmissionsController < Comfy::Admin::Cms::BaseController
   def index
-    @interest_submissions = InterestSubmission.order(:created_at).all
+    @interest_submissions = InterestSubmission.order(created_at: :desc).all
   end
 
   def download_csv
     interest_submissions_csv = CSV.generate do |csv|
       csv << ["ICCA name", "Country", "ICCA size (km2)", "Email", "Can contact?"]
-      InterestSubmission.order(:created_at).all.each do |is|
+      InterestSubmission.order(created_at: :desc).all.each do |is|
         csv << [is.icca_name, is.country, is.icca_size, is.email, is.can_contact ? "Yes" : "No"]
       end
     end
