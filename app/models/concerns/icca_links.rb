@@ -13,7 +13,7 @@ module IccaLinks
     before_save :link_country, dependent: :destroy
 
     def link_icca_site
-      return if self.parent.country_id.nil?
+      return if self.parent.try(:country_id).nil?
 
       self.icca_site = IccaSite.find_or_create_by(
         name: self.label,
@@ -22,7 +22,7 @@ module IccaLinks
     end
 
     def link_country
-      return if self.parent.label != "Explore"
+      return if self.parent.try(:label) != "Explore"
 
       country = Country.find_or_create_by(name: self.label)
       self.country = country
