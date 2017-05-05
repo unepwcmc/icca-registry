@@ -1,4 +1,9 @@
 en:
+  current_language: "English"
+  about: "About"
+  explore: "Explore"
+  participate: "Participate"
+  contact_us: "Contact us"
   learn_more: "Learn more"
   home:
     welcome: "Welcome to the global ICCA Registry"
@@ -35,4 +40,9 @@ en:
       photos and stories which result in useful statistics and analysis on
       featured ICCAs around the world.
     icca_toolkit_download: "Download the ICCA Toolkit"
+    icca_partners: "ICCA Registry Partners"
+    icca_partners_text: >
+      The ICCA Registry has a number of key funders and partners
+      working at the local to international level, simultaneously
+      seeking to provide support and recognition to ICCAs.
 

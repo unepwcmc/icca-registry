@@ -21,6 +21,8 @@ $(document).ready( ->
   new Toggle("success")
   new BlockPage("success")
 
+  new Toggle("language-switch")
+
   setTimeout((-> $(".banner").addClass("animated")), 750)
 )
 

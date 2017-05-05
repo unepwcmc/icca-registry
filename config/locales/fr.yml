@@ -1,4 +1,10 @@
 fr:
+  current_language: "Français"
+  about: "À propos"
+  explore: "Explorer"
+  participate: "Participer"
+  contact_us: "Nous contacter"
+  search: "Recherche"
   learn_more: "En apprendre plus"
   home:
     welcome: "Bienvenue sur l’ICCA Registry (le registre mondial des APAC)"

@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
   def load_cms_pages
     pages = Comfy::Cms::Page
 
-    @about_page       = pages.where(label: "About").includes(:children).first
-    @explore_page     = pages.where(label: "Explore").first
-    @contact_us_page  = pages.where(label: "Contact us").first
-    @participate_page = pages.where(label: "Participate").includes(:children).first
+    @about_page       = pages.where(label: I18n.t("about")).includes(:children).first
+    @explore_page     = pages.where(label: I18n.t("explore")).first
+    @contact_us_page  = pages.where(label: I18n.t("contact_us")).first
+    @participate_page = pages.where(label: I18n.t("participate")).includes(:children).first
   end
 end
