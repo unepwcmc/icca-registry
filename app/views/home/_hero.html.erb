@@ -1,17 +1,13 @@
 <div class="hero hero--push u-relative">
   <%= render partial: "shared/map", locals: {map_modifier: "map--main"} %>
   <div class="disclaimer">
-    The designations employed and the presentation of material on this map do not
-    imply the expression of any opinion whatsoever on the part of the Secretariat
-    of the United Nations concerning the legal status of any country, territory,
-    city or area or of its authorities, or concerning the delimitation of its
-    frontiers or boundaries.
+    <%= t("home.map_disclaimer") %>
   </div>
 
   <div class="js-explore-target u-click-through o-overlay">
     <div class="col-eight u-no-click-through <%= bem('info-box', 'fff', 'hero') %>">
       <h1 class="info-box__header info-box__header--with-padding <%= bem('header-with-delimiter', 'bigger', 'bold', 'no-margin-bottom') %>">
-        Welcome to the global ICCA Registry
+        <%= t('home.welcome') %>
         <button class="right js-close-explore"><i class="fa fa-times u-link-color"></i></button>
       </h1>
 
@@ -19,22 +15,22 @@
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Binantazan.jpg") %>" srcset="<%= with2x("Binantazan.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
-            <p class="circle-story__content u-center">Learn about ICCAs (indigenous peoples' and community conserved territories and areas).</p>
-            <%= link_to "Learn", cms_page_path(@about_page), class: "big-button u-push-top" %>
+            <p class="circle-story__content u-center"><%= t("home.learn_text") %></p>
+            <%= link_to t("home.learn"), cms_page_path(@about_page), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Fish.jpg") %>" srcset="<%= with2x("Fish.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
-            <p class="circle-story__content u-center">Participate by registering your own ICCA or submitting a case study.</p>
-            <%= link_to "Participate", cms_page_path(@participate_page), class: "big-button u-push-top" %>
+            <p class="circle-story__content u-center"><%= t("home.participate_text") %></p>
+            <%= link_to t("home.participate"), cms_page_path(@participate_page), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Dongwa_village.jpg") %>" srcset="<%= with2x("Dongwa_village.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
-            <p class="circle-story__content u-center">Explore the world of ICCAs through the interactive map and case studies.</p>
-            <%= link_to "Explore", cms_page_path(@explore_page), class: "big-button u-push-top" %>
+            <p class="circle-story__content u-center"><%= t("home.explore_text") %></p>
+            <%= link_to t("home.explore"), cms_page_path(@explore_page), class: "big-button u-push-top" %>
           </div>
         </div>
       </div>

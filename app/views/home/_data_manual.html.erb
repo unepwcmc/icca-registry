@@ -1,26 +1,23 @@
 <div class="section">
-  <h1 class="section__header">ICCA Data Manual</h1>
+  <h1 class="section__header"><%= t("home.icca_manual") %></h1>
   <div class="cover-story section__body">
     <div class="cover-story__story">
       <div class="cover-story__story-border"></div>
       <div class="<%= bem('cover-story__story-body', 'left') %>">
         <p class="cover-story__story-content">
-          A new manual has been released to support communities, indigenous
-          peoples and those who work with them to register their ICCAs. The
-          manual describes things to consider before registering, how to
-          register, and what to expect afterwards.
+          <%= t("home.icca_manual_text") %>
         </p>
         <a href="http://wcmc.io/iccadatamanual" class="row big-button">
           <i class="fa fa-download link-with-icon__icon"></i>
-          Download the ICCA Data Manual (English)
+          <%= t("home.download_manual_en") %>
         </a>
         <a href="http://wcmc.io/iccadatamanual_FR" class="row big-button">
           <i class="fa fa-download link-with-icon__icon"></i>
-          Download the ICCA Data Manual (Français)
+          <%= t("home.download_manual_fr") %>
         </a>
         <a href="http://wcmc.io/iccadatamanual_ESP" class="row big-button">
           <i class="fa fa-download link-with-icon__icon"></i>
-          Download the ICCA Data Manual (Español)
+          <%= t("home.download_manual_es") %>
         </a>
       </div>
     </div>

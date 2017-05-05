@@ -1,5 +1,5 @@
 <div class="section">
-  <h1 class="section__header">Latest case study</h1>
+  <h1 class="section__header"><%= t("home.latest_case_study") %></h1>
   <div class="section__body article">
     <% if @last_case_study.photos.any? %>
       <div class="cover-story__cover cover-story__cover--above" style="overflow: hidden; max-height: 400px">
@@ -18,7 +18,7 @@
           <%= @last_case_study.icca_site.country.name %>
         </a>
       </h2>
-      <a href="<%= cms_page_path(@last_case_study) %>" class="big-button u-push-top">Discover the case study</a>
+      <a href="<%= cms_page_path(@last_case_study) %>" class="big-button u-push-top"><%= t("home.discover_case_study") %></a>
     </div>
   </div>
 </div>
