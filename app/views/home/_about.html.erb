@@ -1,12 +1,12 @@
 <div class="section">
-  <h1 class="section__header"><%= t("home.about_the_icca_registry") %></h1>
+  <h1 class="section__header"><%= t("home_page.about_the_icca_registry") %></h1>
   <div class="cover-story section__body">
     <div class="cover-story__cover home-about-cover"></div>
     <div class="cover-story__story">
       <div class="cover-story__story-border"></div>
       <div class="<%= bem('cover-story__story-body', 'right') %>">
         <p class="cover-story__story-content">
-          <%= t("home.about_the_icca_registry_text") %>
+          <%= t("home_page.about_the_icca_registry_text") %>
         </p>
         <%= link_to t("learn_more"), cms_page_path(@about_page), class: "big-button" %>
       </div>
