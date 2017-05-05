@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   get 'explore'    => 'explore#index'
-  get 'contact-us' => 'contact_us#index'
   get 'search'     => 'search#show', as: 'search'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

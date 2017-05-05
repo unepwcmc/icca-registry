@@ -44,7 +44,7 @@
     </div>
   </div>
 
-  <div class="navbar__element navbar__element--right"><%= link_to 'Contact us', contact_us_path %></div>
+  <div class="navbar__element navbar__element--right"><%= link_to 'Contact us', cms_page_path(@contact_us_page) %></div>
   <div data-dropdown-switch data-dropdown-switch-text
     class="js-dropdown <%= bem("navbar__element", "with-separator", "right", "larger", "for-search-dropdown") %>"
   >
