@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   before_filter :load_cms_pages
 
   def load_locale
-    I18n.locale = params[:locale] || "en"
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale = session[:locale] || "en"
   end
 
   def load_cms_pages

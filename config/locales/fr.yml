@@ -1,19 +1,31 @@
 fr:
   current_language: "Français"
+  home: "Page d’accueil"
   about: "À propos"
   explore: "Explorer"
   participate: "Participer"
   contact_us: "Nous contacter"
   search: "Recherche"
+  search_placeholder: "Rechercher un pays ou une étude de cas"
+  search_results: "Résultats de la recherche"
+  showing_results: "Affichage des résultats 1-%{size} sur %{size}"
   learn_more: "En apprendre plus"
-  home:
+  icca_countries: "Pays"
+  country: "Pay"
+  resources: "Resources utiles"
+  links: "Liens importants"
+  time_period: "Durée"
+  case_studies: "Études de cas"
+  filters: "Filtres"
+  content_type: "Type de contenu"
+  send_feedback: "Envoyez vos commentaires"
+  home_page:
     welcome: "Bienvenue sur l’ICCA Registry (le registre mondial des APAC)"
     learn_text: "Apprenez en plus sur les aires du patrimoine autochtone et communautaire, ou « APAC » (ICCA en anglais)."
     learn: "Apprendre"
     participate_text: "Participez en inscrivant votre propre APAC ou en soumettant une étude de cas."
     participate: "Participer"
     explore_text: "Explorez le monde des APAC grâce à la carte interactive et aux études de cas."
-    explore: "Explorer"
     map_disclaimer: "Les appellations employées et la présentation du matériel sur cette carte n’impliquent aucune prise de position de la part du Secrétariat des Nations Unies quant au statut juridique des pays, territoires, villes ou aires, ou de leurs autorités, ni au tracé de leurs frontières ou limites."
     about_the_icca_registry: "À propos de l’ICCA Registry"
     about_the_icca_registry_text: >
@@ -33,3 +45,19 @@ fr:
     icca_partners: "Partenaires de l’ICCA Registry"
     icca_partners_text: >
       L’ICCA Registry a un certain nombre de bailleurs de fonds et de partenaires clés au niveau local et au niveau international qui cherchent à offrir simultanément un soutien et une reconnaissance aux APAC.
+  explore_page:
+    icca_sites_in: "Les APAC en "
+    no_sites: "Aucune APAC actuellement enregistrée"
+    no_sites_text: "Cela ne signifie pas qu'il n'existe pas d'APAC sur le terrain"
+    see_country_page: "Voir la page du pays"
+  participate_page:
+    attached_documents: "Documents joints"
+    registration_documents: "Documents d’inscription"
+    questionnaire: "Questionnaire de l’ICCA Registry"
+    agreement: "Accord de contributeur de données"
+    form: "Formulaire d’étude de cas pour l’ICCA Registry (facultatif)"
+    supporting_information: "Informations complémentaires"
+    manual_en: "Manuel APAC (en anglais)"
+    manual_fr: "Manuel APAC (en français)"
+    manual_es: "Manuel APAC (en espagnol)"
+    consent_form: "Formulaire de consentement préalable libre et éclairé"

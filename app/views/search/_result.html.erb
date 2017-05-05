@@ -8,9 +8,9 @@
 
   <ul class="tag search-result__details">
     <% if @countries.include? result %>
-      <li class="search-result__tag u-left">Country</li>
+      <li class="search-result__tag u-left"><%= t("country") %></li>
     <% elsif @case_studies.include? result %>
-      <li class="search-result__tag u-left">Case study</li>
+      <li class="search-result__tag u-left"><%= t("case_study") %></li>
     <% end %>
   </ul>
 </div>

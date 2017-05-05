@@ -1,7 +1,7 @@
 <% if @cms_page.country.icca_sites.any? %>
   <aside class="info-box info-box--fill-color">
     <section class="col-six">
-      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">ICCA Sites in <%= @cms_page.label %></h2>
+      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("explore.icca_sites_in") %><%= @cms_page.label %></h2>
       <ul class="article__list article__list--less-margin info-box__body">
         <% @cms_page.country.icca_sites.each do |icca_site| %>
           <li class="article__list-item">
@@ -15,7 +15,7 @@
       </ul>
     </section>
     <section class="col-six">
-      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Important Links</h2>
+      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("links") %></h2>
       <p class="info-box__body"></p>
     </section>
   </aside>
@@ -27,8 +27,8 @@
     </span>
 
     <div>
-      <h4 class="alert__title alert__title--info">No ICCAs currently registered</h4>
-      <p class="alert__body">This does not equate to a lack of ICCAs on the ground</p>
+      <h4 class="alert__title alert__title--info"><%= t("no_sites") %></h4>
+      <p class="alert__body"><%= t("no_sites_text") %></p>
     </div>
   </aside>
 <% end %>

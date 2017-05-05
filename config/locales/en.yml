@@ -1,18 +1,31 @@
 en:
   current_language: "English"
+  home: "Home"
   about: "About"
   explore: "Explore"
   participate: "Participate"
   contact_us: "Contact us"
+  search: "Search"
+  search_placeholder: "Search a country or a case study"
+  search_results: "Search results for"
+  showing_results: "Showing 1-%{size} of %{size} hits."
   learn_more: "Learn more"
-  home:
+  icca_countries: "ICCA Countries"
+  country: "Country"
+  resources: "Resources"
+  links: "Important Links"
+  filters: "Filters"
+  time_period: "Time period"
+  case_studies: "Case studies"
+  content_type: "Content type"
+  send_feedback: "Send Feedback"
+  home_page:
     welcome: "Welcome to the global ICCA Registry"
     learn_text: "Learn about ICCAs (indigenous peoples' and community conserved territories and areas)."
     learn: "Learn"
     participate_text: "Participate by registering your own ICCA or submitting a case study."
     participate: "Participate"
     explore_text: "Explore the world of ICCAs through the interactive map and case studies."
-    explore: "Explore"
     map_disclaimer: "The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries."
     about_the_icca_registry: "About the ICCA Registry"
     about_the_icca_registry_text: >
@@ -46,3 +59,19 @@ en:
       working at the local to international level, simultaneously
       seeking to provide support and recognition to ICCAs.
 
+  explore_page:
+    icca_sites_in: "ICCA Sites in"
+    no_sites: "No ICCAs currently registered"
+    no_sites_text: "This does not equate to a lack of ICCAs on the ground"
+    see_country_page: "See Country Page"
+  participate_page:
+    attached_documents: "Attached documents"
+    registration_documents: "Registration documents"
+    questionnaire: "ICCA Registry Questionnaire"
+    agreement: "Data Contributor Agreement"
+    form: "ICCA Registry Case Study Template (optional)"
+    supporting_information: "Supporting information"
+    manual_en: "ICCA Data Manual (English)"
+    manual_fr: "ICCA Data Manual (French)"
+    manual_es: "ICCA Data Manual (Spanish)"
+    consent_form: "Free, prior and informed consent form"

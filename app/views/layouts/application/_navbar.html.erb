@@ -51,7 +51,7 @@
     <button data-dropdown-trigger class="link-with-icon link-with-icon--no-color"> <i class="fa fa-search"></i> <%= t("search") %></button>
     <div data-dropdown-target class="u-hide js-target dropdown dropdown--search-dropdown u-font-inherit">
       <form action='/search' method='get' class="search-bar" id="search-form">
-        <input autocomplete="off" name="q" placeholder="Search a country or a case study" value='' class="search-bar__input" type="text">
+        <input autocomplete="off" name="q" placeholder="<%= t("search_placeholder") %>" value='' class="search-bar__input" type="text">
         <button class="search-bar__submit big-button big-button--compact" type="submit"><i class="fa fa-search"></i></button>
       </form>
     </div>

@@ -1,16 +1,16 @@
 <main class="container--profile container--right-padded container--push-bottom">
   <nav class="breadcrumbs">
-    <a class="breadcrumbs__link" href="/">Home</a> > Search
+    <a class="breadcrumbs__link" href="/"><%= t("home") %></a> > <%= t("search") %>
   </nav>
 
   <div class="hero">
-    <h1 class="hero__title hero__title--article">Search results for: <strong><%= @query %></strong></h1>
+    <h1 class="hero__title hero__title--article"><%= t("search_results") %>: <strong><%= @query %></strong></h1>
   </div>
 
   <%= render "filter_bar" %>
 
   <div class="three-fourths">
-    <p class="header-with-delimiter header-with-delimiter--smaller header-with-delimiter--bold">Showing 1-10 of <%= @results.size %> hits.</p>
+    <p class="header-with-delimiter header-with-delimiter--smaller header-with-delimiter--bold"><%= t("showing_results", size: @results.size) %></p>
 
     <div class="right-padded">
       <%= render partial: 'result', collection: @results %>

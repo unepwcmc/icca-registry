@@ -2,27 +2,27 @@
   <div class="filter-bar__inner">
     <header class="header-with-delimiter filter-bar__header">
       <h2>
-        Filters
+        <%= t("filters") %>
       </h2>
     </header>
     <div class="filter-bar__body">
 
       <div class="js-expandable-section filter-bar__group">
-        <h3 class="js-trigger js-switch filter-bar__group-title is-open">Content type</h3>
+        <h3 class="js-trigger js-switch filter-bar__group-title is-open"><%= t("content_type") %></h3>
         <div class="js-target">
           <a class="filter-bar__value" href="<%= search_path(q: @query, content_type: "country") %>">
-            Countries
+            <%= t("icca_countries") %>
             <strong class="filter-bar__count">(<%= @countries.length %>)</strong>
           </a>
           <a class="filter-bar__value" href="<%= search_path(q: @query, content_type: "case_study") %>">
-            Case studies
+            <%= t("case_studies") %>
             <strong class="filter-bar__count">(<%= @case_studies.length %>)</strong>
           </a>
         </div>
       </div>
 
       <div class="js-expandable-section filter-bar__group">
-        <h3 class="js-trigger js-switch filter-bar__group-title is-open">Time period</h3>
+        <h3 class="js-trigger js-switch filter-bar__group-title is-open"><%= t("time_period") %></h3>
         <div class="js-target">
           <% CmsPresenter.all_by_year(@results).each do |(year, dates)| %>
             <a class="filter-bar__value" href="<%= search_path(q: @query, year: year) %>">

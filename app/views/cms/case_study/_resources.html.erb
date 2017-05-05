@@ -1,7 +1,7 @@
 <% if @cms_page.resources.any? || @cms_page.related_links.any? %>
   <div class="info-box info-box--fill-color info-box--padding-top-bottom">
     <% if @cms_page.resources.any? %>
-      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Resources</h2>
+      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("resources") %></h2>
       <div class="info-box__body">
         <% @cms_page.resources.each do |resource| %>
           <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= resource.file.url %>">
@@ -12,7 +12,7 @@
       </div>
     <% end %>
     <% if @cms_page.related_links.any? %>
-      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Important Links</h2>
+      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("links") %></h2>
       <div class="info-box__body">
         <% @cms_page.related_links.each do |related_link| %>
           <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= related_link.url %>">

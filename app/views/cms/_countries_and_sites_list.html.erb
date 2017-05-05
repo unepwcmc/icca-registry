@@ -6,12 +6,12 @@
     <div class="js-target accordion__body u-hide">
       <div class="row <%= 'row--push2x' if country.icca_sites.any? %>">
         <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.first) %>">
-          <i class="fa fa-arrow-right link-with-icon__icon"></i>See Country Page
+          <i class="fa fa-arrow-right link-with-icon__icon"></i><%= t("explore_page.see_country_page") %>
         </a>
       </div>
 
       <% if country.icca_sites.any? %>
-        <h4 class="article__title--subparagraph"> ICCA Sites in <%= country.name %> </h4>
+        <h4 class="article__title--subparagraph"> <%= t("explore_page.icca_sites_in") %> <%= country.name %> </h4>
 
         <ul class="article__list article__list--less-margin">
           <% country.icca_sites.each do |icca_site| %>
@@ -32,8 +32,8 @@
           </span>
 
           <div>
-            <h4 class="alert__title alert__title--info">No ICCAs currently registered</h4>
-            <p class="alert__body">This does not equate to a lack of ICCAs on the ground</p>
+            <h4 class="alert__title alert__title--info"><%= t("explore_page.no_sites") %></h4>
+            <p class="alert__body"><%= t("explore_page.no_sites_text") %></p>
           </div>
         </aside>
       <% end %>
