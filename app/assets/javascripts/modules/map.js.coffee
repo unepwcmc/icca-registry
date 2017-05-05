@@ -1,7 +1,7 @@
 $.support.cors = true
 
 window.Map = class Map
-  PP_API_BASE = "http://api.protectedplanet.net"
+  PP_API_BASE = "https://api.protectedplanet.net"
   PP_API_KEY  = "0d6d9a0bf7a82b508e0d809eb78b0904"
 
   constructor: (@$mapEl) ->
