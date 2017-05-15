@@ -9,10 +9,14 @@ window.InterestForm = class InterestForm
       console.log("form submitted")
       url = $(this).attr("action")
 
-      $.post(url, $(@).serialize(), (_response) ->
-        $modal.hide()
-        $success.show()
-        $success.find()
-      )
+      $.post({
+        url: url,
+        data: $(@).serialize(),
+        headers: {'X-CSRF-Token': $(@).find("[name='authenticity_token']")},
+        success: (_response) ->
+          $modal.hide()
+          $success.show()
+          $success.find()
+      })
 
     )

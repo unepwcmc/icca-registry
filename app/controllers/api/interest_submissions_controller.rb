@@ -1,5 +1,5 @@
 class Api::InterestSubmissionsController < ApplicationController
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   def create
     InterestSubmission.create(
