@@ -31,3 +31,5 @@ Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
 
 before 'deploy:compile_assets', 'bower:install'
 
+
+require 'appsignal/capistrano'

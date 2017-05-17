@@ -6,6 +6,7 @@ gem 'comfortable_mexican_sofa', '~> 1.12.8'
 gem 'nokogiri', '~> 1.6.7.2'
 gem 'dotenv-rails', '~> 2.1.0', require: 'dotenv/rails-now'
 gem 'aws-sdk', '~> 1.6'
+gem 'appsignal', '~> 2.2.1'
 
 # Assets
 gem 'bower-rails', '~> 0.10.0'
