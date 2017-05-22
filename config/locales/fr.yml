@@ -21,6 +21,27 @@ fr:
   send_feedback: "Envoyez vos commentaires"
   home_page:
     welcome: "Bienvenue sur l’ICCA Registry (le registre mondial des APAC)"
+    interest_banner: "Etes-vous intéressés pour en savoir plus sur le registre APAC?"
+    interest_banner_text: "Si vous voulez nous faire part de votre intérêt, ou souhaitez avoir de plus amples informations, merci de nous le faire savoir"
+    interest_modal:
+      header: "Faites nous partager votre intérêt pour le registre APAC"
+      intro: >
+        Si vous voulez nous faire part de votre intérêt sans passer par le
+        processus complet d’inscription, ou souhaitez avoir de plus amples
+        informations, merci de nous le faire savoir :
+      name_of_icca: "Nom de l’APAC"
+      country: "Pays"
+      size_of_icca: "Superficie de l’APAC (km<sup>2</sup>)"
+      email_address: "Votre adresse email"
+      happy_to_contact: "Acceptez-vous que nous vous contactions pour discuter de cette APAC plus amplement ?"
+      yes: "Oui"
+      no: "Non"
+      cancel: "Annuler"
+      submit: "Soumettre"
+      thank_you: "Merci!"
+      submitted_text: "Votre intérêt a été soumis"
+      go_back: "Retourner au site web d'ICCA"
+
     learn_text: "Apprenez en plus sur les aires du patrimoine autochtone et communautaire, ou « APAC » (ICCA en anglais)."
     learn: "Apprendre"
     participate_text: "Participez en inscrivant votre propre APAC ou en soumettant une étude de cas."
@@ -35,8 +56,8 @@ fr:
     icca_manual: "Manuel APAC"
     icca_manual_text: >
       Un nouveau manuel a été publié pour soutenir les communautés, les peuples autochtones et les personnes travaillant avec eux pour inscrire leurs APAC. Le manuel décrit les considérations à prendre en compte avant l’inscription et à quoi s’attendre après.
-    download_manual_en: "Téléchargez le manuel APAC (en français)"
-    download_manual_fr: "Téléchargez le manuel APAC (en anglais)"
+    download_manual_en: "Téléchargez le manuel APAC (en anglais)"
+    download_manual_fr: "Téléchargez le manuel APAC (en français)"
     download_manual_es: "Téléchargez le manuel APAC (en espagnol)"
     icca_toolkit: "ICCA Toolkit"
     icca_toolkit_text: >

@@ -21,6 +21,27 @@ en:
   send_feedback: "Send Feedback"
   home_page:
     welcome: "Welcome to the global ICCA Registry"
+    interest_banner: "Are you interested in engaging with the ICCA Registry?"
+    interest_banner_text: "If you would like to express your interest, or would like further information, please let us know"
+    interest_modal:
+      header: "Submit your interest to the ICCA Registry"
+      intro: >
+        If you would like to express your interest without going through
+        the full registration process, or would like further information, please
+        let us know:
+      name_of_icca: "Name of ICCA"
+      country: "Country"
+      size_of_icca: "Size of ICCA (km<sup>2</sup>)"
+      email_address: "Your email address"
+      happy_to_contact: "Are you happy for us to contact you to discuss this ICCA further?"
+      yes: "Yes"
+      no: "No"
+      cancel: "Cancel"
+      submit: "Submit"
+      thank_you: "Thank you!"
+      submitted_text: "Your interest has been submitted."
+      go_back: "Return to ICCA website"
+
     learn_text: "Learn about ICCAs (indigenous peoples' and community conserved territories and areas)."
     learn: "Learn"
     participate_text: "Participate by registering your own ICCA or submitting a case study."

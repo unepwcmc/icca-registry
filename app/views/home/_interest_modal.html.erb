@@ -1,42 +1,39 @@
 <div class="u-hide o-overlay o-overlay--with-color" data-interest-modal data-block-page-trigger="interest" data-toggle-target="interest">
   <div class="modal u-base-color">
     <h3 class="header-with-delimiter">
-      Submit your interest to the ICCA Registry
+      <%= t("home_page.interest_modal.header") %>
       <button data-toggle-trigger="interest" style="padding: 0;" class="u-link-color u-right" href="#"><i class="fa fa-times"></i></button>
     </h3>
-    <p class="article__paragraph">If you would like to express your interest without going through
-      the full registration process, or would like further information, please
-      let us know:
-    </p>
+    <p class="article__paragraph"><%= t("home_page.interest_modal.intro") %></p>
     <form data-interest-form action="<%= api_interest_submissions_path %>" method="POST">
       <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
       <label class="row u-block" for="icca_name">
-        <p>Name of ICCA</p>
+        <p><%= t("home_page.interest_modal.name_of_icca") %></p>
         <input id="icca_name" type="text" name="icca_name">
       </label>
 
       <label class="row u-block" for="country">
-        <p>Country</p>
+        <p><%= t("home_page.interest_modal.country") %></p>
         <input id="country" type="text" name="country">
       </label>
 
       <label class="row u-block" for="icca_size">
-        <p>Size of ICCA (km<sup>2</sup>)</p>
+        <p><%= raw t("home_page.interest_modal.size_of_icca") %></p>
         <input id="icca_size" type="text" name="icca_size">
       </label>
 
       <label class="row u-block" for="email">
-        <p>Your email address</p>
+        <p><%= t("home_page.interest_modal.email_address") %></p>
         <input id="email" type="email" name="email">
       </label>
 
       <label class="row u-block" for="can_contact">
-        <p>Are you happy for us to contact you to discuss this ICCA further?</p>
+        <p><%= t("home_page.interest_modal.happy_to_contact") %></p>
         <div class="form__select-container">
           <select class="form__select" id="can_contact" name="can_contact">
-            <option value="true">Yes</option>
-            <option value="false">No</option>
+            <option value="true"><%= t("home_page.interest_modal.yes") %></option>
+            <option value="false"><%= t("home_page.interest_modal.no") %></option>
           </select>
         </div>
       </label>
@@ -44,8 +41,8 @@
       <hr class="row divider">
 
       <div class="u-text-right">
-        <a style="margin-right: .75rem" class="u-link-color u-bold" data-toggle-trigger="interest" href="#">Cancel</a>
-        <button class="big-button">Submit</button>
+        <a style="margin-right: .75rem" class="u-link-color u-bold" data-toggle-trigger="interest" href="#"><%= t("home_page.interest_modal.cancel") %></a>
+        <button class="big-button"><%= t("home_page.interest_modal.submit") %></button>
       </div>
     </form>
   </div>
@@ -54,11 +51,11 @@
 <div class="u-hide o-overlay o-overlay--with-color" data-interest-success data-block-page-trigger="success" data-toggle-target="success">
   <div class="modal u-base-color">
     <h3 class="header-with-delimiter">
-      Thank you!
+      <%= t("home_page.interest_modal.thank_you") %>
       <button data-toggle-trigger="interest" style="padding: 0;" class="u-link-color u-right" href="#"><i class="fa fa-times"></i></button>
     </h3>
-    <p class="article__paragraph">Your interest has been submitted.</p>
+    <p class="article__paragraph"><%= t("home_page.interest_modal.submitted_text") %></p>
 
-    <button data-toggle-trigger="success" class="big-button">Return to ICCA website</button>
+    <button data-toggle-trigger="success" class="big-button"><%= t("home_page.interest_modal.go_back") %></button>
   </div>
 </div>

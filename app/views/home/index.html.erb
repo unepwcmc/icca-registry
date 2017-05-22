@@ -1,10 +1,10 @@
 <div class="container--fullscreen">
   <div class="container--push">
     <%= render layout: "banner" do %>
-      <span class="alert__title alert__title--success">Are you interested in engaging with the ICCA Registry?</span>
+      <span class="alert__title alert__title--success"><%= t("home_page.interest_banner") %></span>
       <br>
       <span>
-        <button class="link-with-icon" data-toggle-trigger="interest">If you would like to express your interest, or would like further information, please let us know</button>
+        <button class="link-with-icon" data-toggle-trigger="interest"><%= t("home_page.interest_banner_text") %></button>
       </span>
     <% end %>
     <%= render partial: "hero" %>
