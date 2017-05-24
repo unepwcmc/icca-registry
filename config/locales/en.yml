@@ -1,53 +1,29 @@
 en:
-  current_language: "English"
-  home: "Home"
   about: "About"
-  explore: "Explore"
-  participate: "Participate"
+  case_studies: "Case studies"
   contact_us: "Contact us"
+  content_type: "Content type"
+  country: "Country"
+  current_language: "English"
+  explore: "Explore"
+  filters: "Filters"
+  home: "Home"
+  icca_countries: "ICCA Countries"
+  learn_more: "Learn more"
+  links: "Important Links"
+  no_select: "No"
+  participate: "Participate"
+  resources: "Resources"
   search: "Search"
   search_placeholder: "Search a country or a case study"
   search_results: "Search results for"
-  showing_results: "Showing 1-%{size} of %{size} hits."
-  learn_more: "Learn more"
-  icca_countries: "ICCA Countries"
-  country: "Country"
-  resources: "Resources"
-  links: "Important Links"
-  filters: "Filters"
-  time_period: "Time period"
-  case_studies: "Case studies"
-  content_type: "Content type"
   send_feedback: "Send Feedback"
-  home_page:
-    welcome: "Welcome to the global ICCA Registry"
-    interest_banner: "Are you interested in engaging with the ICCA Registry?"
-    interest_banner_text: "If you would like to express your interest, or would like further information, please let us know"
-    interest_modal:
-      header: "Submit your interest to the ICCA Registry"
-      intro: >
-        If you would like to express your interest without going through
-        the full registration process, or would like further information, please
-        let us know:
-      name_of_icca: "Name of ICCA"
-      country: "Country"
-      size_of_icca: "Size of ICCA (km<sup>2</sup>)"
-      email_address: "Your email address"
-      happy_to_contact: "Are you happy for us to contact you to discuss this ICCA further?"
-      yes: "Yes"
-      no: "No"
-      cancel: "Cancel"
-      submit: "Submit"
-      thank_you: "Thank you!"
-      submitted_text: "Your interest has been submitted."
-      go_back: "Return to ICCA website"
+  showing_results: "Showing 1-%{size} of %{size} hits."
+  something_else: "NAH"
+  time_period: "Time period"
+  yes_select: "Yes"
 
-    learn_text: "Learn about ICCAs (indigenous peoples' and community conserved territories and areas)."
-    learn: "Learn"
-    participate_text: "Participate by registering your own ICCA or submitting a case study."
-    participate: "Participate"
-    explore_text: "Explore the world of ICCAs through the interactive map and case studies."
-    map_disclaimer: "The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+  home_page:
     about_the_icca_registry: "About the ICCA Registry"
     about_the_icca_registry_text: >
       The ICCA Registry website is an
@@ -55,30 +31,55 @@ en:
       Areas, where communities themselves provide data, case studies, maps,
       photos and stories which result in useful statistics and analysis on
       featured ICCAs around the world.
-    latest_case_study: "Latest case study"
+    explore_text: "Explore the world of ICCAs through the interactive map and case studies."
     discover_case_study: "Discover the case study"
+    download_manual_en: "Download the ICCA Data Manual (English)"
+    download_manual_es: "Download the ICCA Data Manual (Español)"
+    download_manual_fr: "Download the ICCA Data Manual (Français)"
+    interest_banner: "Are you interested in engaging with the ICCA Registry?"
+    interest_banner_text: "If you would like to express your interest, or would like further information, please let us know"
+    interest_modal:
+      cancel: "Cancel"
+      country: "Country"
+      email_address: "Your email address"
+      go_back: "Return to ICCA website"
+      happy_to_contact: "Are you happy for us to contact you to discuss this ICCA further?"
+      header: "Submit your interest to the ICCA Registry"
+      intro: >
+        If you would like to express your interest without going through
+        the full registration process, or would like further information, please
+        let us know:
+      name_of_icca: "Name of ICCA"
+      size_of_icca: "Size of ICCA (km<sup>2</sup>)"
+      submit: "Submit"
+      submitted_text: "Your interest has been submitted."
+      thank_you: "Thank you!"
     icca_manual: "ICCA Data Manual"
     icca_manual_text: >
       A new manual has been released to support communities, indigenous
       peoples and those who work with them to register their ICCAs. The
       manual describes things to consider before registering, how to
       register, and what to expect afterwards.
-    download_manual_en: "Download the ICCA Data Manual (English)"
-    download_manual_fr: "Download the ICCA Data Manual (Français)"
-    download_manual_es: "Download the ICCA Data Manual (Español)"
+    icca_partners: "ICCA Registry Partners"
+    icca_partners_text: >
+      The ICCA Registry has a number of key funders and partners
+      working at the local to international level, simultaneously
+      seeking to provide support and recognition to ICCAs.
     icca_toolkit: "ICCA Toolkit"
+    icca_toolkit_download: "Download the ICCA Toolkit"
     icca_toolkit_text: >
       The ICCA Registry website is an
       online information platform for Indigenous and Community Conserved
       Areas, where communities themselves provide data, case studies, maps,
       photos and stories which result in useful statistics and analysis on
       featured ICCAs around the world.
-    icca_toolkit_download: "Download the ICCA Toolkit"
-    icca_partners: "ICCA Registry Partners"
-    icca_partners_text: >
-      The ICCA Registry has a number of key funders and partners
-      working at the local to international level, simultaneously
-      seeking to provide support and recognition to ICCAs.
+    latest_case_study: "Latest case study"
+    learn: "Learn"
+    learn_text: "Learn about ICCAs (indigenous peoples' and community conserved territories and areas)."
+    map_disclaimer: "The designations employed and the presentation of material on this map do not imply the expression of any opinion whatsoever on the part of the Secretariat of the United Nations concerning the legal status of any country, territory, city or area or of its authorities, or concerning the delimitation of its frontiers or boundaries."
+    participate: "Participate"
+    participate_text: "Participate by registering your own ICCA or submitting a case study."
+    welcome: "Welcome to the global ICCA Registry"
 
   explore_page:
     icca_sites_in: "ICCA Sites in"
@@ -86,13 +87,13 @@ en:
     no_sites_text: "This does not equate to a lack of ICCAs on the ground"
     see_country_page: "See Country Page"
   participate_page:
-    attached_documents: "Attached documents"
-    registration_documents: "Registration documents"
-    questionnaire: "ICCA Registry Questionnaire"
     agreement: "Data Contributor Agreement"
-    form: "ICCA Registry Case Study Template (optional)"
-    supporting_information: "Supporting information"
-    manual_en: "ICCA Data Manual (English)"
-    manual_fr: "ICCA Data Manual (French)"
-    manual_es: "ICCA Data Manual (Spanish)"
+    attached_documents: "Attached documents"
     consent_form: "Free, prior and informed consent form"
+    form: "ICCA Registry Case Study Template (optional)"
+    manual_en: "ICCA Data Manual (English)"
+    manual_es: "ICCA Data Manual (Spanish)"
+    manual_fr: "ICCA Data Manual (French)"
+    questionnaire: "ICCA Registry Questionnaire"
+    registration_documents: "Registration documents"
+    supporting_information: "Supporting information"
