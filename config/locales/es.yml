@@ -1,0 +1,86 @@
+es:
+  about: "Acerca de"
+  case_studies: "Estudios de caso"
+  contact_us: "Contáctenos"
+  content_type: "Tipo de contenido"
+  country: "País"
+  current_language: "Español"
+  explore: "Explorar"
+  filters: "Filtros"
+  home: "Casa"
+  icca_countries: "Países TICCA"
+  learn_more: "Aprenda más"
+  links: "Enlaces importantes"
+  no_select: "No"
+  participate: "Participar"
+  resources: "Recursos útiles"
+  search: "Buscar"
+  search_placeholder: "Buscar un país o un estudio de caso"
+  search_results: "Buscar resultados por"
+  send_feedback: "Enviar comentarios"
+  showing_results: "Mostrando 1-${size} de %{size} resultados"
+  something_else: "NAH"
+  time_period: "Periodo de tiempo"
+  yes_select: "Sí"
+
+  home_page:
+    about_the_icca_registry: "Acerca del Registro de TICCA"
+    about_the_icca_registry_text: >
+      El sitio web del Registro TICCA es una plataforma de información en línea para las Áreas Conservadas por los Pueblos Indígenas y Comunidades Locales, donde las mismas comunidades aportan datos, estudios de casos, mapas, fotos e historias que resultan en estadísticas y análisis útiles sobre TICCAs destacadas alrededor del mundo.
+    explore_text: "Explore el mundo de los TICCAs a través del mapa interactivo y los estudios de caso."
+    discover_case_study: "Descubra el estudio de caso"
+    download_manual_en: "Descargue el manual de datos de TICCA (Inglés)"
+    download_manual_es: "Descargue el manual de datos de TICCA (Español)"
+    download_manual_fr: "Descargue el manual de datos de TICCA (Francés)"
+    interest_banner: "¿Está interesado en participar con el Registro TICCA?"
+    interest_banner_text: "Si desea expresar su interés, o desea más información, por favor háganoslo saber"
+    interest_modal:
+      cancel: "Cancelar"
+      country: "País"
+      email_address: "Su correo electrónico"
+      go_back: "Volver al sitio web de TICCA"
+      happy_to_contact: "¿Estás contento de que nos pongamos en contacto contigo para hablar más sobre TICCA?"
+      header: "Envíe su interés al registro de TICCA"
+      intro: >
+        Si desea expresar su interés sin pasar por todo el proceso de registro, o desea más información, por favor háganoslo saber.
+      name_of_icca: "Nombre del TICCA"
+      size_of_icca: "Tamaño del TICCA (km<sup>2</sup>)"
+      submit: "Enviar"
+      submitted_text: "Su interés ha sido enviado"
+      thank_you: "Gracias!"
+    icca_manual: "Manual de datos de TICCAs"
+    icca_manual_text: >
+      Se ha publicado un nuevo manual para apoyar a las comunidades, pueblos indígenas y aquellos que trabajan con ellos para registrar sus TICCAs.
+      El manual describe las consideraciones a tener antes de registrarse, cómo registrarse y qué esperar después.
+    icca_partners: "Socios del Registro TICCA"
+    icca_partners_text: >
+      El Registro TICCA tiene varios financiadores y socios claves que trabajan a nivel local e internacional, buscando simultáneamente brindar apoyo y reconocimiento a los TICCAs.
+    icca_toolkit: "Kit de herramientas TICCA"
+    icca_toolkit_download: "Descargar el Kit de herramientas TICCA"
+    icca_toolkit_text: >
+      El sitio web del Registro TICCA es una plataforma de información en línea para las Áreas Conservas por los Pueblos Indígenas y Comunidades Locales, donde las mismas comunidades tienen datos, estudios de casos, mapas, fotos y historias que resultan en estadísticas y análisis útiles sobre TICCAs Destacadas alrededor del mundo.
+    latest_case_study: "Estudio de caso más reciente"
+    learn: "Aprenda"
+    learn_text: "Aprenda sobre los TICCAs (territorios y áreas conservadas por pueblos indígenas y comunidades locales)."
+    map_disclaimer: "Las denominaciones empleadas y la presentación del material en este mapa no implican, de parte de la Secretaría de las Naciones Unidas, juicio alguno sobre la condición jurídica de ningún país, territorio, ciudad o zona, o de sus autoridades, o sobre la delimitación de sus fronteras o límites."
+    participate: "Participar"
+    participate_text: "Participe registrando su propia TICCA o presentando un estudio de caso."
+    welcome: "Bienvenido al Registro Global TICCA"
+
+  explore_page:
+    icca_sites_in: "Sitios TICCA en"
+    no_sites: "No hay TICCAs registradas actualmente"
+    no_sites_text: "Esto no equivale a una falta de TICCAs en la práctica."
+    see_country_page: "Ver página del país"
+
+  participate_page:
+    agreement: "Acuerdo de Contribución de Datos"
+    attached_documents: "Documentos adjuntos"
+    consent_form: "Formulario de consentimiento libre, previo e informado"
+    form: "Plantilla de Estudio de Caso del Registro TICCA (opcional)"
+    manual_en: "Manual de Datos TICCA (Inglés)"
+    manual_fr: "Manual de Datos TICCA (Francés)"
+    manual_es: "Manual de Datos TICCA (Español)"
+    questionnaire: "Cuestionario de Registro de TICCAs"
+    registration_documents: "Documentos de registro"
+    supporting_information: "Información de soporte"
