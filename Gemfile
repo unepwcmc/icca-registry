@@ -8,6 +8,7 @@ gem 'dotenv-rails', '~> 2.1.0', require: 'dotenv/rails-now'
 gem 'aws-sdk', '~> 1.6'
 gem 'appsignal', '~> 2.2.1'
 gem 'invisible_captcha', '~> 0.9.2'
+gem "paperclip", "~> 4.3.2"
 
 # Assets
 gem 'bower-rails', '~> 0.10.0'
