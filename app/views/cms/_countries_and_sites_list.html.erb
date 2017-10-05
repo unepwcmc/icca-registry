@@ -16,7 +16,7 @@
         <ul class="article__list article__list--less-margin">
           <% country.icca_sites.each do |icca_site| %>
             <li class="article__list-item">
-              <% if icca_site.pages.first %>
+              <% if icca_site.pages.where(site: @cms_site).first %>
                 <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: @cms_site).first) %>"><%= icca_site.name %></a>
               <% else %>
                 <%= icca_site.name %>
