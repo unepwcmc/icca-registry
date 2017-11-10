@@ -1,7 +1,7 @@
 namespace :comfy do
   desc "Populates a new foreign site with the content from the english language version"
-  task copy_content_to_new_site: :environment do
-    foreign_locale  = "es"
+  task :copy_content_to_new_site, [:locale] => [:environment] do |t, args|
+    foreign_locale  = args[:locale]
     foreign_site    = Comfy::Cms::Site.find_by_locale(foreign_locale)
 
     english_locale  = "en"
@@ -27,8 +27,8 @@ namespace :comfy do
   end
 
   desc "Copy layout html from english site to new site"
-  task copy_layout_to_new_site: :environment do
-    foreign_locale  = "es"
+  task :copy_layout_to_new_site, [:locale] => [:environment] do |t, args|
+    foreign_locale  = args[:locale]
     foreign_site    = Comfy::Cms::Site.find_by_locale(foreign_locale)
 
     english_locale  = "en"
