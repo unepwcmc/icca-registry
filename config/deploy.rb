@@ -4,7 +4,7 @@ lock '3.4.0'
 set :application, 'icca-registry'
 set :repo_url, 'git@github.com:unepwcmc/icca-registry.git'
 
-set :branch, 'master'
+set :branch, 'multi_language_fixes'
 
 set :deploy_user, 'wcmc'
 set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:application)}"
