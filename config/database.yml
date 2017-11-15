@@ -5,6 +5,7 @@ default: &default
 
 development:
   <<: *default
+  host: localhost
   database: icca_registry_development
 test:
   <<: *default

@@ -1,9 +1,9 @@
 <div class="section">
   <h1 class="section__header"><%= t("home_page.latest_case_study") %></h1>
   <div class="section__body article">
-    <% if @last_case_study.photos.any? %>
+    <% if @photo.present? %>
       <div class="cover-story__cover cover-story__cover--above" style="overflow: hidden; max-height: 400px">
-        <img style="width: 100%" src="<%= @last_case_study.photos.first.file.url %>">
+        <img style="width: 100%" src="<%= @photo.file.url %>">
       </div>
     <% end %>
 
@@ -14,8 +14,8 @@
     <div class="col-four">
       <h2 class="article__title article__title--paragraph">
         <%= @last_case_study.label %>
-        <a href="<%= cms_page_path(@last_case_study.icca_site.country.pages.first) %>" class="u-bold link-with-icon link-with-icon--no-push link-with-icon--inherit u-link-color u-alt-font">
-          <%= @last_case_study.icca_site.country.name %>
+        <a href="<%= cms_page_path(@icca_site.country.pages.first) %>" class="u-bold link-with-icon link-with-icon--no-push link-with-icon--inherit u-link-color u-alt-font">
+          <%= @icca_site.country.name %>
         </a>
       </h2>
       <a href="<%= cms_page_path(@last_case_study) %>" class="big-button u-push-top"><%= t("home_page.discover_case_study") %></a>
