@@ -4,6 +4,8 @@ namespace :comfy do
     foreign_locale  = args[:locale]
     foreign_site    = Comfy::Cms::Site.find_by_locale(foreign_locale)
 
+    raise "Could not find site #{foreign_locale}" if foreign_site.nil?
+
     english_locale  = "en"
     english_site    = Comfy::Cms::Site.find_by_locale(english_locale)
 
@@ -31,6 +33,8 @@ namespace :comfy do
     foreign_locale  = args[:locale]
     foreign_site    = Comfy::Cms::Site.find_by_locale(foreign_locale)
 
+    raise "Could not find site #{foreign_locale}" if foreign_site.nil?
+
     english_locale  = "en"
     english_site    = Comfy::Cms::Site.find_by_locale(english_locale)
 
@@ -42,7 +46,7 @@ namespace :comfy do
       foreign_layout = foreign_layouts.find_by_identifier(english_layout.identifier)
 
       if foreign_layout.nil?
-        puts "Cannot find spanish page for #{english_layout.identifier}, please create it first, then rerun this task"
+        puts "Cannot find #{foreign_locale} page for #{english_layout.identifier}, please create it first, then rerun this task"
       else
         foreign_layout.app_layout = english_layout.app_layout
         foreign_layout.content = english_layout.content
@@ -52,7 +56,5 @@ namespace :comfy do
         puts "Copied content from '#{english_layout.identifier} (en)' to '#{foreign_layout.identifier} (#{foreign_locale})'"
       end
     end
-
-
   end
 end
