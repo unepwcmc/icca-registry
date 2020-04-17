@@ -17,7 +17,7 @@ To install icca-registry, proceed with the usual commands:
 - get a copy of the .env file
 - `bundle exec rake db:create`
 - get a download of the DB and import `psql icca_registry_development < PATH/FILENAME.sql` 
-- get a copy of the cms files and place into `/public`
+- get a copy of the cms files and place the `system` folder into `icca-registry/public`
 - `bundle exec rake db:migrate`
 - `bundle install`
 - `bundle exec rake bower:install`
