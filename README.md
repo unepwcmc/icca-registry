@@ -11,13 +11,16 @@ analysis on featured ICCAs around the world.
 icca-registry is a pretty standard Rails application, backed by a Postgres
 database, using bower to load the protectedplanet-frontend framework.
 To install icca-registry, proceed with the usual commands:
-```
-git clone https://github.com/unepwcmc/icca-registry.git icca-registry
-cd icca-registry
-bundle install
-bundle exec rake db:create db:migrate
-bundle exec rake bower:install
-```
+
+- `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
+- `cd icca-registry`
+- get a copy of the .env file
+- `bundle exec rake db:create`
+- get a download of the DB and import `psql icca_registry_development < PATH/FILENAME.sql` 
+- get a copy of the cms files and place into `/public`
+- `bundle exec rake db:migrate`
+- `bundle install`
+- `bundle exec rake bower:install`
 
 icca-registry uses the `dotenv` gem to manage environment variables. Before
 starting the server, create a copy of the file `.env.example` (removing the
