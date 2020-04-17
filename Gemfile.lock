@@ -168,7 +168,7 @@ GEM
     plupload-rails (1.2.1)
       rails (>= 3.1)
     public_suffix (3.0.0)
-    rack (1.6.8)
+    rack (1.6.13)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.5.1)
