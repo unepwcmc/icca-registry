@@ -27,6 +27,9 @@ starting the server, create a copy of the file `.env.example` (removing the
 `.example` bit) and edit the needed variables. After this final step, `bundle
 exec rails server` should work like a charm.
 
+## Known issues
+-  Potentially you may encounter a 404 error when trying to access the Explore page via your localhost. In that instance, access the CMS admin interface via `localhost:3000/admin`, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
+
 # Adding Translations
 
 To add another language you will need to clone an existing site (best to use the english site) from within the cms. Make sure you check the *mirrored* box to mirror all the same layouts from the english site. By default, comfy will copy the layouts and snippets but their content will be empty causing the site to error.To get around this, there is a rake task that you can run to import the content from the english version to your new locale by passing in the symbol of your new locale...
