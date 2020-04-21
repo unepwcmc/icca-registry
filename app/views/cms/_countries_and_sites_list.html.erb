@@ -1,7 +1,7 @@
 <% @english_site = Comfy::Cms::Site.find_by_locale("en") %>
 
 <!-- checks if pages for the country are existent, if not, filter them out -->
-<% Country.order(:name).all.to_a.select { |country| !country.pages.empty? }.each do |country| %>
+<% Country.order(:name).select { |country| !country.pages.empty? }.each do |country| %>
   <div class="row accordion js-accordion">
     <h3 class="js-trigger accordion__header">
       <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
