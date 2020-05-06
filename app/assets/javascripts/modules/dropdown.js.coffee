@@ -48,8 +48,8 @@ window.Dropdown = class Dropdown
 
   handleSwitchEl: =>
     @$switchEl.toggleClass('is-active')
-
-    if @$switchEl.data().hasOwnProperty('dropdownSwitchText')
+    
+    if ('dropdownSwitchText' in @$switchEl.data())
       if @$switchEl.hasClass('is-active')
         @$triggerEl.html('<i class="fa fa-times"></i> Close')
       else
