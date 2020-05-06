@@ -22,3 +22,6 @@
 
 /vendor/assets/bower_components
 
+.DS_Store
+
+/public/system
