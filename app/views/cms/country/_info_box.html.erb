@@ -6,7 +6,7 @@
         <% @cms_page.country.icca_sites.each do |icca_site| %>
           <li class="article__list-item">
             <% if icca_site.pages.first %>
-              <a class="article__link" href="<%= cms_page_path(icca_site.pages.first) %>"><%= icca_site.name %></a>
+              <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: english_site).first) %>"><%= icca_site.name %></a>
             <% else %>
               <%= icca_site.name %>
             <% end %>
