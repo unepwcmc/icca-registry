@@ -13,8 +13,8 @@ gem "paperclip", "~> 4.3.2"
 # Assets
 gem 'bower-rails', '~> 0.10.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'sassc-rails', '~> 1.2.0'
-gem 'sassc', '1.8.3'
+gem 'sassc-rails', '~> 1.3.0'
+gem 'sassc', '~> 1.9'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'

@@ -235,14 +235,13 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    sassc (1.8.3)
-      bundler
+    sassc (1.12.1)
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
-    sassc-rails (1.2.0)
+    sassc-rails (1.3.0)
       railties (>= 4.0.0)
       sass
-      sassc (~> 1.6)
+      sassc (~> 1.9)
       sprockets (> 2.11)
       sprockets-rails
       tilt
@@ -300,8 +299,8 @@ DEPENDENCIES
   pg_search
   rails (= 4.2.11.3)
   rspec-rails (~> 3.9)
-  sassc (= 1.8.3)
-  sassc-rails (~> 1.2.0)
+  sassc (~> 1.9)
+  sassc-rails (~> 1.3.0)
   spring
   turbolinks
   uglifier (>= 1.3.0)
