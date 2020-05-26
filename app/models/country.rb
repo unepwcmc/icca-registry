@@ -1,4 +1,4 @@
-class Country < ApplicationRecord
+class Country < ActiveRecord::Base
   has_many :icca_sites
   has_many :pages, class_name: "Comfy::Cms::Page"
 
