@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Frameworks
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.5.2'
 gem 'comfortable_mexican_sofa', '~> 1.12.8'
 gem 'nokogiri', '~> 1.6.7.2'
 gem 'dotenv-rails', '~> 2.1.0', require: 'dotenv/rails-now'
@@ -19,12 +19,14 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+
 # DB
 gem 'pg', '~> 0.18.4'
 gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
