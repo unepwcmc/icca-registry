@@ -1,21 +1,21 @@
 source 'https://rubygems.org'
 
 # Frameworks
-gem 'rails', '5.0.7.2'
-gem 'comfortable_mexican_sofa', '~> 1.12.8'
+gem 'rails', '5.2.4.3'
+gem 'comfortable_mexican_sofa', '~> 2.0.0'
 gem 'nokogiri', '~> 1.6.7.2'
-gem 'dotenv-rails', '~> 2.1.0', require: 'dotenv/rails-now'
+gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'aws-sdk', '~> 1.6'
 gem 'appsignal', '~> 2.2.1'
 gem 'invisible_captcha', '~> 0.9.2'
-gem "paperclip", "~> 4.3.2"
+gem "paperclip"
 
 # Assets
 gem 'bower-rails', '~> 0.10.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'sassc-rails', '~> 1.3.0'
 gem 'sassc', '~> 1.9'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 

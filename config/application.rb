@@ -26,9 +26,6 @@ module IccaRegistry
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    # Remove deprecation warnings on before callbacks halting callback chains on returning false
-    ActiveSupport.halt_callback_chains_on_return_false = false
-
     # Rails 5 now supports per-form CSRF tokens to mitigate against code-injection attacks with forms created by JavaScript.
     # With this option turned on, forms in your application will each have their own CSRF token that is specific to the action and method for that form.
     config.action_controller.per_form_csrf_tokens = true
