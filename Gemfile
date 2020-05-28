@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 # Frameworks
-gem 'rails', '5.2.4.3'
+gem 'rails', git: 'https://github.com/rails/rails/', branch: '5-2-stable'
 gem 'comfortable_mexican_sofa', '~> 2.0.0'
 gem 'nokogiri', '~> 1.6.7.2'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'aws-sdk', '~> 1.6'
+gem 'aws-sdk-s3'
 gem 'appsignal', '~> 2.2.1'
 gem 'invisible_captcha', '~> 0.9.2'
 gem "paperclip"

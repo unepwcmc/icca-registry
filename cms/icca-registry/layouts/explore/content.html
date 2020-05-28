@@ -8,16 +8,16 @@
     <h2 class="article__title article__title--smaller"> ICCA Countries </h2>
 
     <div class="s-article">
-      {{ cms:page:before_the_map:rich_text }}
+      {{ cms:wysiwyg before_the_map }}
     </div>
 
-    {{ cms:partial:cms/explore_map }}
+    {{ cms:partial "cms/explore_map" }}
 
     <div class="s-article">
-      {{ cms:page:after_the_map:rich_text }}
+      {{ cms:wysiwyg after_the_map }}
     </div>
 
 
-    {{ cms:partial:cms/countries_and_sites_list }}
+    {{ cms:partial "cms/countries_and_sites_list" }}
   </article>
 </main>
