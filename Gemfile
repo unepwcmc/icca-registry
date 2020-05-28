@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Frameworks
-gem 'rails', '5.0.0'
+gem 'rails', '5.0.7.2'
 gem 'comfortable_mexican_sofa', '~> 1.12.8'
 gem 'nokogiri', '~> 1.6.7.2'
 gem 'dotenv-rails', '~> 2.1.0', require: 'dotenv/rails-now'
