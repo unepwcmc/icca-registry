@@ -37,5 +37,7 @@ module IccaRegistry
     # Set the following in your config to true:
     config.action_controller.forgery_protection_origin_check = true
 
+    config.active_record.belongs_to_required_by_default = true
+
   end
 end
