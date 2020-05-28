@@ -1,5 +1,5 @@
 module SearchIntegration
-  module ForBlocks
+  module ForFragments
     extend ActiveSupport::Concern
     included do
       include PgSearch
@@ -17,4 +17,4 @@ module SearchIntegration
 end
 
 Comfy::Cms::Page.send(:include, SearchIntegration::ForPages)
-Comfy::Cms::Block.send(:include, SearchIntegration::ForBlocks)
+# Comfy::Cms::Fragment.send(:include, SearchIntegration::ForFragments)
