@@ -1,6 +1,11 @@
 class Photo < ApplicationRecord
+  # has_attached_file :file
   has_one_attached :file
-  validates :file, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  validates :file, attached: true
 
   belongs_to :page, class_name: "Comfy::Cms::Page", optional: true
+
+  def file_path
+    ActiveStorage::Blob.service.send(:path_for, file.key)
+  end
 end

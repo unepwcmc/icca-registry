@@ -4,10 +4,6 @@ class ConvertToActiveStorage < ActiveRecord::Migration[5.2]
   def up
     # postgres
     get_blob_id = 'LASTVAL()'
-    # mariadb
-    # get_blob_id = 'LAST_INSERT_ID()'
-    # sqlite
-    # get_blob_id = 'LAST_INSERT_ROWID()'
 
     active_storage_blob_statement = ActiveRecord::Base.connection.raw_connection.prepare('active_storage_blob_statement', <<-SQL)
       INSERT INTO active_storage_blobs (
