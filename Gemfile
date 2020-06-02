@@ -19,6 +19,7 @@ gem 'sassc', '~> 1.9'
 gem 'coffee-rails', '~> 4.2.0'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'comfy_bootstrap_form', '~> 4.0.3'
 
 # DB
 gem 'pg', '~> 0.18.4'
