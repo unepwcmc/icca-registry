@@ -17,4 +17,6 @@ module SearchIntegration
 end
 
 Comfy::Cms::Page.send(:include, SearchIntegration::ForPages)
+
+# Search integratoin for fragments is broken
 # Comfy::Cms::Fragment.send(:include, SearchIntegration::ForFragments)
