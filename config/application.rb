@@ -36,6 +36,6 @@ module IccaRegistry
     config.active_record.belongs_to_required_by_default = true
 
     # Stop CMS globbing so that ActiveStorage routes now become available
-    # config.railties_order = [:all, ActiveStorage::Engine, :main_app]
+    config.railties_order = [ActiveStorage::Engine, :main_app, :all]
   end
 end
