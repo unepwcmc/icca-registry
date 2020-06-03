@@ -3,7 +3,7 @@
   <div class="section__body article">
     <% if @photo.present? %>
       <div class="cover-story__cover cover-story__cover--above" style="overflow: hidden; max-height: 400px">
-        <img style="width: 100%" src="<%= @photo.file_path %>">
+        <img style="width: 100%" src="<%= url_for(@photo.file) %>">
       </div>
     <% end %>
 

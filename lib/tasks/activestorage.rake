@@ -4,7 +4,18 @@ namespace :activestorage do
     ActiveStorage::Attachment.find_each do |attachment|
       name = attachment.name
 
-      source = attachment.record.send(name).path
+      if Gem::Specification::find_all_by_name('paperclip').any?
+        source = attachment.record.send(name).path
+      else
+        # If paperclip has already been uninstalled
+        id = attachment.record_id
+        id = '0' + id.to_s if id < 100
+        filename = attachment.blob.filename
+        # Replace if you require another file type
+        filetype = "photos"
+        source = "public/system/#{filetype}/files/000/000/#{id}/original/#{filename}"
+      end
+
       dest_dir = File.join(
         "storage",
         attachment.blob.key.first(2),
@@ -27,16 +38,20 @@ namespace :activestorage do
     bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
 
     ActiveStorage::Attachment.find_each do |attachment|
-      name = attachment.name
-
       blob_key_first = attachment.blob.key.first(2)
       blob_key_last = attachment.blob.key.first(4).last(2)
+      url = "storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"
 
+
+      target_object = bucket.objects[url]
       bucket.objects.each do |object|
         if attachment.blob.filename == object.key.split('/').last
-          target_object = bucket.objects["storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"]
           object.copy_to(target_object)
         end
+      end
+
+     if !bucket.objects.find { |object| object.key.split('/').last == attachment.blob.key }
+        target_object.write(Pathname.new(url))
       end
     end
   end
