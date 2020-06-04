@@ -38,23 +38,18 @@ namespace :activestorage do
     bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
 
     ActiveStorage::Attachment.find_each do |attachment|
+
       blob_key_first = attachment.blob.key.first(2)
       blob_key_last = attachment.blob.key.first(4).last(2)
       url = "storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"
+      target_object = bucket.objects[attachment.blob.key]
 
+      target_object.write(Pathname.new(url))
 
-      target_object = bucket.objects[url]
-      bucket.objects.each do |object|
-        if attachment.blob.filename == object.key.split('/').last
-          object.copy_to(target_object)
-        end
-      end
-
-     if !bucket.objects.find { |object| object.key.split('/').last == attachment.blob.key }
-        target_object.write(Pathname.new(url))
-      end
     end
   end
+
+  desc "Move files back into "
 
   # You should have a valid .env before attempting this task - it will obviously fail otherwise!
   desc "Copy paperclip files into a new folder structure (AWS) - this doesn't use ActiveStorage but simply keeps a copy of attached files"
