@@ -49,8 +49,6 @@ namespace :activestorage do
     end
   end
 
-  desc "Move files back into "
-
   # You should have a valid .env before attempting this task - it will obviously fail otherwise!
   desc "Copy paperclip files into a new folder structure (AWS) - this doesn't use ActiveStorage but simply keeps a copy of attached files"
   task :local_to_aws => :environment do |t|
