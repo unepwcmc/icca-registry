@@ -1,5 +1,4 @@
 class Resource < ApplicationRecord
-  # has_attached_file :file
   has_one_attached :file
   validates :file, attached: true
 
