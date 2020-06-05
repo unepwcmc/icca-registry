@@ -16,7 +16,7 @@ To install icca-registry, proceed with the usual commands:
 - `cd icca-registry`
 - get a copy of the .env file
 - `bundle exec rake db:create`
-- get a download of the DB and import `psql icca_registry_development < PATH/FILENAME.sql` 
+- get an up-to-date production download of the DB and import `psql icca_registry_development < PATH/FILENAME.sql` 
 
 Only for this branch: 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
