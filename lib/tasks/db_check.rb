@@ -6,7 +6,7 @@ namespace :db_check do
 
      models.each do |model|
         # First, check if any missing records are present
-        if model.all? { |instance| instance.send(attachment).exists? }
+        if !model.all? { |instance| instance.send(attachment).exists? }
           puts "Your DB is not completely up to date. Downloading latest production DB from server..."
           download_db
         end
