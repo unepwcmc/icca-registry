@@ -28,6 +28,7 @@ class ConvertToActiveStorage < ActiveRecord::Migration[5.2]
           end
         end.compact
 
+
         if attachments.blank?
           next
         end
