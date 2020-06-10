@@ -90,7 +90,7 @@ namespace :db_check do
         end
      end
 
-     byebug
+
      download(files_to_download)
   end
 
