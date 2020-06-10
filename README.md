@@ -16,7 +16,8 @@ To install icca-registry, proceed with the usual commands:
 - `cd icca-registry`
 - `bundle install`
 - get a copy of the .env file
-- `bundle exec rake db:create`
+- `rails db:create`
+
 Only for this branch: 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
