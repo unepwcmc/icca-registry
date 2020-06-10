@@ -58,37 +58,16 @@ namespace :db_check do
 
     files_to_download = []
 
-    missing_records = models.all? do |model|
-        attachments = model.column_names.map do |c|
-          if c =~ /(.+)_file_name$/
-            $1
-          end
-        end.compact
 
-        if attachments.blank?
-          next
-        end
-
-        model.find_each.each do |instance|
-          attachments.each do |attachment|
-            instance.send(attachment).exists?
-          end
-        end
-    end
-
-
-    # First, check if any missing records are present
-    if !missing_records
-      puts "Your DB is not completely up to date."
-
-      puts question = "Do you wish to download a new version of the database? Bear in mind your old one will be erased: Yes/No"
+    # First, download DB
+    puts question = "Do you wish to download a new version of the database? Bear in mind your old one will be erased: Yes/No"
+    answer = STDIN.gets.chomp
+    until answer == 'Yes' || answer == 'No'
+      puts question
       answer = STDIN.gets.chomp
-      until answer == 'Yes' || answer == 'No'
-        puts question
-        answer = STDIN.gets.chomp
-      end
-      answer.downcase.capitalize == 'Yes' ? download('db') : return
     end
+    answer.downcase.capitalize == 'Yes' ? download('db') : return
+
 
      # Secondly, identify if there are any missing files and download them!
     models.each do |model|
