@@ -10,7 +10,7 @@ analysis on featured ICCAs around the world.
 
 icca-registry is a pretty standard Rails application, backed by a Postgres
 database, using bower to load the protectedplanet-frontend framework.
-To install icca-registry, proceed with the usual commands:
+Part 1:
 
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
 - `cd icca-registry`
@@ -23,6 +23,8 @@ Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
 - `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
 - `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments.
+
+Wait until Part 2 before undertaking the following:
 - `rake activestorage:local_to_local` to copy all of your downloaded Paperclip files into ActiveStorage folder structure.
 
 At the moment you will not be able to view the application because of it will break as the Paperclip files will not be migrated yet to ActiveStorage.
