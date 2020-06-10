@@ -14,15 +14,17 @@ To install icca-registry, proceed with the usual commands:
 
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
 - `cd icca-registry`
+- `bundle install`
 - get a copy of the .env file
 - `bundle exec rake db:create`
-- get an up-to-date production download of the DB and import `psql icca_registry_development < PATH/FILENAME.sql`. Despite technically being in the development environment, this will help to reduce the chance of an error derailing later steps below.
-
 Only for this branch: 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
-- get an __up-to-date__ production copy of the CMS files from the S3 bucket and place the folder into `icca-registry/public/system`. It is important to get the folder structure corresponding to the default storage location of Paperclip so that no errors occur during migration.
-- `bundle install`
+
+- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
 - `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments.
+
+At the moment you will not be able to view the application because of it will break as the Paperclip files will not be migrated yet to ActiveStorage.
+
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
 
