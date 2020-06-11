@@ -34,8 +34,9 @@ namespace :db_check do
           photos.to_a.each { |photo| photo_paths << photo.key }
           puts 'Downloading photos to your designated folder'
 
-          target.each do |filepath|
-            next if !photo_paths.find { |photo_path| filepath == photo_path }
+          union = photo_paths & target
+
+          union.each_with_index do |filepath, index|
             photos.each do |photo|
               if photo.content_type =~ /^(image)/
                 if Rails.env.staging?
@@ -51,6 +52,7 @@ namespace :db_check do
                 end
               end
             end
+            break if index == union.size - 1
           end
 
           puts 'All missing photos downloaded'
