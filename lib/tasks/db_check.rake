@@ -1,6 +1,7 @@
 namespace :db_check do
   desc "Checks to see if your DB is valid prior to ActiveStorage installation and if files are completely up to date"
   task :import => :environment do |t|
+    abort('You are in the production environment') if Rails.env.production?
      def download(target)
         s3 = AWS::S3.new(
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
@@ -66,7 +67,7 @@ namespace :db_check do
       puts question
       answer = STDIN.gets.chomp
     end
-    answer.downcase.capitalize == 'Yes' ? download('db') : return
+    answer.downcase.capitalize == 'Yes' ? download('db') : abort('Task aborted.')
 
 
      # Secondly, identify if there are any missing files and download them!
@@ -90,8 +91,11 @@ namespace :db_check do
         end
      end
 
-
-     download(files_to_download)
+     if Rails.env.development?
+      download(files_to_download)
+     elsif Rails.env.staging?
+      Rake::Task['bucket_copy'].invoke([files_to_download])
+     end
   end
 
   desc "Kills all active connections of your current database"
@@ -117,6 +121,11 @@ namespace :db_check do
       %x[ psql icca_registry_#{Rails.env} < temp/icca_registry_daily/databases/PostgreSQL.sql  ]
       puts 'Database successfully copied over'
     end
+  end
+
+  desc "Copies missing files from production bucket to staging"
+  task :bucket_copy, [:files] => :environment do |task, args|
+
   end
 end
 
