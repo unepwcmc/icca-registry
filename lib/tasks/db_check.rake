@@ -6,8 +6,6 @@ namespace :db_check do
           :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
           :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
 
-
-
         if target == 'db'
           target_object = s3.buckets["#{ENV['AWS_BUCKET']}"].objects.with_prefix("#{ENV["AWS_BUCKET_#{target.upcase}"]}").to_a.last
 
@@ -30,35 +28,42 @@ namespace :db_check do
         else
           return if target.empty?
           photos = s3.buckets["#{ENV["AWS_BUCKET_PRODUCTION"]}"].objects.with_prefix('photos/files/000/000/')
-          photo_paths = []
-          photos.to_a.each { |photo| photo_paths << photo.key }
-          puts 'Downloading photos to your designated folder'
+          resources = s3.buckets["#{ENV["AWS_BUCKET_PRODUCTION"]}"].objects.with_prefix('resources/files/000/000/')
+          file_paths = []
+          photos.to_a.each { |photo| file_paths << photo.key }
+          resources.to_a.each { |resource| file_paths << resource.key }
+          puts 'Downloading files to your designated folder'
 
-          union = photo_paths & target
+          union = file_paths & target
 
-          union.each_with_index do |filepath, index|
-            photos.each do |photo|
-              if photo.content_type =~ /^(image)/
-                if Rails.env.staging?
-                  root_url = "https://s3.amazonaws.com/#{ENV['AWS_BUCKET_STAGING']}"
-                  dest_dir = FileUtils.mkdir_p(File.join(root_url, photo.key.split('/')[0..-2].join('/'))).first
-                else
-                  dest_dir = FileUtils.mkdir_p(File.join('public/system', photo.key.split('/')[0..-2].join('/'))).first
-                end
-                File.open(File.join(dest_dir, photo.key.split('/').last), 'wb') do |file|
-                  photo.read do |chunk|
-                    file.write(chunk)
-                  end
-                end
-              end
-            end
-            break if index == union.size - 1
-          end
-
-          puts 'All missing photos downloaded'
+          download_missing_files(photos, resources, union)
         end
      end
 
+    def download_missing_files(photos, resources, missing_files)
+        missing_files.each_with_index do |filepath, index|
+        [photos, resources].each do |filetype|
+          filetype.each do |path|
+            if filepath == path.key
+              if Rails.env.staging?
+                root_url = "https://s3.amazonaws.com/#{ENV['AWS_BUCKET_STAGING']}"
+                dest_dir = FileUtils.mkdir_p(File.join(root_url, path.key.split('/')[0..-2].join('/'))).first
+              else
+                dest_dir = FileUtils.mkdir_p(File.join('public/system', path.key.split('/')[0..-2].join('/'))).first
+              end
+              File.open(File.join(dest_dir, path.key.split('/').last), 'wb') do |file|
+                path.read do |chunk|
+                  file.write(chunk)
+                end
+              end
+            end
+          end
+        end
+        break if index == missing_files.size - 1
+      end
+
+      puts 'All missing files downloaded'
+    end
 
     def file_check
       Rails.application.eager_load!
@@ -74,9 +79,7 @@ namespace :db_check do
             end
           end.compact
 
-          if attachments.blank?
-            next
-          end
+          next if attachments.blank?
 
           model.find_each.each do |instance|
             attachments.each do |attachment|
