@@ -19,7 +19,7 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
       flash[:notice] = 'Site deleted.'
       redirect_to action: :index
     else
-      flash[:notice] = @icca_site.errors.full_messages
+      flash[:alert] = "#{@icca_site.errors[:base]}"
     end
   end
 
