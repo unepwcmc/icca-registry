@@ -97,3 +97,7 @@ en:
     questionnaire: "ICCA Registry Questionnaire"
     registration_documents: "Registration documents"
     supporting_information: "Supporting information"
+  admin:
+    icca_sites:
+      icca_site:
+        edit: 'Edit'
