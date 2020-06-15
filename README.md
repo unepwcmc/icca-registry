@@ -24,10 +24,12 @@ Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 - `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
 - `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments.
 
+At the moment you will not be able to view the application because it will break as the Paperclip files will not be migrated yet to ActiveStorage.
+
 Wait until Part 2 before undertaking the following:
 - `rake activestorage:local_to_local` to copy all of your downloaded Paperclip files into ActiveStorage folder structure.
 
-At the moment you will not be able to view the application because of it will break as the Paperclip files will not be migrated yet to ActiveStorage.
+
 
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
@@ -46,7 +48,7 @@ starting the server, create a copy of the file `.env.example` (removing the
 
 Or if you successfully migrated, but your app breaks on accessing the Files section of the CMS:
 
-2) Access the Rails console via `rails console`. The relevant table you will want to inspect is `Comfy::Cms::File`. Run the command `Comfy::Cms::File.all.pluck(:file_file_name)` and cross-check with the Paperclip file names that you have locally. If you cannot find any, run the command `Comfy::Cms::File.destroy_all`, which delete all of the records in the database for that table, leaving you able to access the page. If you'd rather not utilise a dangerous method such as the one above, you can manually delete selected records using `Comfy::Cms::File.where(file_file_name: [filename, make sure to put it in quotation marks]).destroy`. 
+2) Access the Rails console via `rails console`. The relevant table you will want to inspect is `Comfy::Cms::File`. Run the command `Comfy::Cms::File.all.pluck(:file_file_name)` and cross-check with the Paperclip file names that you have locally in `public/system`. If you cannot find any, run the command `Comfy::Cms::File.destroy_all`, which delete all of the records in the database for that table, leaving you able to access the page. If you'd rather not utilise a dangerous method such as the one above, you can manually delete selected records using `Comfy::Cms::File.where(file_file_name: [filename, make sure to put it in quotation marks]).destroy`. 
 
 If it breaks upon accessing a page (which shouldn't really happen), the table to be accessed is `Comfy::Cms::Page` for pages, and `Comfy::Cms::Fragment` for individual ICCA case studies.
 
