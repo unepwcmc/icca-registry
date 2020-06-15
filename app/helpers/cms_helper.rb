@@ -31,6 +31,19 @@ module CmsHelper
     end
   end
 
+  def link_to_destroy icca_site
+    if icca_site.pages.any?
+      ""
+    else
+      link_to(
+        "Destroy",
+        admin_icca_site_path(icca_site),
+        method: :delete,
+        class: "btn btn-default"
+      )
+    end
+  end
+
   def english_site
     Comfy::Cms::Site.find_by_locale("en")
   end
