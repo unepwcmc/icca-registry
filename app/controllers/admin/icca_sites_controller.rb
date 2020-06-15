@@ -17,10 +17,11 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
   def destroy
     if @icca_site.destroy
       flash[:notice] = 'Site deleted.'
-      redirect_to action: :index
     else
       flash[:alert] = "#{@icca_site.errors[:base]}"
     end
+
+    redirect_to action: :index
   end
 
   private
