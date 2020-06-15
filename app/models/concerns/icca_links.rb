@@ -2,8 +2,8 @@ module IccaLinks
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :country
-    belongs_to :icca_site
+    belongs_to :country, optional: true
+    belongs_to :icca_site, optional: true
 
     has_many :photos
     has_many :resources

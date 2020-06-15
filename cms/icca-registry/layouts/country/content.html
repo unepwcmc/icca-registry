@@ -5,14 +5,14 @@
 
   <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter"> Explore Case Studies </h1>
   <article class="article col-nine">
-    {{ cms:partial:cms/title }}
+    {{ cms:partial "cms/title" }}
 
-    {{ cms:partial:cms/country/map }}
+    {{ cms:partial "cms/country/map" }}
 
-    {{ cms:partial:cms/country/info_box }}
+    {{ cms:partial "cms/country/info_box" }}
 
     <div class="s-article">
-      {{ cms:page:content:rich_text }}
+      {{ cms:wysiwyg content }}
     </div>
 
   </article>

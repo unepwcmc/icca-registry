@@ -35,12 +35,6 @@ Rails.application.configure do
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    bucket: "icca-registry-production",
-    s3_host_name: "s3-eu-west-1.amazonaws.com"
-  }
-
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.
@@ -82,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Store files on Amazon S3.
+  config.active_storage.service = :production
 end

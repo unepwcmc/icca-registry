@@ -3,6 +3,7 @@
     <div class="gallery__body">
       <div class="js-window gallery__body-inner">
         <% @cms_page.photos.each do |photo| %>
+          <%#= image_tag url_for(photo.file), class: "gallery__photo js-photo" %>
           <%= image_tag photo.file.url, class: "gallery__photo js-photo" %>
         <% end %>
       </div>

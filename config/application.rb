@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require "active_storage"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -23,9 +25,6 @@ module IccaRegistry
     config.autoload_paths += %W(#{config.root}/lib/modules)
     config.autoload_paths += %W(#{config.root}/app/presenters)
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
     # Rails 5 now supports per-form CSRF tokens to mitigate against code-injection attacks with forms created by JavaScript.
     # With this option turned on, forms in your application will each have their own CSRF token that is specific to the action and method for that form.
     config.action_controller.per_form_csrf_tokens = true
@@ -36,5 +35,7 @@ module IccaRegistry
 
     config.active_record.belongs_to_required_by_default = true
 
+    # Stop CMS globbing so that ActiveStorage routes now become available
+    config.railties_order = [ActiveStorage::Engine, :main_app, :all]
   end
 end

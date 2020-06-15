@@ -22,6 +22,9 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
+  # Store files locally.
+  config.active_storage.service = :development
+
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
@@ -35,12 +38,6 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
-
-  config.paperclip_defaults = {
-    storage: :s3,
-    bucket: "icca-registry-development",
-    s3_host_name: "s3-eu-west-1.amazonaws.com"
-  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
