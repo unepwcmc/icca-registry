@@ -1,55 +1,14 @@
-<div class="info-box info-box--fill-color info-box--padding-top-bottom">
-  <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("participate_page.attached_documents") %></h2>
-  <div class="info-box__body">
-    <h3 class="header"><%= t("participate_page.registration_documents") %></h3>
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/icca_questionnaire">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.questionnaire") %>
-      </a>
-    </div>
-
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/icca_dca">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.agreement") %>
-      </a>
-    </div>
-
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/icca_case_study_template">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.form") %>
-      </a>
-    </div>
-
-    <h3 class="header"><%= t("participate_page.supporting_information") %></h3>
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/iccadatamanual">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.manual_en") %>
-      </a>
-    </div>
-
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/iccadatamanual_FR">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.manual_fr") %>
-      </a>
-    </div>
-
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/iccadatamanual_ESP">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.manual_es") %>
-      </a>
-    </div>
-
-    <div class="row">
-      <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="http://wcmc.io/icca_fpic">
-        <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-        <%= t("participate_page.consent_form") %>
-      </a>
-    </div>
+  <div class="info-box info-box--fill-color info-box--padding-top-bottom">
+    <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Attached documents</h2>
+    <div class="info-box__body">
+    <% if @cms_page.related_links.any? %>
+      <% @cms_page.related_links.each do |related_link| %>
+        <div class="row">
+          <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= related_link.url %>">
+            <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
+            <%= related_link.label %>
+          </a>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-</div>

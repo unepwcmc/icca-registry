@@ -1,12 +1,12 @@
   <div class="info-box info-box--fill-color info-box--padding-top-bottom">
     <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold">Attached documents</h2>
     <div class="info-box__body">
-    <% if @cms_page.related_links.any? %>
-      <% @cms_page.related_links.each do |related_link| %>
+    <% if @cms_page.resources.any? %>
+      <% @cms_page.resources.each do |resource| %>
         <div class="row">
-          <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= related_link.url %>">
+          <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= resource.file.url %>">
             <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
-            <%= related_link.label %>
+            <%= resource.label %>
           </a>
         </div>
       <% end %>
