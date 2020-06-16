@@ -3,9 +3,9 @@ class Api::InterestSubmissionsController < ApplicationController
   protect_from_forgery with: :exception
 
   def create
-    InterestSubmission.create(
-      params.permit(:icca_name, :icca_size, :country, :can_contact, :email)
-    )
+    submission = InterestSubmission.create(params.permit(:icca_name, :icca_size, :country, :can_contact, :email))
+
+    SubmissionMailer.create(submission).deliver
     head 201
   end
 end
