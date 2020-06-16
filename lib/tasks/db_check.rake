@@ -76,8 +76,11 @@ namespace :db_check do
 					attachments.each do |attachment|
 						if instance.send(attachment).path.blank? || !File.exist?(instance.send(attachment).path)
               unless instance.send(attachment).path.nil?
-                files_to_download << 'public/system/' + instance.send(attachment).path.split('/').slice(6..-1).join('/') if !Rails.env.development?
-							  files_to_download << instance.send(attachment).path.split('/').slice(6..-1).join('/')
+                if !Rails.env.development?
+                  files_to_download << instance.send(attachment).path.split('/').slice(8..-1).join('/')
+                else
+							   files_to_download << instance.send(attachment).path.split('/').slice(6..-1).join('/')
+                end
               end
 						end
 					end
