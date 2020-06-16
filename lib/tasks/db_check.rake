@@ -44,12 +44,12 @@ namespace :db_check do
 				[photos, resources].each do |filetype|
 					filetype.each do |path|
 						next if filepath != path.key
-						if Rails.env.staging?
-							root_url = "https://s3.amazonaws.com/#{ENV['AWS_BUCKET_STAGING']}"
-							dest_dir = FileUtils.mkdir_p(File.join(root_url, path.key.split('/')[0..-2].join('/'))).first
-						else
+						# if Rails.env.staging?
+						# 	root_url = "https://s3.amazonaws.com/#{ENV['AWS_BUCKET_STAGING']}"
+						# 	dest_dir = FileUtils.mkdir_p(File.join(root_url, path.key.split('/')[0..-2].join('/'))).first
+						# else
 							dest_dir = FileUtils.mkdir_p(File.join('public/system', path.key.split('/')[0..-2].join('/'))).first
-						end
+						# end
 						File.open(File.join(dest_dir, path.key.split('/').last), 'wb') do |file|
 							path.read { |chunk| file.write(chunk) }
 						end
