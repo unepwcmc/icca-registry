@@ -22,7 +22,6 @@ Rails.application.configure do
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
-  config.action_mailer.delivery_method = :smtp
 
   # Store files locally.
   config.active_storage.service = :development
@@ -40,6 +39,20 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  host = 'localhost:3000'
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+
+  config.action_mailer.smtp_settings = {
+    domain: ENV['MAILER_DOMAIN'],
+    address: ENV['MAILER_ADDRESS'],
+    port: 587,
+    authentication: :login,
+    enable_starttls_auto: true,
+    user_name: ENV['MAILER_USERNAME'],
+    password: ENV['MAILER_PASSWORD']
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
