@@ -18,19 +18,11 @@ Part 1:
 - get a copy of the .env file
 - `rails db:create`
 
-Only for this branch: 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
 - `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
-- `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments.
-
-At the moment you will not be able to view the application because it will break as the Paperclip files will not be migrated yet to ActiveStorage.
-
-Wait until Part 2 before undertaking the following:
 - `rake activestorage:local_to_local` to copy all of your downloaded Paperclip files into ActiveStorage folder structure.
-
-
-
+- `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments. Note that this will have to be run last because Paperclip columns are removed, so make sure any Paperclip files you wish to copy via rake tasks have been done prior to migration.
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
 
