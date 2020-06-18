@@ -6,8 +6,7 @@ class HomeController < ApplicationController
     # @explore_page     = pages.find_by_slug_and_site_id("explore", site.id)
 
     # Website breaks if there are photos without attachments - so @photo defaults to the latest safe option
-    # @photo            = ActiveStorage::Attachment.where(record_type: 'Photo').last.record
-    @photo = Photo.order("created_at DESC").first
+    @photo            = ActiveStorage::Attachment.where(record_type: 'Photo').last.record
     @last_case_study  = @photo.page
     @icca_site        = IccaSite.find(@last_case_study.icca_site_id)
   end

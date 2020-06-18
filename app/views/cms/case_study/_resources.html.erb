@@ -4,7 +4,7 @@
       <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("resources") %></h2>
       <div class="info-box__body">
         <% @cms_page.resources.each do |resource| %>
-          <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= resource.file.url %>">
+          <a class="u-block u-normal <%= bem('link-with-icon', 'push', 'pull-right')%>" href="<%= url_for(resource.file) %>">
             <i class="link-with-icon__icon link-with-icon__icon--absolute fa fa-download"></i>
             <%= resource.label %>
           </a>
@@ -24,3 +24,4 @@
     <% end %>
   </div>
 <% end %>
+
