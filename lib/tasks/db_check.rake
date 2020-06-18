@@ -7,6 +7,7 @@ namespace :db_check do
 				secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
 
 			if target == 'db'
+        return 'You\'re in production - no download needed' if Rails.env.production?
 				target_object = s3.buckets["#{ENV['AWS_BUCKET']}"].objects.with_prefix("#{ENV["AWS_BUCKET_#{target.upcase}"]}").to_a.last
 
 				FileUtils.mkdir_p('temp')
