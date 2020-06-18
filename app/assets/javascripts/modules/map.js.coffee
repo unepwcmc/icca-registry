@@ -42,9 +42,10 @@ window.Map = class Map
 
     for index, site of sites
       marker = L.marker([site.lat, site.lon])
-      marker.bindPopup("""
-        <a class='link-with-icon' href='/#{site.pages[0].site.path}#{site.pages[0].full_path}'>#{site.name}</a>
-      """)
+      if site.pages.length != 0
+        marker.bindPopup("""
+          <a class='link-with-icon' href='/#{site.pages[0].site.path}#{site.pages[0].full_path}'>#{site.name}</a>
+        """)
       markersGroup.addLayer(marker)
     markersGroup.addTo(window.map)
     window.map.fitBounds(markersGroup.getBounds())
