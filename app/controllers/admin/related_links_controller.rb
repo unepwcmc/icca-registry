@@ -3,6 +3,6 @@ class Admin::RelatedLinksController < Comfy::Admin::Cms::BaseController
     resource = RelatedLink.find(params[:id])
     resource.destroy
 
-    redirect_to :back
+    redirect_back(fallback_location: admin_icca_site_path)
   end
 end

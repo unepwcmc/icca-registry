@@ -3,6 +3,6 @@ class Admin::ResourcesController < Comfy::Admin::Cms::BaseController
     resource = Resource.find(params[:id])
     resource.destroy
 
-    redirect_to :back
+    redirect_back(fallback_location: admin_icca_site_path)
   end
 end

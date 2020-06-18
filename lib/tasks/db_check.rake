@@ -44,12 +44,7 @@ namespace :db_check do
 				[photos, resources].each do |filetype|
 					filetype.each do |path|
 						next if filepath != path.key
-						if Rails.env.staging?
-							root_url = "https://s3.amazonaws.com/#{ENV['AWS_BUCKET_STAGING']}"
-							dest_dir = FileUtils.mkdir_p(File.join(root_url, path.key.split('/')[0..-2].join('/'))).first
-						else
-							dest_dir = FileUtils.mkdir_p(File.join('public/system', path.key.split('/')[0..-2].join('/'))).first
-						end
+						dest_dir = FileUtils.mkdir_p(File.join('public/system', path.key.split('/')[0..-2].join('/'))).first
 						File.open(File.join(dest_dir, path.key.split('/').last), 'wb') do |file|
 							path.read { |chunk| file.write(chunk) }
 						end
@@ -80,7 +75,13 @@ namespace :db_check do
 				model.find_each.each do |instance|
 					attachments.each do |attachment|
 						if instance.send(attachment).path.blank? || !File.exist?(instance.send(attachment).path)
-							files_to_download << instance.send(attachment).path.split('/').slice(6..-1).join('/') unless instance.send(attachment).path.nil?
+              unless instance.send(attachment).path.nil?
+                if !Rails.env.development?
+                  files_to_download << instance.send(attachment).path.split('/').slice(8..-1).join('/')
+                else
+							   files_to_download << instance.send(attachment).path.split('/').slice(6..-1).join('/')
+                end
+              end
 						end
 					end
 				end
