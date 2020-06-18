@@ -15,7 +15,7 @@ Part 1:
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
 - `cd icca-registry`
 - `bundle install`
-- get a copy of the .env file
+- get a copy of the latest .env file
 - `rails db:create`
 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.

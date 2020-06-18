@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.11.0'
 
 set :application, 'icca-registry'
 set :repo_url, 'git@github.com:unepwcmc/icca-registry.git'
@@ -12,7 +12,7 @@ set :deploy_to, "/home/#{fetch(:deploy_user)}/#{fetch(:application)}"
 set :backup_path, "/home/#{fetch(:deploy_user)}/Backup"
 
 set :rvm_type, :user
-set :rvm_ruby_version, '2.2.3'
+set :rvm_ruby_version, '2.3.1'
 
 set :pty, true
 
