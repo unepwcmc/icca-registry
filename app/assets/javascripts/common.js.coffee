@@ -1,4 +1,4 @@
-$(document).ready( ->
+$(document).on('turbolinks:load', () ->
   if ($mapEl = $('#map')).length > 0
     try
       new Map($mapEl)
@@ -25,4 +25,5 @@ $(document).ready( ->
 
   setTimeout((-> $(".banner").addClass("animated")), 750)
 )
+
 
