@@ -1,8 +1,25 @@
 namespace :activestorage do
-  desc "Local to local only: Copy over paperclip public/system files into ActiveStorage's storage folder"
-  task :local_to_local => :environment do |t|
+   # You should have a valid .env before attempting this task - it will obviously fail otherwise!
+   desc "Paperclip to ActiveStorage: Copy over paperclip public/system files into ActiveStorage's storage folder"
+   task :paperclip_to_activestorage => :environment do |t|
+    def upload_to_s3(attachment, s3)
+      bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
+
+      blob_key_first = attachment.blob.key.first(2)
+      blob_key_last = attachment.blob.key.first(4).last(2)
+      url = "storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"
+      target_object = bucket.objects[attachment.blob.key]
+
+      target_object.write(Pathname.new(url))
+    end
+
+    s3 = AWS::S3.new(
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
+
     ActiveStorage::Attachment.find_each do |attachment|
       name = attachment.name
+      next if attachment.record.send(name).nil?
 
       if Gem::Specification::find_all_by_name('paperclip').any?
         source = attachment.record.send(name).path
@@ -16,36 +33,21 @@ namespace :activestorage do
         source = "public/system/#{filetype}/files/000/000/#{id}/original/#{filename}"
       end
 
-      dest_dir = File.join(
-        "storage",
-        attachment.blob.key.first(2),
-        attachment.blob.key.first(4).last(2))
-      dest = File.join(dest_dir, attachment.blob.key)
+      storage_service = Rails.application.config.active_storage.service
 
-      FileUtils.mkdir_p(dest_dir)
-      puts "Moving #{source} to #{dest}"
-      FileUtils.cp(source, dest)
-    end
-  end
+      if storage_service == :local
+        dest_dir = File.join(
+          "storage",
+          attachment.blob.key.first(2),
+          attachment.blob.key.first(4).last(2))
+        dest = File.join(dest_dir, attachment.blob.key)
 
-  # You should have a valid .env before attempting this task - it will obviously fail otherwise!
-  desc "Modifies folder structure of S3 bucket to match ActiveStorage convention/copies local ActiveStorage files into AWS bucket"
-  task :modify_s3 => :environment do |t|
-    s3 = AWS::S3.new(
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
-
-    bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
-
-    ActiveStorage::Attachment.find_each do |attachment|
-
-      blob_key_first = attachment.blob.key.first(2)
-      blob_key_last = attachment.blob.key.first(4).last(2)
-      url = "storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"
-      target_object = bucket.objects[attachment.blob.key]
-
-      target_object.write(Pathname.new(url))
-
+        FileUtils.mkdir_p(dest_dir)
+        puts "Moving #{source} to #{dest}"
+        FileUtils.cp(source, dest)
+      else
+        upload_to_s3(attachment, s3)
+      end
     end
   end
 
@@ -53,8 +55,8 @@ namespace :activestorage do
   desc "Copy paperclip files into a new folder structure (AWS) - this doesn't use ActiveStorage but simply keeps a copy of attached files"
   task :local_to_aws => :environment do |t|
     s3 = AWS::S3.new(
-        :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-        :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY'])
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
 
     Rails.application.eager_load!
     models = ActiveRecord::Base.descendants.reject(&:abstract_class?)
