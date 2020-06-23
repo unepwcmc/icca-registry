@@ -23,6 +23,7 @@ namespace :activestorage do
 
       if Gem::Specification::find_all_by_name('paperclip').any?
         source = attachment.record.send(name).path
+        next if source.nil?
       else
         # If paperclip has already been uninstalled
         id = attachment.record_id
