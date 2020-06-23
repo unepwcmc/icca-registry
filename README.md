@@ -20,12 +20,18 @@ Part 1:
 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
-- `rake db_check:import` - to download latest DB from the server (not usable in production) and downloads latest photos as well. If you ever drop your database, be advised that you have to run `rails db:migrate` again and the task below, as all of the ActiveStorage keys will have changed and thus your app will be referencing keys for non-existent files.
-- `rake activestorage:paperclip_to_activestorage` to copy all of your downloaded Paperclip files into the location designated by `config.active_storage.service` in your environment config file. There are also a number of `rake` tasks in `activestorage.rake` which will prove handy for creating backups of assets and so forth, either local or remotely via S3. 
+
+- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
 
 - `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments. 
+
+Here you want to check whether the ActiveStorage::Attachment and ActiveStorage::Blob tables are empty via the Rails console and running `ActiveStorage::Attachment.count`/`ActiveStorage::Blob.count`, if they are, it means the last migration did not work as it should, so there is a rake task `rake migrate:to_activestorage` for this situation.
+
+- `rake migrate:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
+
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
+- Start the server.
 
 Part 2:
 
