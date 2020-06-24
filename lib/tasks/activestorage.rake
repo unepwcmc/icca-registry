@@ -7,7 +7,7 @@ namespace :activestorage do
       
       target_object = bucket.objects[attachment.blob.key]
 
-      target_object.write(source)
+      target_object.write(Pathname.new(source))
     end
 
     s3 = AWS::S3.new(
