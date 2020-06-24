@@ -2,15 +2,12 @@ namespace :activestorage do
    # You should have a valid .env before attempting this task - it will obviously fail otherwise!
    desc "Paperclip to ActiveStorage: Copy over paperclip public/system files into ActiveStorage's storage folder"
    task :paperclip_to_activestorage => :environment do |t|
-    def upload_to_s3(attachment, s3)
+    def upload_to_s3(source, attachment, s3)
       bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
-
-      blob_key_first = attachment.blob.key.first(2)
-      blob_key_last = attachment.blob.key.first(4).last(2)
-      url = "storage/#{blob_key_first}/#{blob_key_last}/#{attachment.blob.key}"
+      
       target_object = bucket.objects[attachment.blob.key]
 
-      target_object.write(Pathname.new(url))
+      target_object.write(source)
     end
 
     s3 = AWS::S3.new(
@@ -51,7 +48,7 @@ namespace :activestorage do
         puts "Moving #{source} to #{dest}"
         FileUtils.cp(source, dest)
       else
-        upload_to_s3(attachment, s3)
+        upload_to_s3(source, attachment, s3)
       end
 
     end
