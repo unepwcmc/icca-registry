@@ -18,6 +18,8 @@ namespace :activestorage do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'])
 
     ActiveStorage::Attachment.find_each do |attachment|
+      next if attachment.record.nil?
+
       name = attachment.name
 
       # Skips Comfy::Cms::Files which are not covered by the migration
@@ -30,8 +32,10 @@ namespace :activestorage do
       # Replace if you require another file type
       if attachment.record_type == "Photo"
         source = "public/system/photos/files/000/000/#{id}/original/#{filename}"
+        next unless File.exist?(source)
       else
         source = "public/system/resources/files/000/000/#{id}/original/#{filename}"
+        next unless File.exist?(source)
       end
 
       storage_service = Rails.application.config.active_storage.service
