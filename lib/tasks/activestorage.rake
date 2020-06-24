@@ -23,16 +23,15 @@ namespace :activestorage do
       # Skips Comfy::Cms::Files which are not covered by the migration
       next if name == 'attachment'
 
-      if Gem::Specification::find_all_by_name('paperclip').any?
-        source = attachment.record.send(name).path
+      # Generating the Paperclip file path if Paperclip's already been uninstalled 
+      id = attachment.record_id
+      id = '0' + id.to_s if id < 100
+      filename = attachment.blob.filename
+      # Replace if you require another file type
+      if attachment.record_type = "Photo"
+        source = "public/system/photos/files/000/000/#{id}/original/#{filename}"
       else
-        # Generating the Paperclip file path if Paperclip's already been uninstalled 
-        id = attachment.record_id
-        id = '0' + id.to_s if id < 100
-        filename = attachment.blob.filename
-        # Replace if you require another file type
-        filetype = "photos"
-        source = "public/system/#{filetype}/files/000/000/#{id}/original/#{filename}"
+        source = "public/system/resources/files/000/000/#{id}/original/#{filename}"
       end
 
       storage_service = Rails.application.config.active_storage.service
