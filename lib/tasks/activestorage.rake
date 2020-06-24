@@ -28,7 +28,7 @@ namespace :activestorage do
       id = '0' + id.to_s if id < 100
       filename = attachment.blob.filename
       # Replace if you require another file type
-      if attachment.record_type = "Photo"
+      if attachment.record_type == "Photo"
         source = "public/system/photos/files/000/000/#{id}/original/#{filename}"
       else
         source = "public/system/resources/files/000/000/#{id}/original/#{filename}"
