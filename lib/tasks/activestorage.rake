@@ -19,13 +19,14 @@ namespace :activestorage do
 
     ActiveStorage::Attachment.find_each do |attachment|
       name = attachment.name
-      next if attachment.record.send(name).nil?
+
+      # Skips Comfy::Cms::Files which are not covered by the migration
+      next if name == 'attachment'
 
       if Gem::Specification::find_all_by_name('paperclip').any?
         source = attachment.record.send(name).path
-        next if source.nil?
       else
-        # If paperclip has already been uninstalled
+        # Generating the Paperclip file path if Paperclip's already been uninstalled 
         id = attachment.record_id
         id = '0' + id.to_s if id < 100
         filename = attachment.blob.filename
@@ -49,6 +50,7 @@ namespace :activestorage do
       else
         upload_to_s3(attachment, s3)
       end
+
     end
   end
 
