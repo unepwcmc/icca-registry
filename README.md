@@ -27,7 +27,7 @@ Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
 Here you want to check whether the ActiveStorage::Attachment and ActiveStorage::Blob tables are empty via the Rails console and running `ActiveStorage::Attachment.count`/`ActiveStorage::Blob.count`, if they are, it means the last migration did not work as it should, so there is a rake task `rake migrate:to_activestorage` for this situation.
 
-- `rake migrate:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
+- `rake activestorage:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
 
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
