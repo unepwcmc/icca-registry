@@ -1,5 +1,5 @@
 set :stage, :production
-set :branch, "rails-upgrade"
+set :branch, "master"
 
 server "web-supported-production.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
