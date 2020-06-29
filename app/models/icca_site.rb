@@ -1,7 +1,7 @@
 class IccaSite < ApplicationRecord
   before_destroy :safe_to_destroy, prepend: true
   belongs_to :country
-  has_many :pages, class_name: "Comfy::Cms::Page", dependent: :destroy
+  has_many :pages, class_name: "Comfy::Cms::Page"
 
   private
 
