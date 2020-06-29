@@ -26,14 +26,8 @@ namespace :activestorage do
       id = attachment.record_id
       id = '0' + id.to_s if id < 100
       filename = attachment.blob.filename
-      # Replace if you require another file type
-      if attachment.record_type == "Photo"
-        source = "public/system/photos/files/000/000/#{id}/original/#{filename}"
-        next unless File.exist?(source)
-      else
-        source = "public/system/resources/files/000/000/#{id}/original/#{filename}"
-        next unless File.exist?(source)
-      end
+      source = "public/system/#{attachment.record_type.downcase.pluralize}/files/000/000/#{id}/original/#{filename}"        
+      next unless File.exist?(source)
 
       storage_service = Rails.application.config.active_storage.service
 
