@@ -38,8 +38,7 @@ en:
     download_manual_fr: "Download the ICCA Data Manual (Français)"
     interest_banner: "Are you interested in engaging with the ICCA Registry?"
     interest_banner_text: "If you would like to express your interest, or would like further information, please let us know"
-    # destination_email_address: "iccaregistry@unep-wcmc.org"
-    destination_email_address: "argwarbagle@sharklasers.com"
+    destination_email_address: "iccaregistry@unep-wcmc.org"
     interest_modal:
       cancel: "Cancel"
       country: "Country"
