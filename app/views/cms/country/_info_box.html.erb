@@ -1,12 +1,12 @@
 <% if @cms_page.country.icca_sites.any? %>
   <aside class="info-box info-box--fill-color">
     <section class="col-six">
-      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("explore.icca_sites_in") %><%= @cms_page.label %></h2>
+      <h2 class="info-box__header header-with-delimiter header-with-delimiter--bold"><%= t("explore.icca_sites_in") %> <%= @cms_page.label %></h2>
       <ul class="article__list article__list--less-margin info-box__body">
         <% @cms_page.country.icca_sites.each do |icca_site| %>
           <li class="article__list-item">
             <% if icca_site.pages.first %>
-              <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: english_site).first) %>"><%= icca_site.name %></a>
+              <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: english_site).first) %>"> <%= icca_site.name %></a>
             <% else %>
               <%= icca_site.name %>
             <% end %>
