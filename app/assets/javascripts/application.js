@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
 //= require modules/accordion
 //= require modules/block_page
