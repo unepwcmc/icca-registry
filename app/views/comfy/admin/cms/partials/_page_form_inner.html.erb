@@ -3,8 +3,7 @@
   <div class="col-sm-10">
     <% @page.photos.each do |photo| %>
       <div>
-        <%#= image_tag photo.file.variant(resize: "50x50") %>
-        <%= image_tag photo.file.url(:thumb) %>
+        <%= image_tag photo.file.variant(resize: "50x50") %>
         <%= link_to("Delete image", admin_photo_path(photo), method: :delete, class: "btn btn-danger") %>
       </div>
     <% end %>

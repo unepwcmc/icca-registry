@@ -18,10 +18,10 @@ Part 1:
 - get a copy of the latest .env file
 - `rails db:create`
 
-Only for this branch: 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
-- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. 
+
+- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. However, if you choose to download the DB, then you will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket). Follow the instructions below. 
 
 - `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments. 
 
@@ -29,11 +29,20 @@ Here you want to check whether the ActiveStorage::Attachment and ActiveStorage::
 
 - `rake activestorage:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
 
+- Uncomment out lines 4-5 of `photo.rb` and `resource.rb` to let the app use ActiveStorage, and comment out line 2 in each case (don't delete just in case something goes wrong and you need to revert back to using Paperclip). Now the photos should load on each page.
+
+
 - `bundle exec rake bower:install`
 - Add `storage/` to your .gitignore, and remove `public/system`. 
 - Start the server.
 
-There are also a number of `rake` tasks in `activestorage.rake` which will prove handy for creating backups of assets and so forth, either local or remotely via S3. 
+
+Make sure any Paperclip files you wish to copy via rake tasks have been done prior to the migration below, otherwise the tasks will fail, because the Paperclip columns are going to be removed.
+
+- Remove the . from the start of `.20200618080650_remove_paperclip_columns_from_tables.rb`. 
+- `rails db:migrate` to remove Paperclip columns.
+- Start the Rails server.
+
 
 icca-registry uses the `dotenv` gem to manage environment variables. Before
 starting the server, create a copy of the file `.env.example` (removing the
