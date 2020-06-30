@@ -18,7 +18,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'sassc-rails', '~> 1.3.0'
 gem 'sassc', '~> 1.9'
 gem 'coffee-rails', '~> 4.2.0'
-gem 'jquery-rails'
 gem 'turbolinks'
 gem 'comfy_bootstrap_form', '~> 4.0.3'
 
