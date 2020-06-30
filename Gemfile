@@ -21,6 +21,7 @@ gem 'coffee-rails', '~> 4.2.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'comfy_bootstrap_form', '~> 4.0.3'
+gem 'webpacker'
 
 # DB
 gem 'pg', '~> 0.18.4'

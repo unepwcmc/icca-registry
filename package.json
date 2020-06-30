@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@rails/webpacker": "4.2.2",
     "bourbon": "^7.0.0",
     "bourbon-neat": "1.9.1",
     "leaflet": "^1.6.0",
@@ -7,5 +8,8 @@
     "mapbox.js": "^3.3.1",
     "sass-flex-mixin": "^1.0.3",
     "select2": "^4.0.13"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
   }
 }
