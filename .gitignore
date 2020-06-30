@@ -16,14 +16,15 @@
 !/log/.keep
 /tmp
 
-/node_modules
+node_modules/
 
 .env
 .env.staging
 .env.production
 
-/vendor/assets/bower_components
 
 .DS_Store
 
 /public/system
+/temp
+/storage
