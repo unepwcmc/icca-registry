@@ -1,0 +1,12 @@
+@include e(header) {
+  border-bottom: solid $fact-header__border-bottom-color $fact-header__border-bottom-size;
+
+  @include m(white) {
+    color: $white;
+    border-bottom: solid $white $fact-header__border-bottom-size;
+  }
+
+  @include m(with-padding) {
+    padding-bottom: .75rem;
+  }
+}

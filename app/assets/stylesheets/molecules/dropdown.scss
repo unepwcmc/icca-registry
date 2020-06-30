@@ -1,0 +1,56 @@
+@include b(dropdown) {
+  background-color: $dropdown__bg-color;
+
+  left:0;
+  padding: 0 .625rem;
+  padding-bottom: 1.5rem;
+  position: absolute;
+  min-width: 100%;
+  white-space: nowrap;
+  z-index: 1000;
+
+  @include m(search-dropdown) {
+    background-color: $white;
+
+    left: initial;
+    right: 0;
+
+    min-width: 30rem;
+    padding-bottom: initial;
+    padding: .625rem;
+  }
+
+  @include e(trigger) {
+    display: inline-block;
+    position: relative;
+
+    &.is-active {
+      background-color: $dropdown-trigger-is-selected__bg-color;
+    }
+  }
+
+  @include e(inner) {
+    border-top: solid 2px $dropdown-inner__border-top-color;
+    padding-top: .5rem;
+
+    @include e(simple) {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    @include e(stretch) {
+      min-width: 25rem;
+    }
+  }
+
+  @include e(element) {
+    &:hover { background-color: $dropdown-element-hover__bg-color; }
+
+    @include color($white);
+    @include text(body);
+
+    display: block;
+    padding: .625rem 1.25rem;
+    margin: 0 -.625rem;
+  }
+}

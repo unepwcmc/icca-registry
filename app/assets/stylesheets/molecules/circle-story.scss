@@ -1,0 +1,13 @@
+@include b(circle-story) {
+  @include m(flex) {
+    @include flexbox;
+    @include justify-content(flex-start);
+    @include flex-direction(column);
+    @include align-items(center);
+  }
+
+  @import 'circle-story/_body';
+  @import 'circle-story/_circle';
+  @import 'circle-story/_content';
+  @import 'circle-story/_title';
+}

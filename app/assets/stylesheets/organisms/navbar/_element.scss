@@ -1,0 +1,75 @@
+@include e(element) {
+  position: relative;
+  padding: 0 .625rem;
+
+  @include m(dark) {
+    background-color: $navbar-element-dark__bg-color;
+    &:hover { background-color: $navbar-element-dark__bg-color !important; }
+  }
+
+  @include m(with-separator) {
+    border-left: solid 0.125rem $navbar-element-dark__bg-color;
+
+    &:before { top: 0;    }
+    &:after  { bottom: 0; }
+    &:before, &:after {
+      background-color: $navbar__bg-color;
+
+      content: "";
+      width: .25rem;
+      height: .5rem;
+      position: absolute;
+      left: -.25rem;
+    }
+  }
+
+
+  &.is-active {
+    background-color: $navbar-element-dark__bg-color;
+
+    &:hover { background-color: $navbar-element-dark__bg-color; }
+    &:active { background-color: $navbar-element-dark__bg-color; }
+  }
+
+  @include m(for-search-dropdown) {
+    &.is-active {
+      color: $navbar-element-for-search-dropdown-is-active__color;
+      background-color: $white;
+
+      &:hover { background-color: $white; }
+      &:active { background-color: $white; }
+    }
+  }
+
+  @include m(right) {
+    &:first-child  { margin-left: auto; }
+    &:nth-child(2) { margin-left: auto; }
+  }
+
+  @include m(bigger) {
+    @include text(headline);
+    @include line-height($navbar__height);
+  }
+
+  @include m(thinner) {
+    @include text(small);
+    @include line-height($navbar__height--thinner);
+  }
+
+  @include m(push-right) {
+    margin-right: 1rem;
+  }
+
+  @include m(larger) {
+    padding: 0 1.25rem;
+  }
+
+  @include text(body);
+  @include line-height($navbar__height);
+
+  @include color($navbar-element__color);
+
+  &.active, &:hover { background-color: $navbar-element-hover__bg-color; }
+  &:active { background-color: $navbar-element-active__bg-color; }
+}
+

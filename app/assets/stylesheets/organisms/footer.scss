@@ -1,0 +1,29 @@
+@include b(footer) {
+  @extend %flexbox;
+  @include align-items(center);
+
+  width: 100%;
+
+  padding-left: 1.5rem;
+
+  font-size: 0.938em;
+  background-color: $navbar__bg-color;
+
+  @include e(element) {
+    @include m(right) {
+      // this is insane
+      &:nth-child(2) { margin-left: auto; }
+    }
+    @include m(with-separator) {
+      padding-left: 1rem;
+      border-left: solid 0.125rem $footer-element-with-separator__border-left-color;
+    }
+
+    margin-right: 1rem;
+
+    @include color($navbar-element__color);
+
+    @include text(body);
+    @include line-height(null);
+  }
+}

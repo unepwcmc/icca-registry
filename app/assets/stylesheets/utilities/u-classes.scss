@@ -1,0 +1,47 @@
+// position
+.u-relative         { position: relative;                  }
+.u-fixed            { position: fixed;                     }
+
+// display
+.u-block            { display: block;                      }
+.u-inline-block     { display: inline-block;               }
+.u-hide             { display: none;                       }
+.u-clearfix         { @extend %clearfix;                   }
+.u-flex             { @include flexbox;                    }
+
+// colors
+.u-link-color       { @include color($link__color);        }
+
+// sizes
+.u-width-20         { width: 20%;                          }
+.u-width-40         { width: 40%;                          }
+.u-width-60         { width: 60%;                          }
+.u-width-80         { width: 80%;                          }
+.u-width-100        { width: 100%;                         }
+
+// text
+.u-italic           { font-style: italic;                  }
+.u-font-inherit     { font: inherit;                       }
+.u-center           { text-align: center;                  }
+.u-normal           { @include font-weight(normal);        }
+.u-bold             { @include font-weight(bold);          }
+.u-x-bold           { @include font-weight(x-bold);        }
+.u-medium           { @include text(medium);               }
+.u-alt-xlarge       { @include text--alt(xlarge, x-bold);  }
+.u-alt-xxlarge      { @include text--alt(xxlarge, x-bold); }
+.u-mono             { font-family: monospace;              }
+.u-alt-font         { font-family: 'MuseoSlab';            }
+
+// floats
+.u-left             { float: left;                         }
+.u-right            { float: right;                        }
+
+// box model
+.u-no-borders       { border: none !important;             }
+.u-push-top         { margin-top: auto;                    }
+.u-margin-auto      { margin: auto;                        }
+
+// misc
+.u-click-through    { pointer-events: none;                }
+.u-no-click-through { pointer-events: all;                 }
+.u-pdf-page-break   { page-break-before: always;           }

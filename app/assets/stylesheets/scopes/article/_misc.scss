@@ -1,0 +1,9 @@
+hr {
+  border: solid 1px $grey-5;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+img {
+  @extend .article__image;
+}

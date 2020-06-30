@@ -1,0 +1,24 @@
+@include e(story) {
+  @include flexbox;
+  @include flex-direction(column);
+
+  width: 35%;
+}
+
+@include e(story-border) {
+  border-bottom: solid 1.25rem $grey-5;
+  margin-top: 1.25rem;
+  width: 100%;
+}
+
+@include e(story-title) {
+  @include text(medium, bold);
+  @include color($green);
+  margin-bottom: 1rem;
+}
+
+@include e(story-content) {
+  @extend %color-base;
+  @include text(body, thin);
+  margin-bottom: 2rem;
+}

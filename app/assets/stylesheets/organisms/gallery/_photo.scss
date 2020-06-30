@@ -1,0 +1,12 @@
+@include e(photo) {
+  display: inline-block;
+
+  height: 100%;
+  width: auto;
+
+  margin-right: .375rem;
+
+  &.is-blurred {
+    opacity: .4;
+  }
+}

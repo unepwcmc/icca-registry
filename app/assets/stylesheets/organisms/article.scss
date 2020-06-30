@@ -1,0 +1,82 @@
+@include b(article) {
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+
+  @include e(title) {
+    margin-bottom: 2.5rem;
+    &:not(:first-child) { margin-top: 2.5rem; }
+
+    @include text(xxlarge, thin);
+    @include color($color--base);
+
+    @include m(smaller) {
+      @include text(xlarge, thin);
+    }
+
+    @include m(paragraph) {
+      @include text(medium);
+      margin-bottom: 1rem;
+    }
+
+    @include m(subparagraph) {
+      @include text(headline);
+      margin-bottom: 1rem;
+    }
+  }
+
+  @include e(paragraph) {
+    margin-bottom: 1.25rem;
+
+    @include text(body, thin);
+    @extend %color-base;
+
+    @include m(bigger) {
+      @include text--alt(headline, thin);
+    }
+  }
+
+  @include e(bold-text) {
+    @include text--alt(body, bold);
+  }
+
+  @include e(cursive-text) {
+    font-style: italic;
+  }
+
+  @include e(link) {
+    @include text(body, bold);
+    @extend %acts-as-link;
+  }
+
+  @include e(image) {
+    display: block;
+    margin: auto;
+  }
+
+  @include e(list) {
+    margin-left: 2.5rem;
+
+    @include m(less-margin) {
+      margin-left: 1rem;
+    }
+  }
+
+  @include e(list-item) {
+    @extend .article__paragraph;
+
+    position: relative;
+
+    &:before {
+      content: '\2022'; // circle bullet
+      color: $article-list-index__color;
+
+      font-size: 1rem;
+      font-weight: 700;
+
+      position: absolute;
+      left: -1rem;
+    }
+  }
+}

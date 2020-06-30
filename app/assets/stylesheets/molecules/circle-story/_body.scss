@@ -1,0 +1,8 @@
+@include e(body) {
+  @include text(body, thin);
+
+  padding: {
+    top: 1.5rem;
+    bottom: 1rem;
+  }
+}

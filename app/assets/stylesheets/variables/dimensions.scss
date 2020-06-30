@@ -1,0 +1,52 @@
+$max-width--desktop: 1280px !default;
+
+$gutter: 40px !global;
+
+// atoms/overlay
+$overlay--narrow__width: 45;
+
+// molecules/reference
+$reference__margin-bottom: 1.5rem !default;
+$reference-link-icon__margin-right: .5rem !default;
+$reference-title__margin-right: .2rem !default;
+$reference-body__margin-bottom: .25rem !default;
+
+// molecules/link-with-icon
+$link-with-icon-icon__margin-sides: .625rem !default;
+
+// molecules/big-button
+$big-button-icon__margin-right: .625rem !default;
+$big-button__border-radius: .325rem !default;
+$big-button__padding: (.5rem 1.875rem) !default;
+$big-button-compact__padding: (.5rem .75rem) !default;
+
+// molecules/horizontal-bar
+$horizontal-bar__height: 1.875rem !default;
+$horizontal-bar__margin-bottom: 1.25rem !default;
+
+// molecules/map
+$map__width: 100% !default;
+$map--hero__height: 380px !default;
+$map--main__height: 570px !default;
+
+// organisms/fact
+$fact-header__border-bottom-size: 1px !default;
+$fact-body__padding-top-bottom: 1rem;
+
+// organisms/navbar
+$navbar__height: 50px !default;
+$navbar__height--thinner: 30px !default;
+
+// organisms/gallery
+$gallery-body__height: 400px !default;
+$gallery-control__padding: (0 .625rem) !default;
+$gallery-current-index__padding: .5em .75em !default;
+$gallery-current-index__border-radius: 3rem !default;
+
+// organisms/info-box
+$info-box__padding: 1.25rem !default;
+$info-box__margin-bottom: 2.5rem !default;
+$info-box-padding-top-bottom__padding: (2rem 1.25rem) !default;
+$info-box-body__padding: (1rem .2rem) !default;
+$info-box-link-icon__margin-right: .5rem !default;
+$info-box-link__padding-bottom: 1rem !default;

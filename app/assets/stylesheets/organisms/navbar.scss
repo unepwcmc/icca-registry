@@ -1,0 +1,13 @@
+@include b(navbar) {
+  @extend %clearfix;
+  @include flexbox;
+
+  background-color: $navbar__bg-color;
+  padding-left: 1.25rem;
+
+  @include m(darker) {
+    background-color: $navbar__bg-color--darker;
+  }
+
+  @import "navbar/_element";
+}

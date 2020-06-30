@@ -1,0 +1,22 @@
+@include e(circle) {
+  float: left;
+
+  margin-right: 1.25rem;
+  border-radius: 100%;
+
+  $circle-diameter: 170px;
+  height: $circle-diameter;
+  width: $circle-diameter;
+
+  @include m(above) {
+    margin: 1.75rem 0;
+    margin-right: 0;
+    float: none;
+  }
+
+  @include m(smaller) {
+    $circle-diameter: 10rem;
+    height: $circle-diameter;
+    width: $circle-diameter;
+  }
+}

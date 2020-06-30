@@ -1,0 +1,11 @@
+@include e(row) {
+  @include text(body, thin);
+  border-bottom: solid 1px $grey-15;
+  margin-bottom: 10px;
+  padding: 5px 0;
+
+  @include m(last) {
+    td { padding-top: 1em; }
+    font-weight: bolder;
+  }
+};

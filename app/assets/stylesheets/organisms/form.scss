@@ -1,0 +1,37 @@
+@include b(form) {
+  @include text(body);
+  @extend %color-base;
+
+  @include e(label) {
+    @include text(body, bold);
+
+    display: block;
+    margin-bottom: .25rem;
+  }
+
+  @include e(input) {
+    &:focus { outline: none; border-width: 2px; }
+
+    @extend %color-base;
+    font: inherit;
+
+    min-height: 1.875rem;
+    min-width: 50%;
+    padding: .5rem;
+    border: solid 1px $grey-15;
+
+    @include m(big) {
+      min-height: 2.5rem;
+      min-width: 75%;
+    }
+
+    @include m(textarea) {
+      min-height: 7rem;
+      min-width: 100%;
+    }
+  }
+
+  @include e(fieldset) {
+    margin-bottom: 1rem;
+  }
+}

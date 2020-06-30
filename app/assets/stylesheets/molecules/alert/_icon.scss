@@ -1,0 +1,19 @@
+@include e(icon) {
+  float: left;
+
+  width: 2.5rem !important;
+  @include text--icon(body, thin);
+
+  @include m(warning) { color: $alert-warning--color; }
+  @include m(info) { color: $alert-info--color; }
+  @include m(success) { color: $alert-success--color; }
+}
+
+@include e(icon-inner) {
+  box-sizing: content-box;
+  @include text--icon(small, thin);
+
+  @include m(warning) { color: $alert__bg-color; }
+  @include m(info) { color: $alert__bg-color; }
+  @include m(success) { color: $alert__bg-color; }
+}

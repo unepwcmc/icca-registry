@@ -1,0 +1,6 @@
+@include e(title) {
+  @include text(medium, bold);
+  @include color($green);
+
+  margin-bottom: .25rem;
+}

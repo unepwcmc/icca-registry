@@ -1,0 +1,9 @@
+@include e(clear) {
+  color: $white;
+  @include text--alt(small, bold);
+
+  background-color: $green;
+  padding: 0 .25rem;
+
+  float: right;
+}

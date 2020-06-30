@@ -1,0 +1,35 @@
+@include b(stats-card) {
+  &:not(:last-child) {
+    border-bottom: dashed 1px $grey-33;
+  }
+
+  padding: 30px 0;
+
+  @include e(body) {
+    @extend %flexbox;
+    @include justify-content(flex-start);
+    @include align-items(flex-end);
+    @include flex-wrap(wrap);
+
+    @include value;
+
+    @include m(color) {
+      @include value($brown);
+      @include cube(6.25rem, $bg-color: $grey-15, $fill-color: $brown);
+    }
+
+    @include m(alt-color) {
+      @include value($blue--light);
+      @include cube(6.25rem, $bg-color: $grey-15, $fill-color: $blue--light);
+    }
+  }
+
+  @include e(element) {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+
+    @include m(push-right) {
+      margin-right: 2.5rem;
+    }
+  }
+}
