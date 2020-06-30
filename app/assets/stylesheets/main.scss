@@ -1,4 +1,4 @@
-// bower components
+
 // grids
 @import 'bourbon/core/bourbon';
 @import 'bourbon-neat/app/assets/stylesheets/neat';
@@ -13,13 +13,17 @@
 // maps
 @import 'leaflet/dist/leaflet';
 @import 'leaflet.markercluster/dist/MarkerCluster';
-// bower components
+
 
 // development mixins
 @import 'utilities/bem';
 
 // variables
 @import 'variables/colors';
+
+// ICCA Registry color overrides; 
+@import 'icca_registry/overrides';
+
 @import 'variables/dimensions';
 @import 'variables/font-faces';
 @import 'variables/fonts';
@@ -112,3 +116,7 @@
 @import 'utilities/u-classes';
 @import 'utilities/grid';
 // utilities
+
+// Styles specific to ICCA Registry
+@import 'icca_registry/custom';
+@import 'icca_registry/home';

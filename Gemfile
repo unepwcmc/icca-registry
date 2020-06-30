@@ -14,7 +14,6 @@ gem 'invisible_captcha', '~> 0.9.2'
 gem 'paperclip'
 
 # Assets
-gem 'bower-rails', '~> 0.10.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'sassc-rails', '~> 1.3.0'
 gem 'sassc', '~> 1.9'
