@@ -15,4 +15,18 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker')
+
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require('jquery')
+
+require("../modules/accordion")
+require("../modules/block_page")
+require("../modules/dropdown")
+require("../modules/gallery")
+require("../modules/interest_form")
+require("../modules/map")
+require("../modules/toggle")
+require("../modules/ui_state")
+require("common")
