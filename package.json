@@ -13,7 +13,12 @@
     "mapbox.js": "^3.3.1",
     "sass-flex-mixin": "^1.0.3",
     "select2": "^4.0.13",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "vue": "^2.6.11",
+    "vue-flickity": "^1.2.1",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.11",
+    "vue-turbolinks": "^2.1.0"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.11.0"

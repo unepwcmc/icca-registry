@@ -8,13 +8,10 @@
 // layout file, like app/views/layouts/application.html.erb
 
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
-
+// Vue
+import TurbolinksAdapter from 'vue-turbolinks'
+import Vue from 'vue/dist/vue.esm'
+import Flickity from 'vue-flickity'
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -30,3 +27,38 @@ require("../modules/map")
 require("../modules/toggle")
 require("../modules/ui_state")
 require("common")
+
+Vue.use(TurbolinksAdapter)
+
+
+
+document.addEventListener('turbolinks:load', () => {
+    if(document.getElementById('v-app')) {
+        new Vue({
+            el: '#v-app',
+            components: {
+                Flickity
+            },
+            data() {
+                return {
+                  flickityOptions: {
+                    initialIndex: 0,
+                    prevNextButtons: true,
+                    pageDots: true,
+                    wrapAround: true
+                  }
+                }
+            },
+              
+            methods: {
+                next() {
+                    this.$refs.flickity.next();
+                },
+                
+                previous() {
+                    this.$refs.flickity.previous();
+                }
+            }
+        })
+    }
+})
