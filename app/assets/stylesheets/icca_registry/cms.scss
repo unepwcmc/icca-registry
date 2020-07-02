@@ -1,0 +1,24 @@
+.country {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $grey-5;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.icca-site {
+    @extend .country;
+}
+
+.interest-submission {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
