@@ -38,7 +38,6 @@
 
     <div data-dropdown-target class="u-hide dropdown">
       <div class="dropdown__inner">
-        <% raise %>
         <% @participate_page.children.each do |page| %>
           <a class="dropdown__element" href="<%= cms_page_path(page) %>"><%= page.label %></a>
         <% end %>
