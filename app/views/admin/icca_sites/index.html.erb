@@ -1,13 +1,11 @@
-<div id="cms-uploader">
-  <div id="cms-uploader-drag-drop-target"></div>
-  <div class="page-header">
-    <h2>
-      Icca Sites
-    </h2>
-  </div>
-  <%= comfy_paginate @icca_sites %>
-  <ul class="list sortable">
-    <%= render :partial => 'icca_site', :collection => @icca_sites %>
-  </ul>
-  <%= comfy_paginate @icca_sites %>
+<div class="page-header">
+  <h2>
+    Icca Sites
+  </h2>
 </div>
+<%= comfy_paginate @icca_sites %>
+<ul class="list sortable">
+  <%= render :partial => 'icca_site', :collection => @icca_sites %>
+</ul>
+<%= comfy_paginate @icca_sites %>
+
