@@ -1,10 +1,9 @@
 <% if @cms_page.photos.any? %>
   <div id='v-app'>
-    <flickity ref="flickity" class="gallery__body" :options="flickityOptions">
+    <flickity ref="flickity" class="gallery__body">
       <% @cms_page.photos.each do |photo| %>
         <img src="<%= url_for(photo.file) %>" class="gallery__photo"/>
       <% end %>
     </flickity>
   </div>
-</div>
 <% end %>

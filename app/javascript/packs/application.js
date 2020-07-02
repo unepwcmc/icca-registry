@@ -8,10 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 
 
-// Vue
-import TurbolinksAdapter from 'vue-turbolinks'
-import Vue from 'vue/dist/vue.esm'
-import Flickity from 'vue-flickity'
+
 
 require("@rails/ujs").start()
 require("turbolinks").start()
@@ -26,39 +23,6 @@ require("../modules/interest_form")
 require("../modules/map")
 require("../modules/toggle")
 require("../modules/ui_state")
-require("common")
+require("../common")
+require("./vue")
 
-Vue.use(TurbolinksAdapter)
-
-
-
-document.addEventListener('turbolinks:load', () => {
-    if(document.getElementById('v-app')) {
-        new Vue({
-            el: '#v-app',
-            components: {
-                Flickity
-            },
-            data() {
-                return {
-                  flickityOptions: {
-                    initialIndex: 0,
-                    prevNextButtons: true,
-                    pageDots: true,
-                    wrapAround: true
-                  }
-                }
-            },
-              
-            methods: {
-                next() {
-                    this.$refs.flickity.next();
-                },
-                
-                previous() {
-                    this.$refs.flickity.previous();
-                }
-            }
-        })
-    }
-})
