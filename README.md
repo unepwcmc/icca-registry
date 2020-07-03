@@ -21,7 +21,7 @@ Part 1:
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
 
-- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. You will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket) if you want to check out the 'Files' section of the CMS. Follow the instructions below. 
+- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. You will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket) if you want to access the 'Files' section of the CMS. Follow the instructions below. 
 
 - `rails db:migrate`
 
