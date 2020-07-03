@@ -12,6 +12,9 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
     name = icca_site_params[:name]
 
     @icca_site.update(icca_site_params)
+
+    # CMS pages do not automatically update to reflect the new name of the 
+    # ICCA site!
     @icca_site.pages.update(
       label: name,
       slug: name.downcase.split.join('-')
