@@ -1,8 +1,5 @@
 @include e(body) {
-  position: relative;
-
   height: $gallery-body__height;
-  white-space: nowrap;
 
   margin-bottom: .625rem;
 }
