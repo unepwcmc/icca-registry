@@ -120,4 +120,6 @@
 // Styles specific to ICCA Registry
 @import 'icca_registry/custom';
 @import 'icca_registry/home';
-@import 'icca_registry/cms';
+
+// Custom CSS for the CMS
+@import 'comfy/admin/cms/custom';
