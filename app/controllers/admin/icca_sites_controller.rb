@@ -9,8 +9,13 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
   end
 
   def update
-    @icca_site.update(icca_site_params)
+    name = icca_site_params[:name]
 
+    @icca_site.update(icca_site_params)
+    @icca_site.pages.update(
+      label: name,
+      slug: name.downcase.split.join('-')
+    )
     redirect_to action: :index
   end
 
