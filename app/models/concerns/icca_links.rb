@@ -3,7 +3,7 @@ module IccaLinks
 
   included do
     belongs_to :country, optional: true
-    belongs_to :icca_site, optional: true
+    belongs_to :icca_site, optional: true, dependent: :destroy
 
     has_many :photos
     has_many :resources
@@ -44,5 +44,7 @@ module IccaLinks
   end
 
 end
+
+
 
 Comfy::Cms::Page.send(:include, IccaLinks)
