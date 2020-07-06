@@ -94,6 +94,13 @@ GEM
       capistrano (~> 3.0)
       sshkit (~> 1.2)
     climate_control (0.2.0)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     comfortable_mexican_sofa (2.0.17)
       active_link_to (>= 1.0.0)
       comfy_bootstrap_form (>= 4.0.0)
@@ -116,6 +123,7 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     erubis (2.7.0)
+    execjs (2.7.0)
     ffi (1.9.25)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -277,6 +285,8 @@ GEM
     turbolinks-source (5.2.0)
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
+    uglifier (4.2.0)
+      execjs (>= 0.3.0, < 3)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -300,6 +310,7 @@ DEPENDENCIES
   capistrano-passenger (~> 0.1.1)
   capistrano-rails (~> 1.1)
   capistrano-rvm (~> 0.1)
+  coffee-rails (~> 4.2.0)
   comfortable_mexican_sofa (~> 2.0.0)
   comfy_bootstrap_form (~> 4.0.3)
   dotenv-rails
@@ -315,6 +326,7 @@ DEPENDENCIES
   sassc-rails (~> 1.3.0)
   spring
   turbolinks
+  uglifier (>= 1.3.0)
   web-console
 
 BUNDLED WITH
