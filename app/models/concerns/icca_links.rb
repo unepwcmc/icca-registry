@@ -17,7 +17,7 @@ module IccaLinks
       
       if self.icca_site 
         IccaSite.where(id: self.icca_site.id).update(name: self.label)
-        self.slug = self.label.downcase.split().join('-')
+        self.slug = self.label.downcase.split.join('-')
       else
         self.icca_site = IccaSite.find_or_create_by(
           name: self.label,
