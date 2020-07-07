@@ -7,6 +7,8 @@ class HomeController < ApplicationController
     @icca_site        = IccaSite.find(@last_case_study.icca_site_id)
   end
 
+  private 
+  
   def find_last_photo
     ActiveStorage::Attachment.where(record_type: 'Photo').find do |photo| 
       photo.record.page_id == @last_case_study.id 
