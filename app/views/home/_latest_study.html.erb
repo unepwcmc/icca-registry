@@ -1,7 +1,7 @@
 <div class="section">
   <h1 class="section__header"><%= t("home_page.latest_case_study") %></h1>
   <div class="section__body article">
-    <% unless @photo.nil? %>
+    <% if @photo.present? %>
       <div class="cover-story__cover cover-story__cover--above" style="overflow: hidden; max-height: 400px">
         <img style="width: 100%" src="<%= url_for(@photo.file) %>">
       </div>
