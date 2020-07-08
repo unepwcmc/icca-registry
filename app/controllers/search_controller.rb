@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  
+  include SearchModule
 
   def show
     @query = params[:q]
