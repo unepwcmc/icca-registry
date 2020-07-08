@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
-  include PgSearch
+  
 
   def show
     @query = params[:q]
-    @results = Search.results(params[:q])
+    @results = SearchModule.results(params[:q])
     categorize_results
   end
 
