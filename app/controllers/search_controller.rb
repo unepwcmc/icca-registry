@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  include PgSearch
+
   def show
     @query = params[:q]
     @results = Search.results(params[:q])
