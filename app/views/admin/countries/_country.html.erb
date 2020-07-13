@@ -2,6 +2,7 @@
   <div class="item">
     <div class="btn-group btn-group-sm">
       <%= link_to t('.edit'), edit_admin_country_path(country), :class => 'btn btn-default' %>
+      <%= link_to t('.destroy'), admin_icca_site_path(country), method: :delete, class: 'btn btn-default'  %>
     </div>
     <div class="item-content">
       <div class="item-title">

@@ -1,0 +1,31 @@
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+
+development:
+  service: S3
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  region: eu-west-1
+  bucket: <%= ENV["AWS_BUCKET_DEVELOPMENT"] %>
+
+
+staging:
+  service: S3
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  region: eu-west-1
+  bucket: <%= ENV["AWS_BUCKET_STAGING"] %>
+
+production:
+  service: S3
+  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
+  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  region: eu-west-1
+  bucket: <%= ENV["AWS_BUCKET_PRODUCTION"] %>

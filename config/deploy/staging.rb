@@ -1,5 +1,5 @@
 set :stage, :staging
-set :branch, "develop"
+set :branch, "upgrading-cms-part-two"
 
 server "web-supported-staging.linode.unep-wcmc.org", user: 'wcmc', roles: %w{app web db}
 
