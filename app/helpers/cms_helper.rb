@@ -31,7 +31,7 @@ module CmsHelper
     end
   end
 
-  def english_site
-    Comfy::Cms::Site.find_by_locale("en")
+  def site
+    Comfy::Cms::Site.find_by_locale(I18n.locale)
   end
 end

@@ -13,6 +13,16 @@ class Admin::CountriesController < Comfy::Admin::Cms::BaseController
     redirect_to action: :index
   end
 
+  def destroy
+    if @country.destroy
+      flash[:notice] = 'Country deleted.'
+    else
+      flash[:alert] = @country.errors.full_messages.first
+    end
+
+    redirect_to action: :index
+  end
+
   private
 
   def country_params
