@@ -1,0 +1,7 @@
+@include e(value) {
+  text-align: right;
+
+  @include m(link) {
+    color: $table-link__color;
+  }
+}

@@ -1,0 +1,11 @@
+@include e(body) {
+  @extend %clearfix;
+
+  @include m(no-padding) { padding: 0; }
+  @include m(inherit) { font: inherit; }
+  @include text(body, thin);
+
+  @include m(flex) { @include flexbox; }
+
+  padding: $info-box-body__padding;
+}

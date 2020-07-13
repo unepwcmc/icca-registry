@@ -1,0 +1,22 @@
+@include b(section) {
+  max-width: $max-width--desktop;
+  padding: 0 7rem;
+  margin-bottom: 7rem;
+  margin: {left: auto; right: auto;}
+
+  @include e(header) {
+    @extend %color-base;
+    @include text(xlarge, thin);
+
+    margin-bottom: 2.5rem;
+    padding-left: 1.25rem;
+    padding-bottom: 1.5rem;
+
+    border-bottom: solid 1px $grey-15;
+  }
+
+  @include e(body) {
+    @extend %clearfix;
+    padding: 0 1.25rem;
+  }
+}

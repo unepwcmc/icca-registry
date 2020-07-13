@@ -1,0 +1,48 @@
+@include b(fact) { $block: &;
+  margin-bottom: .666em;
+
+  @include e(header) {
+    @include header-with-delimiter($border-bottom: (
+      color: $fact-header__border-bottom-color,
+      size: $fact-header__border-bottom-size
+    ));
+  }
+
+  @include e(subheader) {
+    @include color($grey-100);
+    @include text(body);
+    margin-bottom: .5em;
+  }
+
+  @include e(body) {
+    width: 100%;
+    padding: $fact-body__padding-top-bottom  0;
+
+    @include m(no-padding) {
+      padding: 0;
+    }
+
+    @include m(lateral-padding) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @include e(single-figure) {
+    @include text--alt(xxxxlarge, bold);
+    @include color($green);
+
+    @media print {
+      @include text--alt(large, bold);
+    }
+
+    @include m(push-down) {
+      margin-bottom: .4em;
+    }
+  }
+
+  @include e(external-link) {
+    margin-left: .25em;
+    color: $fact-external-link__color;
+  }
+}

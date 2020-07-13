@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "bourbon": "^7.0.0",
+    "bourbon-neat": "1.9.1",
+    "leaflet": "^1.6.0",
+    "leaflet.markercluster": "^1.4.1",
+    "mapbox.js": "^3.3.1",
+    "sass-flex-mixin": "^1.0.3",
+    "select2": "^4.0.13"
+  }
+}

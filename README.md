@@ -20,29 +20,21 @@ Part 1:
 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
+- In `photo.rb` and `resource.rb` in `app/models`, comment out lines 4-5 and uncomment out line 2
 
-- `rake db_check:import` - to download latest DB from the server and downloads latest photos as well. However, if you choose to download the DB, then you will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket). Follow the instructions below. 
+- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. You will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket) if you want to access the 'Files' section of the CMS. Follow the instructions below. 
 
-- `rails db:migrate` - to run migrations that create ActiveStorage tables, rename obsolete Comfy columns in the database and convert Paperclip attachments into ActiveStorage attachments. 
+- `rake db:migrate`
 
-Here you want to check whether the ActiveStorage::Attachment and ActiveStorage::Blob tables are empty via the Rails console and running `ActiveStorage::Attachment.count`/`ActiveStorage::Blob.count`, if they are, it means the last migration did not work as it should, so there is a rake task `rake migrate:to_activestorage` for this situation.
+- `rake migrate:to_activestorage`
 
 - `rake activestorage:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
 
 - Uncomment out lines 4-5 of `photo.rb` and `resource.rb` to let the app use ActiveStorage, and comment out line 2 in each case (don't delete just in case something goes wrong and you need to revert back to using Paperclip). Now the photos should load on each page.
 
+- `yarn install`
 
-- `bundle exec rake bower:install`
-- Add `storage/` to your .gitignore, and remove `public/system`. 
 - Start the server.
-
-
-Make sure any Paperclip files you wish to copy via rake tasks have been done prior to the migration below, otherwise the tasks will fail, because the Paperclip columns are going to be removed.
-
-- Remove the . from the start of `.20200618080650_remove_paperclip_columns_from_tables.rb`. 
-- `rails db:migrate` to remove Paperclip columns.
-- Start the Rails server.
-
 
 icca-registry uses the `dotenv` gem to manage environment variables. Before
 starting the server, create a copy of the file `.env.example` (removing the

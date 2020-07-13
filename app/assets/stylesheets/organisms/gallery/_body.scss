@@ -1,0 +1,17 @@
+@include e(body) {
+  position: relative;
+
+  height: $gallery-body__height;
+  overflow: hidden;
+  white-space: nowrap;
+
+  margin-bottom: .625rem;
+}
+
+@include e(body-inner) {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100%;
+}

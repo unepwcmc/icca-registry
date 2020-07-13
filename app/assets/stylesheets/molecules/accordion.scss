@@ -1,0 +1,37 @@
+@include b(accordion) {
+  margin-bottom: .625rem;
+
+  @include e(header) {
+    &:hover { background-color: $grey-15; }
+
+    @extend %color-base;
+    @include text(headline);
+
+    background-color: $grey-5;
+    cursor: pointer;
+    padding: .5rem 1.25rem;
+
+    @include m(no-bg) { background-color: inherit; }
+}
+
+  @include e(switch) {
+    float: right;
+
+    &:after { @extend %color-base; }
+
+    &.is-open {
+      &:after { @include fa(minus-circle); }
+    }
+
+    &.is-closed {
+      &:after { @include fa(plus-circle); }
+    }
+  }
+
+  @include e(body) {
+    @extend %color-base;
+    border: solid 1px $grey-5;
+    padding: 1.25rem;
+  }
+}
+

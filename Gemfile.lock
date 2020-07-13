@@ -75,7 +75,6 @@ GEM
     aws-sigv4 (1.1.4)
       aws-eventstream (~> 1.0, >= 1.0.2)
     bindex (0.8.1)
-    bower-rails (0.10.0)
     builder (3.2.4)
     byebug (11.0.1)
     capistrano (3.11.0)
@@ -303,7 +302,6 @@ DEPENDENCIES
   appsignal (~> 2.2.1)
   aws-sdk (~> 1.6)
   aws-sdk-s3
-  bower-rails (~> 0.10.0)
   byebug
   capistrano (= 3.11.0)
   capistrano-bundler (~> 1.6.0)

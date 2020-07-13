@@ -1,0 +1,20 @@
+@include e(value) {
+  @include color-with-state(inherit, (
+    hover: $filter-bar-value-hover__bg-color,
+    active: $filter-bar-value-active__bg-color,
+  ), background-color);
+
+  @include color-with-state($color--base, (
+    hover: $link__color--hover,
+    active: $link__color--pressed,
+  ));
+
+  display: block;
+  width: 100%;
+  padding: .5rem;
+  cursor: pointer;
+
+  @include m(smaller) {
+    @include text(small);
+  }
+}

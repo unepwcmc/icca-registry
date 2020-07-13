@@ -1,0 +1,22 @@
+@include e(controls) {
+  @extend .u-center;
+
+  background-color: $gallery-controls__bg-color;
+  line-height: 3.125rem;
+}
+
+@include e(control) {
+  padding: $gallery-control__padding;
+}
+
+@include e(counter) {
+  @include text(body);
+  @extend %color-base;
+}
+
+@include e(current-index) {
+  color: $gallery-current-index__color;
+  background-color: $gallery-current-index__bg-color;
+  padding: $gallery-current-index__padding;
+  border-radius: $gallery-current-index__border-radius;
+}

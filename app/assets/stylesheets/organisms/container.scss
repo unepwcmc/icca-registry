@@ -1,0 +1,28 @@
+@include b(container) {
+  @include m(profile) {
+    @extend %clearfix;
+
+    max-width: $max-width--desktop;
+    width: 80%;
+    margin: auto;
+  }
+
+  @include m(fullscreen) {
+    @extend %clearfix;
+    width: 100%;
+    padding: 1.25rem;
+    padding-bottom: 0;
+  }
+
+  @include m(right-padded) {
+    padding-right: 5%;
+  }
+
+  @include m(push-bottom) {
+    margin-bottom: 12rem;
+  }
+
+  @include m(push-top) {
+    margin-top: 12rem;
+  }
+}

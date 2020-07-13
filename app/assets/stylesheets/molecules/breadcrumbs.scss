@@ -1,0 +1,12 @@
+@include b(breadcrumbs) {
+  @extend %color-base;
+  @include text(small);
+
+  margin: 1.5rem 0;
+  padding: { left: .666rem; right: .666rem; }
+
+  @include e(link) {
+    @extend %acts-as-link;
+    @include text(small, bold);
+  }
+}

@@ -1,0 +1,11 @@
+@include e(label) {
+  @include text(body, thin);
+  @include line-height(1.666em);
+
+  @include m(link) {
+    color: $table-link__color;
+  }
+
+  padding-top: 0.65em;
+  text-align: left;
+};

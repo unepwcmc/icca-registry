@@ -9,7 +9,7 @@ namespace :db_check do
 			if target == 'db'
         return 'You\'re in production - no download needed' if Rails.env.production?
 				target_object = s3.buckets["#{ENV['AWS_BUCKET']}"].objects.with_prefix("#{ENV["AWS_BUCKET_#{target.upcase}"]}").to_a.last
-
+				
 				FileUtils.mkdir_p('temp')
 
 				File.open("temp/#{target}.tar", 'wb') do |file|
@@ -18,7 +18,7 @@ namespace :db_check do
 				end
 
 				puts 'Killing all db connections and dropping the old database...'
-				tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import)
+				tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
 				tasks.each do |t|
 					puts "Running #{t}..."
 					Rake::Task[t].invoke([target]) if t == tasks[3]

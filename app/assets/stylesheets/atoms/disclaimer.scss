@@ -1,0 +1,11 @@
+@include b(disclaimer) {
+  @include color($color--map-disclaimer-text);
+  @include text(body, thin);
+
+  background: $color--map-disclaimer-bg;
+  display: block;
+  padding: 0.333rem;
+  text-align: center;
+  width: 100%;
+  z-index: $z-index-10;
+}
