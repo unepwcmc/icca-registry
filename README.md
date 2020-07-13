@@ -20,22 +20,21 @@ Part 1:
 
 Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
+- In `photo.rb` and `resource.rb` in `app/models`, comment out lines 4-5 and uncomment out line 2
 
 - `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. You will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket) if you want to access the 'Files' section of the CMS. Follow the instructions below. 
 
-- `rails db:migrate`
+- `rake db:migrate`
 
--  `rake migrate:to_activestorage`
+- `rake migrate:to_activestorage`
 
 - `rake activestorage:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
 
 - Uncomment out lines 4-5 of `photo.rb` and `resource.rb` to let the app use ActiveStorage, and comment out line 2 in each case (don't delete just in case something goes wrong and you need to revert back to using Paperclip). Now the photos should load on each page.
 
-
 - `yarn install`
 
 - Start the server.
-
 
 icca-registry uses the `dotenv` gem to manage environment variables. Before
 starting the server, create a copy of the file `.env.example` (removing the
