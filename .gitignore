@@ -28,3 +28,8 @@ node_modules/
 /public/system
 /temp
 /storage
+
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+

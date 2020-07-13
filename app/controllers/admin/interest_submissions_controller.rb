@@ -1,4 +1,6 @@
 class Admin::InterestSubmissionsController < Comfy::Admin::Cms::BaseController
+  require 'csv'
+
   def index
     @interest_submissions = InterestSubmission.order(created_at: :desc).all
   end
