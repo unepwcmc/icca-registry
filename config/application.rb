@@ -22,8 +22,7 @@ module IccaRegistry
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :en
 
-    config.autoload_paths += %W(#{config.root}/lib/modules)
-    config.autoload_paths += %W(#{config.root}/app/presenters)
+    config.eager_load_paths += %W(#{config.root}/lib/modules)
 
     # Rails 5 now supports per-form CSRF tokens to mitigate against code-injection attacks with forms created by JavaScript.
     # With this option turned on, forms in your application will each have their own CSRF token that is specific to the action and method for that form.

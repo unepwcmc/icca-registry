@@ -1,4 +1,4 @@
-module Search
+module SearchModule
   def self.results(term)
     results = Set.new
     PgSearch.multisearch(term).each do |result|
