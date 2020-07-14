@@ -2,6 +2,7 @@
   <flickity 
     :options="flickityOptions"
     ref="flickity"
+    v-images-loaded="imgsLoaded"
   >
     <slot />
   </flickity>
@@ -9,17 +10,20 @@
 
 <script>
 import Flickity from "vue-flickity";
+import imagesLoaded from 'vue-images-loaded';
 
 export default {
   name: "CarouselFlickity",
   components: { Flickity },
+  directives: { imagesLoaded },
   data() {
     return {
       flickityOptions: {
         initialIndex: 0,
         prevNextButtons: true,
         pageDots: true,
-        wrapAround: true
+        wrapAround: true,
+        imagesLoaded: true
       }
     };
   },
@@ -30,6 +34,10 @@ export default {
 
     previous() {
       this.$refs.flickity.previous();
+    },
+    imgsLoaded() {
+      let flickityInstance = this.$refs.flickity;
+      flickityInstance.reloadCells();
     }
   }
 };
