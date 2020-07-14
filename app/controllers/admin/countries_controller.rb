@@ -20,7 +20,7 @@ class Admin::CountriesController < Comfy::Admin::Cms::BaseController
       flash[:alert] = @country.errors.full_messages.first
     end
 
-    redirect_to action: :index
+    # redirect_to index_path
   end
 
   private

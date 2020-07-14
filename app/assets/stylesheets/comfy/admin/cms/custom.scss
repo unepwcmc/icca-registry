@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: lightgrey;
+    background-color: #f8f9fa;
     margin-bottom: 10px;
     padding: 10px;
 }
@@ -21,4 +21,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.alert-error {
+    background-color: red;
+    color: white;
+}
+
+.alert-notice {
+    background-color: lightblue;
+    color: white;
 }
