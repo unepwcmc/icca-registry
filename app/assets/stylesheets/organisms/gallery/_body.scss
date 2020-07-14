@@ -2,3 +2,7 @@
   margin-bottom: .625rem;
 }
 
+@include e(body--active) {
+  display: flex;
+  margin-bottom: .625rem;
+}
