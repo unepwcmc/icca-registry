@@ -37,7 +37,7 @@ export default {
     },
     imgsLoaded() {
       let flickityInstance = this.$refs.flickity;
-      flickityInstance.reloadCells();
+      flickityInstance.rerender();
     }
   }
 };
