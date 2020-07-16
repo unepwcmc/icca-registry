@@ -1,17 +1,9 @@
 @include e(body) {
-  position: relative;
-
-  height: $gallery-body__height;
-  overflow: hidden;
-  white-space: nowrap;
-
   margin-bottom: .625rem;
+  width: 100%;
 }
 
-@include e(body-inner) {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  height: 100%;
+@include e(body--active) {
+  display: flex;
+  margin-bottom: .625rem;
 }

@@ -1,20 +1,17 @@
 <% if @cms_page.photos.any? %>
-  <div class="gallery js-gallery">
-    <div class="gallery__body">
-      <div class="js-window gallery__body-inner">
-        <% @cms_page.photos.each do |photo| %>
-          <%= image_tag url_for(photo.file), class: "gallery__photo js-photo" %>
-        <% end %>
-      </div>
-    </div>
-    <div class="gallery__controls">
-      <button class="js-first gallery__control link-with-icon u-bold">|&lt; First</button>
-      <button class="js-previous gallery__control link-with-icon u-bold">&lt;&lt; Previous</button>
-      <span class="gallery__control gallery__counter">
-        Image <em class="js-current-index gallery__current-index">1</em> of <%= @cms_page.photos.length %>
-    </span>
-    <button class="js-next gallery__control link-with-icon u-bold">Next &gt;&gt;</button>
-    <button class="js-last gallery__control link-with-icon u-bold">Last &gt;|</button>
+  <% if @cms_page.photos.count < 3 %>
+  <div class="gallery__body--active">
+    <% @cms_page.photos.each do |photo| %>
+      <img class="gallery__photo" src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
+    <% end %>
   </div>
-</div>
+  <% else %>
+    <div id='v-app'>
+      <carousel-flickity class="gallery__body">
+        <% @cms_page.photos.each do |photo| %>
+          <img class="gallery__photo" src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
+        <% end %>
+      </carousel-flickity>
+    </div>
+  <% end %>
 <% end %>
