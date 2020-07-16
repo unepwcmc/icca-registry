@@ -18,11 +18,11 @@ require('jquery')
 require("../modules/accordion")
 require("../modules/block_page")
 require("../modules/dropdown")
-require("../modules/gallery")
 require("../modules/interest_form")
 require("../modules/map")
 require("../modules/toggle")
 require("../modules/ui_state")
 require("../common")
 require("./vue")
+
 
