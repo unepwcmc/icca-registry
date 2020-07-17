@@ -4,7 +4,7 @@
       <%= country.iso_3 %>
       <h5><%= country.name %></h3>
     </div>
-    <div class="btn-group btn-group-md">
+    <div class="btn-group btn-group-sm">
       <%= link_to t('.edit'), edit_admin_country_path(country), class: 'btn btn-outline-secondary' %>
       <%= link_to t('.destroy'), admin_country_path(country), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}  %>
     </div>
