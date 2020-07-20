@@ -19,6 +19,8 @@ gem 'sassc', '~> 1.9'
 gem 'turbolinks'
 gem 'comfy_bootstrap_form', '~> 4.0.3'
 gem 'webpacker'
+# Needed to load in custom JS into the CMS - added back in
+gem 'coffee-rails'
 
 # DB
 gem 'pg', '~> 0.18.4'
