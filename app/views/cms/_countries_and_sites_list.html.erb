@@ -1,12 +1,12 @@
 <!-- checks if pages for the country are existent, if not, filter them out -->
-<% Country.order(:name).select { |country| !country.pages.empty? }.each do |country| %>
+<% Country.order(:name).select { |country| country.pages.find { |page| page.site_id == site.id  }}.each do |country| %>
   <div class="row accordion js-accordion">
     <h3 class="js-trigger accordion__header">
       <%= country.name %><i class="accordion__switch js-switch accordion__switch is-closed"></i>
     </h3>
     <div class="js-target accordion__body u-hide">
       <div class="row <%= 'row--push2x' if country.icca_sites.any? %>">
-        <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.where(site: english_site).first) %>">
+        <a class="link-with-icon u-bold" href="<%= cms_page_path(country.pages.where(site: site).first) %>">
           <i class="fa fa-arrow-right link-with-icon__icon"></i><%= t("explore_page.see_country_page") %>
         </a>
       </div>
@@ -17,8 +17,8 @@
         <ul class="article__list article__list--less-margin">
           <% country.icca_sites.each do |icca_site| %>
             <li class="article__list-item">
-              <% if icca_site.pages.where(site: english_site).first %>
-                <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: english_site).first) %>"><%= icca_site.name %></a>
+              <% if icca_site.pages.where(site: site).first %>
+                <a class="article__link" href="<%= cms_page_path(icca_site.pages.where(site: site).first) %>"><%= icca_site.name %></a>
               <% else %>
                 <%= icca_site.name %>
               <% end %>

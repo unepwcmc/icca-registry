@@ -1,24 +1,30 @@
-.country {
+.country, .icca-site {
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: lightgrey;
-    margin-bottom: 10px;
-    padding: 10px;
-}
-
-.icca-site {
-    @extend .country;
 }
 
 .interest-submission {
+    border: 1px solid black;
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid black;
 }
 
 .header-flex {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+}
+
+.alert-error {
+    background-color: red;
+    color: white;
+}
+
+.alert-notice {
+    background-color: lightblue;
+    color: white;
 }

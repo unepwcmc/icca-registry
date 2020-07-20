@@ -9,16 +9,24 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
   end
 
   def update
+    name = icca_site_params[:name]
+
     @icca_site.update(icca_site_params)
 
+    # CMS pages do not automatically update to reflect the new name of the 
+    # ICCA site!
+    @icca_site.pages.update(
+      label: name,
+      slug: name.downcase.split.join('-')
+    )
     redirect_to action: :index
   end
 
   def destroy
     if @icca_site.destroy
-      flash[:notice] = 'Site deleted.'
+      flash[:notice] = "Site - #{@icca_site.name} deleted."
     else
-      flash[:alert] = @icca_site.errors.full_messages.first
+      flash[:error] = @icca_site.errors.full_messages.first
     end
 
     redirect_to action: :index

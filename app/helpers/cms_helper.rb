@@ -24,14 +24,14 @@ module CmsHelper
       link_to(
         "Edit CMS page",
         edit_comfy_admin_cms_site_page_path(site_id: site, id: page.id),
-        class: "btn btn-default"
+        class: 'btn btn-outline-secondary'
       )
     else
       ""
     end
   end
 
-  def english_site
-    Comfy::Cms::Site.find_by_locale("en")
+  def site
+    Comfy::Cms::Site.find_by_locale(I18n.locale)
   end
 end

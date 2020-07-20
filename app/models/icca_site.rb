@@ -7,7 +7,7 @@ class IccaSite < ApplicationRecord
 
   def safe_to_destroy
     if pages.any?
-      errors[:base] << "Attempted to delete site, but pages found associated with that site. Delete those pages and try again."
+      errors[:base] << "Attempted to delete #{self.name}, but pages found associated with that site. Delete those pages and try again."
       throw :abort
     end
   end

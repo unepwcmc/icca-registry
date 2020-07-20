@@ -8,7 +8,7 @@ en:
   explore: "Explore"
   filters: "Filters"
   home: "Home"
-  icca_countries: "ICCA Countries"
+  icca_countries: "Countries"
   learn_more: "Learn more"
   links: "Important Links"
   no_select: "No"
@@ -102,6 +102,7 @@ en:
     countries:
       country:
         edit: 'Edit'
+        destroy: 'Delete'
     icca_sites:
       icca_site:
         edit: 'Edit'

@@ -6,10 +6,10 @@
         <strong>Lat:</strong> <%= icca_site.lat %> | <strong>Lon:</strong> <%= icca_site.lon %>
       </div>
     </div>
-    <div class="btn-group btn-group-md">
-      <%= link_to t('.edit'), edit_admin_icca_site_path(icca_site), class: 'btn btn-default' %>
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_icca_site_path(icca_site), class: 'btn btn-outline-secondary' %>
       <%= link_to_cms_page(icca_site, @site) %>
-      <%= link_to t('.destroy'), admin_icca_site_path(icca_site), method: :delete, class: 'btn btn-default'  %>
+      <%= link_to t('.destroy'), admin_icca_site_path(icca_site), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}  %>
     </div>
   </div>
 </li>

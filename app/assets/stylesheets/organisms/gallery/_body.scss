@@ -1,4 +1,10 @@
 @include e(body) {
   margin-bottom: .625rem;
+  width: 100%;
+}
+
+@include e(body--active) {
+  display: flex;
+  margin-bottom: .625rem;
 }
 
