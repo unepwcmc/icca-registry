@@ -23,7 +23,6 @@ require("../modules/map")
 require("../modules/toggle")
 require("../modules/ui_state")
 require("../common")
-
-import './vue.js'
+require("./vue")
 
 

@@ -4,6 +4,7 @@ import Vue from 'vue/dist/vue.esm'
 import CarouselFlickity from '../carousel/CarouselFlickity.vue';
 
 
+
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {

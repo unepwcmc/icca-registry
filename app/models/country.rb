@@ -16,7 +16,7 @@ class Country < ApplicationRecord
 
   def safe_to_destroy
     if icca_sites.any?
-      errors[:base] << "Attempted to delete country, but sites found associated with that country. Delete those sites and try again."
+      errors[:base] << "Attempted to delete #{self.name}, but sites found associated with that country. Delete those sites and try again."
       throw :abort
     end
   end
