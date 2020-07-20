@@ -1,14 +1,12 @@
-<div id="cms-uploader">
-  <div id="cms-uploader-drag-drop-target"></div>
-  <div class="page-header">
-    <h2>
-      Interest submissions
-      <a href="<%= download_csv_admin_interest_submissions_path %>" class="pull-right btn btn-primary">Download as CSV</a>
-    </h2>
-  </div>
-  <%= comfy_paginate @interest_submissions %>
-  <ul class="list sortable">
-    <%= render partial: 'interest_submission', collection: @interest_submissions %>
-  </ul>
-  <%= comfy_paginate @interest_submissions %>
+<div class="page-header header-flex">
+  <h2>
+    Interest submissions
+  </h2>
+  <a href="<%= download_csv_admin_interest_submissions_path %>" class="btn btn-primary">Download as CSV</a>
 </div>
+<%= comfy_paginate @interest_submissions %>
+<ul class="list sortable">
+  <%= render partial: 'interest_submission', collection: @interest_submissions %>
+</ul>
+<%= comfy_paginate @interest_submissions %>
+

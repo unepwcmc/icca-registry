@@ -99,7 +99,12 @@ en:
     registration_documents: "Registration documents"
     supporting_information: "Supporting information"
   admin:
+    countries:
+      country:
+        edit: 'Edit'
+        destroy: 'Delete'
     icca_sites:
       icca_site:
         edit: 'Edit'
         destroy: 'Delete'
+    

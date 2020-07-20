@@ -24,7 +24,7 @@ module CmsHelper
       link_to(
         "Edit CMS page",
         edit_comfy_admin_cms_site_page_path(site_id: site, id: page.id),
-        class: "btn btn-default"
+        class: 'btn btn-outline-secondary'
       )
     else
       ""
