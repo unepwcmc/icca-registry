@@ -8,6 +8,8 @@ $(document).ready( ->
         <input type="file" name="resources[][file]" placeholder="File" class="form-control">
       """)
 
+      $addResourcesEl.find(".js-target-resources").addClass('py-2')
+
       $jsButtonsResources = $(".js-buttons-resources")
       
       if $('js-cancel-resources').length == 0
@@ -33,9 +35,11 @@ $(document).ready( ->
       ev.preventDefault()
 
       $addrelatedLinksEl.find(".js-target-related-links").append("""
-        <input type="text" name="related_links[][label]" placeholder="Label" class="form-control">
-        <input type="url" name="related_links[][url]" placeholder="URL" class="form-control">
+          <input type="text" name="related_links[][label]" placeholder="Label" class="form-control">
+          <input type="url" name="related_links[][url]" placeholder="URL" class="form-control">
       """)
+
+      $addrelatedLinksEl.find(".js-target-related-links").addClass('py-2')
 
       $jsButtonsLinks = $(".js-buttons-related-links")
       
