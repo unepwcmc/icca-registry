@@ -23,7 +23,7 @@ $(document).ready( ->
 
           childInputs.forEach((node) => node.remove() ) 
 
-          $(this).hide()
+          $(this).remove()
       )
     )
 
@@ -52,7 +52,7 @@ $(document).ready( ->
 
           childInputs.forEach((node) => node.remove() ) 
 
-          $(this).hide()
+          $(this).remove()
       )
   )
 )
