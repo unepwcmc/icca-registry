@@ -12,10 +12,11 @@ $(document).ready( ->
 
       $jsButtonsResources = $(".js-buttons-resources")
       
-      if $('js-cancel-resources').length == 0
+      if $('.js-cancel-resources').length == 0
         $jsButtonsResources.append("""
           <button class="js-cancel-resources btn btn-danger">Cancel</button>
         """)
+
 
       $jsButtonsResources.on('click', '.js-cancel-resources', (event) -> 
           event.preventDefault()
@@ -45,7 +46,7 @@ $(document).ready( ->
 
       $jsButtonsLinks = $(".js-buttons-related-links")
       
-      if $('js-cancel-related-links').length == 0
+      if $('.js-cancel-related-links').length == 0
         $jsButtonsLinks.append("""
           <button class="js-cancel-related-links btn btn-danger">Cancel</button>
         """)
