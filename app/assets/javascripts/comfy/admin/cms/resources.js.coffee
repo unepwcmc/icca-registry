@@ -8,24 +8,22 @@ $(document).ready( ->
         <input type="file" name="resources[][file]" placeholder="File" class="form-control">
       """)
 
-      $jsButtons = $(".js-buttons-resources")
+      $jsButtonsResources = $(".js-buttons-resources")
       
-      $jsButtons.append("""
-        <button class="js-cancel-resources btn btn-danger">Cancel</button>
-      """)
+      if $('js-cancel-resources').length == 0
+        $jsButtonsResources.append("""
+          <button class="js-cancel-resources btn btn-danger">Cancel</button>
+        """)
 
-      $jsCancel = $('.js-cancel-resources') 
-
-      $jsCancel.click((event) -> 
+      $jsButtonsResources.on('click', '.js-cancel-resources', (event) -> 
           event.preventDefault()
 
           parentNode = document.querySelector(".js-target-resources")
-          childNodes = document.querySelector(".js-target-resources").childNodes
+          childInputs = parentNode.childNodes
 
-          childNodes.forEach((node) => parentNode.removeChild(node))
+          childInputs.forEach((node) => node.remove() ) 
 
-          cancelButton = document.querySelector(".js-cancel-resources")
-          cancelButton.parentNode.removeChild(cancelButton)
+          $(this).hide()
       )
     )
 
@@ -39,24 +37,22 @@ $(document).ready( ->
         <input type="url" name="related_links[][url]" placeholder="URL" class="form-control">
       """)
 
-      $jsButtons = $(".js-buttons-related-links")
+      $jsButtonsLinks = $(".js-buttons-related-links")
       
-      $jsButtons.append("""
-        <button class="js-cancel-related-links btn btn-danger">Cancel</button>
-      """)
+      if $('js-cancel-related-links').length == 0
+        $jsButtonsLinks.append("""
+          <button class="js-cancel-related-links btn btn-danger">Cancel</button>
+        """)
       
-      $jsCancel = $('.js-cancel-related-links') 
-
-      $jsCancel.click((event) -> 
+      $jsButtonsLinks.on('click', '.js-cancel-related-links', (event) -> 
           event.preventDefault()
 
           parentNode = document.querySelector(".js-target-related-links")
-          childNodes = document.querySelector(".js-target-related-links").childNodes
+          childInputs = parentNode.childNodes
 
-          childNodes.forEach((node) => parentNode.removeChild(node))
+          childInputs.forEach((node) => node.remove() ) 
 
-          cancelButton = document.querySelector(".js-cancel-related-links")
-          cancelButton.parentNode.removeChild(cancelButton)
+          $(this).hide()
       )
   )
 )
