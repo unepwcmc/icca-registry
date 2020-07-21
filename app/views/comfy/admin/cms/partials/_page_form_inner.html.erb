@@ -16,7 +16,7 @@
 <div class="form-group row">
   <%= form.label :resources, :class => 'col-form-label col-sm-2 text-sm-right' %>
   <div class="col-sm-10">
-    <ul class="list-group py-2 ">
+    <ul class="list-group <%= @page.resources.any? ? 'py-2' : '' %>">
       <% @page.resources.each do |resource| %>
         <li class="list-group-item w-100 d-flex justify-content-between align-items-center">
           <%= resource.label %>
@@ -37,7 +37,7 @@
 <div class="form-group row">
   <%= form.label :related_links, :class => 'col-form-label col-sm-2 text-sm-right' %>
   <div class="col-sm-10">
-    <ul class="list-group py-2 ">
+    <ul class="list-group <%= @page.related_links.any? ? py-2 : '' %> ">
       <% @page.related_links.each do |related_link| %>
         <li class="list-group-item w-100 d-flex justify-content-between align-items-center">
           <%= related_link.label %>

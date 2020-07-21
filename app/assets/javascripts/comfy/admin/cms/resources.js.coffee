@@ -25,6 +25,8 @@ $(document).ready( ->
 
           childInputs.forEach((node) => node.remove() ) 
 
+          $addResourcesEl.find(".js-target-resources").removeClass('py-2')
+
           $(this).remove()
       )
     )
@@ -55,7 +57,7 @@ $(document).ready( ->
           childInputs = parentNode.childNodes
 
           childInputs.forEach((node) => node.remove() ) 
-
+          $addrelatedLinksEl.find(".js-target-related-links").removeClass('py-2')
           $(this).remove()
       )
   )
