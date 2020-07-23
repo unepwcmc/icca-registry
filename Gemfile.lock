@@ -144,6 +144,10 @@ GEM
     json (1.8.6)
     kramdown (2.2.1)
       rexml
+    launchy (2.4.3)
+      addressable (~> 2.3)
+    letter_opener (1.7.0)
+      launchy (~> 2.2)
     loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -308,6 +312,7 @@ DEPENDENCIES
   comfy_bootstrap_form (~> 4.0.3)
   dotenv-rails
   invisible_captcha
+  letter_opener
   nokogiri (~> 1.6.7.2)
   paperclip
   pg (~> 0.18.4)

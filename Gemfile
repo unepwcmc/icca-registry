@@ -26,6 +26,7 @@ gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'
+  gem 'letter_opener'
   gem 'rspec-rails', '~> 3.9'
 end
 
