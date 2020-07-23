@@ -10,7 +10,7 @@ gem 'aws-sdk', '~> 1.6'
 # Accessing S3 bucket using AWS gem instead of open-uri
 gem 'aws-sdk-s3'
 gem 'appsignal', '~> 2.2.1'
-gem 'invisible_captcha', '~> 0.9.2'
+gem 'invisible_captcha'
 gem 'paperclip'
 
 # Assets
