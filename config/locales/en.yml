@@ -107,4 +107,15 @@ en:
       icca_site:
         edit: 'Edit'
         destroy: 'Delete'
-    
+  activerecord:
+    errors:
+      models:
+        photo:
+          attributes:
+            file:
+              content_type: 'not a valid image type'
+        resource:
+          attributes:
+            file:
+              attached: 'not attached'
+

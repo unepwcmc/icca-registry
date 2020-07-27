@@ -3,6 +3,7 @@ class Resource < ApplicationRecord
 
   has_one_attached :file
   validates :file, attached: true
+  validates :label, presence: { message: "must not be blank" }
 
   belongs_to :page, class_name: "Comfy::Cms::Page", optional: true
 
