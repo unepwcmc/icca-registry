@@ -4,8 +4,8 @@ $(document).ready( ->
       ev.preventDefault()
 
       $addResourcesEl.find(".js-target-resources").append("""
-        <input type="text" name="resources[][label]" placeholder="Label" class="form-control">
-        <input type="file" name="resources[][file]" placeholder="File" class="form-control">
+        <p><input type="text" name="resources[][label]" placeholder="Label" class="form-control"></p>
+        <p><input type="file" name="resources[][file]" placeholder="File" class="form-control"></p>
       """)
 
       $addResourcesEl.find(".js-target-resources").addClass('py-2')
@@ -38,8 +38,8 @@ $(document).ready( ->
       ev.preventDefault()
 
       $addrelatedLinksEl.find(".js-target-related-links").append("""
-          <input type="text" name="related_links[][label]" placeholder="Label" class="form-control">
-          <input type="url" name="related_links[][url]" placeholder="URL" class="form-control">
+          <p><input type="text" name="related_links[][label]" placeholder="Label" class="form-control"></p>
+          <p><input type="url" name="related_links[][url]" placeholder="URL" class="form-control"></p>
       """)
 
       $addrelatedLinksEl.find(".js-target-related-links").addClass('py-2')
