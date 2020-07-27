@@ -8,7 +8,11 @@ module IccaRelatedLinks
       return unless params[:related_links]
 
       params[:related_links].each do |related_link|
-        @page.related_links.create!(label: related_link[:label], url: related_link[:url])
+        link = @page.related_links.new(label: related_link[:label], url: related_link[:url])
+        unless link.save
+          flash[:error] = link.errors.full_messages.join(', ')
+          redirect_to action: :edit
+        end
       end
     end
   end

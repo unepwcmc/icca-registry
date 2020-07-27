@@ -5,4 +5,5 @@ class Admin::RelatedLinksController < Comfy::Admin::Cms::BaseController
 
     redirect_back(fallback_location: admin_icca_site_path)
   end
+
 end
