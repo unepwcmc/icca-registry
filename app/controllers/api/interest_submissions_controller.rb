@@ -5,9 +5,7 @@ class Api::InterestSubmissionsController < ApplicationController
   def create
     submission = InterestSubmission.create(params.permit(:icca_name, :icca_size, :country, :can_contact, :email))
 
-    SubmissionMailer.create(submission).deliver_nows
+    SubmissionMailer.create(submission).deliver_now
     head 201
   end
-
-  private 
 end
