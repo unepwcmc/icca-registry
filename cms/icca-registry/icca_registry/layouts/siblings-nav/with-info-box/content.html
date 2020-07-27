@@ -1,0 +1,20 @@
+[attributes]
+---
+label: with info-box
+app_layout: application
+position: 0
+
+[content]
+{{ cms:wysiwyg content }}
+
+{{ cms:partial cms/attached_documents }}
+
+<div class="s-article info-box info-box--fill-color">
+  {{ cms:wysiwyg info-box }}
+</div>
+[js]
+
+[css]
+.info-box i {
+  font-style: normal; 
+}

@@ -1,0 +1,23 @@
+[attributes]
+---
+label: Title with cover, article on the left, resources box on the right
+app_layout: application
+position: 0
+
+[content]
+<main class="container--profile">
+  <nav class="breadcrumbs">
+    {{ cms:partial cms/breadcrumbs }}
+  </nav>
+
+  {{ cms:partial cms/hero }}
+
+  <article class="two-thirds article s-article">
+    {{ cms:wysiwyg content }}
+  </article>
+</main>
+
+[js]
+
+[css]
+

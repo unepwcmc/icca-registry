@@ -1,0 +1,34 @@
+[attributes]
+---
+label: Case Study Page
+app_layout: application
+position: 6
+
+[content]
+<main class="container--profile container--right-padded container--push-bottom">
+  <nav class="breadcrumbs">
+    {{ cms:partial cms/case_study/breadcrumbs }}
+  </nav>
+
+  <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter"> Explore Case Studies </h1>
+  <article class="article">
+    {{ cms:partial cms/case_study/title }}
+
+    <div class="row">
+      {{ cms:partial cms/case_study/gallery }}
+    </div>
+
+    <div class="s-article col-eight">
+      {{ cms:wysiwyg content }}
+    </div>
+
+    <div class="col-four">
+      {{ cms:partial cms/case_study/resources }}
+    </div>
+  </article>
+</main>
+
+[js]
+
+[css]
+
