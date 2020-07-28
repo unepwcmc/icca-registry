@@ -70,14 +70,14 @@ Comfortable Mexican Sofa has a way of importing (and exporting) the pages, files
 
 If you don't already have the `cms` folder in your repository, this will be automatically created when you run the expor task. The following pair of commands relate to the English version of the site. 
 
-`rake 'comfy:cms_seeds:export[icca-registry, icca_registry]'` to export the seed data to the `cms` folder
-`rake 'comfy:cms_seeds:import[icca_registry, icca-registry]'` to import the seed data from the `cms` folder straight into your database so that it will fill the CMS with the latest content.
+`rake 'comfy:cms_seeds:export[icca-registry, icca_registry_seeds]'` to export the seed data to the `cms` folder
+`rake 'comfy:cms_seeds:import[icca_registry_seeds, icca-registry]'` to import the seed data from the `cms` folder straight into your database so that it will fill the CMS with the latest content.
 
 FR: 
-`rake 'comfy:cms_seeds:export[icca-registry-fr, icca_registry-fr]'` to export the seed data to the `cms` folder
-`rake 'comfy:cms_seeds:import[icca_registry-fr, icca-registry-fr]'` to import the seed data from the `cms` folder
+`rake 'comfy:cms_seeds:export[icca-registry-fr, icca_registry_seeds-fr]'` to export the seed data to the `cms` folder
+`rake 'comfy:cms_seeds:import[icca_registry_seeds-fr, icca-registry-fr]'` to import the seed data from the `cms` folder
 
 ES: 
-`rake 'comfy:cms_seeds:export[icca-registry-es, icca_registry-es]'` to export the seed data to the `cms` folder
-`rake 'comfy:cms_seeds:import[icca_registry-es, icca-registry-es]'` to import the seed data from the `cms` folder
+`rake 'comfy:cms_seeds:export[icca-registry-es, icca_registry_seeds-es]'` to export the seed data to the `cms` folder
+`rake 'comfy:cms_seeds:import[icca_registry_seeds-es, icca-registry-es]'` to import the seed data from the `cms` folder
 
