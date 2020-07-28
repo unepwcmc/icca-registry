@@ -4,7 +4,7 @@ ComfortableMexicanSofa.configure do |config|
   config.enable_seeds = Rails.env.development?
 
   # N.B. The name of the site identifier is icca-registry (for the EN version)
-  config.seeds_path = 'cms/icca-registry/'
+  config.seeds_path = 'cms/'
   
   # Title of the admin area
   #   config.cms_title = 'ComfortableMexicanSofa CMS Engine'
