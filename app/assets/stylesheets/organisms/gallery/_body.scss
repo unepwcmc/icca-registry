@@ -4,7 +4,8 @@
 }
 
 @include e(body--active) {
-  display: flex;
   margin-bottom: .625rem;
+
+  display: flex;
 }
 

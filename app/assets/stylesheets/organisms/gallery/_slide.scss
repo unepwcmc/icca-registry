@@ -1,0 +1,8 @@
+@include e(slide) {
+  border: solid 1px $grey-33;
+  margin-right: 0.625rem;
+  width: 50%; height: 400px;
+
+  align-items: center;
+  display: flex;
+}
