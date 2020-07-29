@@ -2,4 +2,10 @@
   display: block;
   height: 400px;
   margin-right: .625rem;
+
+  &--nocarousel {
+    max-width: 50%;
+    height: auto;
+    margin-right: 0.625rem;
+  }
 }
