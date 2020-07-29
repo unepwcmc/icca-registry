@@ -23,7 +23,7 @@
           <div class="circle-story circle-story--flex">
             <img src="<%= image_path("Fish.jpg") %>" srcset="<%= with2x("Fish.jpg") %>" class="home-hero-1 <%= bem('circle-story__circle', 'above', 'smaller') %>">
             <p class="circle-story__content u-center"><%= t("home_page.participate_text") %></p>
-            <%= link_to t("home_page.participate"), cms_page_path(@participate_page), class: "big-button u-push-top" %>
+            <%= link_to t("home_page.participate"), cms_page_path(@participate_page.children.first), class: "big-button u-push-top" %>
           </div>
         </div>
         <div class="col-four u-flex">

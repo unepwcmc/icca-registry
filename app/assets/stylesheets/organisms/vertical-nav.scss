@@ -1,0 +1,70 @@
+@mixin vertical-nav {
+  margin-bottom: 2.5rem;
+
+  @include e(element) {
+    display: block;
+
+    @include text(body, thin);
+    @include line-height(1.5rem);
+
+    @include color-with-state($color--base, (
+      hover: $link__color--hover,
+      active: $link__color--pressed,
+    ));
+
+    border-bottom: solid 1px $grey-5;
+    padding: {
+      left: 1.25rem;
+      top: .5rem;
+      bottom: .5rem;
+      right: .5rem;
+    }
+
+    @include m(child) {
+      padding-left: 2rem;
+    }
+
+    @include m(heading) {
+      @include color($vertical-nav-element-selected__color);
+
+      padding-left: 1rem;
+      border: {
+        top: solid 1px $grey-15;
+        bottom: solid 1px $grey-15;
+        left: solid 5px $grey-15;
+      }
+    }
+
+    @include m(selected) {
+      @include font-weight(normal);
+      @include color($vertical-nav-element-selected__color);
+      border-left: solid .333rem $grey-15;
+      padding-left: 1rem;
+    }
+
+    @include m(active) {
+      @include font-weight(normal);
+      @include color($vertical-nav-element-selected__color);
+    }
+
+    @include m(expandable) {
+      &:after { @include color($vertical-nav-element-selected__color); }
+
+      @include flexbox;
+      @include justify-content(space-between);
+      cursor: pointer;
+    }
+
+    @include m(opened) {
+      &:after { @include fa(chevron-up); }
+    }
+
+    @include m(closed) {
+      &:after { @include fa(chevron-down); }
+    }
+  }
+}
+
+@include b(vertical-nav) {
+  @include vertical-nav;
+}

@@ -1,0 +1,21 @@
+@include e(row) {
+  width: 100%;
+
+  padding-top: 1rem;
+  border-bottom: solid 1px $info-box-row__border-bottom;
+
+  @include m(around-padding) {
+    padding: 2rem 0;
+  }
+
+  @include m(light-border) {
+    &:not(:last-child) {
+      border-bottom: solid 1px $grey-15;
+    }
+  }
+
+  @include m(no-border) {
+    border: none;
+  }
+}
+

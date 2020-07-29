@@ -1,9 +1,9 @@
-<div class="form-group">
-  <%= form.label :photos, :class => 'control-label col-sm-2' %>
-  <div class="col-sm-10">
+<div class="form-group row">
+  <%= form.label :photos, :class => 'col-form-label col-sm-2 text-sm-right' %>
+  <div class="col-sm-10 ">
     <% @page.photos.each do |photo| %>
-      <div>
-        <%= image_tag photo.file.url(:thumb) %>
+      <div class="py-2">
+        <%= image_tag photo.file.variant(resize: "50x50") %>
         <%= link_to("Delete image", admin_photo_path(photo), method: :delete, class: "btn btn-danger") %>
       </div>
     <% end %>
@@ -13,12 +13,12 @@
 </div>
 
 
-<div class="form-group">
-  <%= form.label :resources, :class => 'control-label col-sm-2' %>
+<div class="form-group row">
+  <%= form.label :resources, :class => 'col-form-label col-sm-2 text-sm-right' %>
   <div class="col-sm-10">
-    <ul>
+    <ul class="list-group <%= @page.resources.any? ? 'py-2' : '' %>">
       <% @page.resources.each do |resource| %>
-        <li>
+        <li class="list-group-item w-100 d-flex justify-content-between align-items-center">
           <%= resource.label %>
           <%= link_to("Delete resource", admin_resource_path(resource), method: :delete, class: "btn btn-danger") %>
         </li>
@@ -26,18 +26,20 @@
     </ul>
 
     <div class="js-add-resources">
-      <div class="js-target"></div>
-      <button class="js-trigger btn btn-primary">Add new resource</button>
+      <div class="js-target-resources"></div>
+      <div class="js-buttons-resources d-flex ">
+        <button class="js-trigger-resources btn btn-primary mr-2">Add new resource</button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="form-group">
-  <%= form.label :related_links, :class => 'control-label col-sm-2' %>
+<div class="form-group row">
+  <%= form.label :related_links, :class => 'col-form-label col-sm-2 text-sm-right' %>
   <div class="col-sm-10">
-    <ul>
+    <ul class="list-group <%= @page.related_links.any? ? 'py-2' : '' %> ">
       <% @page.related_links.each do |related_link| %>
-        <li>
+        <li class="list-group-item w-100 d-flex justify-content-between align-items-center">
           <%= related_link.label %>
           <%= link_to("Delete related link", admin_related_link_path(related_link), method: :delete, class: "btn btn-danger") %>
         </li>
@@ -45,8 +47,10 @@
     </ul>
 
     <div class="js-add-related-links">
-      <div class="js-target"></div>
-      <button class="js-trigger btn btn-primary">Add new Related Link</button>
+      <div class="js-target-related-links"></div>
+      <div class="js-buttons-related-links d-flex ">
+        <button class="js-trigger-related-links btn btn-primary mr-2">Add new Related Link</button>
+      </div>
     </div>
   </div>
 </div>

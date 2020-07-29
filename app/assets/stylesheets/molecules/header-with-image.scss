@@ -1,0 +1,19 @@
+@include b(header) {
+  @include e(text) {
+    @extend %color-base;
+    @include text(medium, thin);
+    margin-bottom: 20px;
+  }
+
+  @include e(sup) {
+    vertical-align: super;
+
+    @include text(small, bold);
+    @include color($green);
+  }
+
+  @include e(image) {
+    float: left;
+    margin-right: 15px;
+  }
+}

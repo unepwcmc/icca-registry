@@ -16,12 +16,22 @@
 !/log/.keep
 /tmp
 
+node_modules/
+
 .env
 .env.staging
 .env.production
 
-/vendor/assets/bower_components
 
 .DS_Store
 
-/public/system
+/public
+/temp
+/storage
+
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+.byebug_history
+yarn-error.log

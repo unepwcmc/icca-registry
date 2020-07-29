@@ -14,13 +14,17 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+
+  # Store files locally.
+  config.active_storage.service = :local
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
@@ -36,11 +40,20 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.paperclip_defaults = {
-    storage: :s3,
-    bucket: "icca-registry-development",
-    s3_host_name: "s3-eu-west-1.amazonaws.com"
-  }
+  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.perform_deliveries = :true
+  config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+  
+
+  # config.action_mailer.smtp_settings = {
+  #   domain: ENV['MAILER_DOMAIN'],
+  #   address: ENV['MAILER_ADDRESS'],
+  #   port: 587,
+  #   authentication: :login,
+  #   enable_starttls_auto: true,
+  #   user_name: ENV['MAILER_USERNAME'],
+  #   password: ENV['MAILER_PASSWORD']
+  # }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

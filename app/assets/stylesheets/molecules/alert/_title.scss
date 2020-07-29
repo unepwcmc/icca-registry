@@ -1,0 +1,10 @@
+@include e(title) {
+  @include text--alt(headline, bold);
+  @include line-height(2rem);
+
+  margin-bottom: .5rem;
+
+  @include m(warning) { color: $alert-warning--color; }
+  @include m(success) { color: $alert-success--color; }
+  @include m(info) { color: $alert-info--color; }
+}

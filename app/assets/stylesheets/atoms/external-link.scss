@@ -1,0 +1,10 @@
+@include b(external-link) {
+  @extend %acts-as-link;
+
+  &:after {
+    @include fa(external-link);
+
+    margin-left: .25rem;
+    font-size: .666em;
+  }
+}

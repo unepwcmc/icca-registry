@@ -1,0 +1,7 @@
+@include b(cover-story) {
+  @include flexbox;
+
+  @import 'cover-story/_cover';
+  @import 'cover-story/_story';
+  @import 'cover-story/_story-body';
+}

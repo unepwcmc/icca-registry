@@ -1,0 +1,34 @@
+@include b(filter-bar) {
+  position: fixed;
+  overflow: scroll;
+  height: 80%;
+
+  @include span-columns(2.5);
+
+  @include m(larger) {
+    @include span-columns(3);
+  }
+
+  @include m(non-fixed) {
+    position: relative;
+    overflow: hidden;
+  }
+
+  @include e(inner) {
+    background-color: $grey-3;
+
+    @include text(body);
+    @extend %color-base;
+
+    padding: 1.25rem;
+  }
+
+  @import "filter-bar/_body";
+  @import "filter-bar/_clear";
+  @import "filter-bar/_count";
+  @import "filter-bar/_group";
+  @import "filter-bar/_group_title";
+  @import "filter-bar/_header";
+  @import "filter-bar/_value";
+
+}

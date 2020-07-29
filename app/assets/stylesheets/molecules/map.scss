@@ -1,0 +1,22 @@
+@include b(map) {
+  width: $map__width;
+
+  @include m(hero) {
+    height: $map--hero__height;
+  }
+
+  @include m(main) {
+    height: $map--main__height;
+  }
+
+  @include m(double) {
+    height: $map--main__height*2;
+  }
+
+  @include m(margin-top-bottom) {
+    margin: 1.875rem 0;
+  }
+
+  @include leaflet-control-zoom;
+  @include leaflet-control-layers;
+}

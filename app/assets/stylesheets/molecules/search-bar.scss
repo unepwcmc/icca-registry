@@ -1,0 +1,21 @@
+@include b(search-bar) {
+  @include flexbox;
+  @include justify-content(center);
+  @include align-items(stretch);
+
+  padding: 0 .1rem;
+  height: 2.5rem;
+  width: 100%;
+
+  @include e(input) {
+    border: solid 1px $grey-15;
+    &:focus { outline: none; border-width: 2px; }
+
+    flex-grow: 1;
+    margin-right: .5rem;
+    padding: 0 .5rem;
+
+    font-style: italic;
+    @include text(body, thin);
+  }
+}

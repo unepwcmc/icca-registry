@@ -1,0 +1,41 @@
+@include b(info-box) {
+  @extend %clearfix;
+  @extend %color-base;
+
+  padding: $info-box__padding;
+  margin-bottom: $info-box__margin-bottom;
+
+  @include m(fill-color) {
+    background-color: $info-box__bg-color;
+  }
+
+  @include m(overflow) {
+    margin: { left: -1rem; right: -1rem; }
+  }
+
+  @include m(alt-color) {
+    background-color: $green;
+    color: $white;
+  }
+
+  @include m(fff) {
+    background-color: $white;
+  }
+
+  @include m(hero) {
+    padding-bottom: $info-box__padding * 1.5;
+    padding-left: $info-box__padding * 1.5;
+    padding-right: $info-box__padding * 1.5;
+  }
+
+  @include m(padding-top-bottom) {
+    padding: $info-box-padding-top-bottom__padding;
+  }
+
+  @import "info-box/_body";
+  @import "info-box/_column";
+  @import "info-box/_header";
+  @import "info-box/_link-icon";
+  @import "info-box/_link";
+  @import "info-box/_row";
+}

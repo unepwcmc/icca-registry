@@ -1,0 +1,10 @@
+@include b(table) {
+  @extend %color-base;
+  width: 100%;
+
+  @import "table/_column";
+  @import "table/_header";
+  @import "table/_label";
+  @import "table/_row";
+  @import "table/_value";
+}

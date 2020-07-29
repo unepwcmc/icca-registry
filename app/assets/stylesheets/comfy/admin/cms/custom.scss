@@ -1,0 +1,34 @@
+.country, .icca-site {
+    background-color: #f8f9fa;
+    margin-bottom: 10px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.interest-submission {
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.alert-error {
+    background-color: red;
+    color: white;
+}
+
+.alert-notice {
+    background-color: lightblue;
+    color: white;
+}
+
+.custom-select {
+    background: none;
+}

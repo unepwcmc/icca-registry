@@ -1,0 +1,4 @@
+@include e(count) {
+  @include color($green);
+  @include font-weight(bold);
+}

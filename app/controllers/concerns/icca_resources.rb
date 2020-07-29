@@ -8,7 +8,11 @@ module IccaResources
       return unless params[:resources]
 
       params[:resources].each do |resource|
-        @page.resources.create!(label: resource[:label], file: resource[:file])
+        resource = @page.resources.new(label: resource[:label], file: resource[:file])
+        unless resource.save
+          flash[:error] = resource.errors.full_messages.join(', ')
+          redirect_to action: :edit
+        end
       end
     end
   end

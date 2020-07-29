@@ -1,0 +1,4 @@
+@include b(gallery) {
+  @import "gallery/_body";
+  @import "gallery/_photo";
+}

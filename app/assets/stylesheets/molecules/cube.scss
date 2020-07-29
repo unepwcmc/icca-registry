@@ -1,0 +1,17 @@
+@mixin cube($size, $bg-color: $grey-100, $fill-color: $green) {
+  @include b(cube) {
+    position: relative;
+    height: $size;
+    width: $size;
+
+    background-color: $bg-color;
+
+    @include e(inner) {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      background-color: $fill-color;
+    }
+  }
+}

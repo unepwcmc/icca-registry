@@ -1,0 +1,4 @@
+@include e(group) {
+  line-height: form-factor(headline, line-height);
+  margin-bottom: .5rem;
+}

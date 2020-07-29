@@ -1,0 +1,20 @@
+@include e(story-body) {
+  background-color: white;
+  z-index: 100;
+
+  @include flex(1);
+  height: 100%;
+
+  padding-top: 2.5rem;
+
+  @include m(left) {
+    margin-right: -6rem;
+    padding-right: 2.5rem;
+  }
+
+  @include m(right) {
+    margin-left: -6rem;
+    padding-left: 2.5rem;
+  }
+}
+

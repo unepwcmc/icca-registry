@@ -2,8 +2,8 @@ module IccaLinks
   extend ActiveSupport::Concern
 
   included do
-    belongs_to :country
-    belongs_to :icca_site
+    belongs_to :country, optional: true
+    belongs_to :icca_site, optional: true, dependent: :destroy
 
     has_many :photos
     has_many :resources
@@ -15,10 +15,16 @@ module IccaLinks
     def link_icca_site
       return true if self.parent.try(:country_id).nil?
 
-      self.icca_site = IccaSite.find_or_create_by(
-        name: self.label,
-        country: self.parent.country
-      )
+      if self.icca_site 
+        IccaSite.where(id: self.icca_site.id).update(name: self.label)
+        normalised_label = I18n.transliterate(self.label)
+        self.slug = normalised_label.downcase.split.join('-')
+      else
+        self.icca_site = IccaSite.find_or_create_by(
+          name: self.label,
+          country: self.parent.country
+        )
+      end
     end
 
     def link_country
@@ -39,5 +45,7 @@ module IccaLinks
   end
 
 end
+
+
 
 Comfy::Cms::Page.send(:include, IccaLinks)

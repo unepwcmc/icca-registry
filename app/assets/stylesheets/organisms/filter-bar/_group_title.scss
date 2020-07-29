@@ -1,0 +1,26 @@
+@include e(group-title) {
+  @include text(body);
+  @include color-with-state($color--base, (
+    hover: $link__color--hover,
+    active: $link__color--pressed,
+  ));
+
+  cursor: pointer;
+
+  padding: .5rem 0;
+  border-bottom: solid 1px $grey-4;
+  margin-bottom: .5rem;
+  width: 100%;
+
+  @include m(no-border) {
+    border: 0;
+  }
+
+  &.is-open {
+    &:after { float: right; @include fa(chevron-up); }
+  }
+
+  &.is-closed {
+    &:after { float: right; @include fa(chevron-down); }
+  }
+}

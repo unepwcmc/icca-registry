@@ -1,0 +1,38 @@
+@include e(column) {
+  cursor: pointer;
+
+  @include text--alt(body, x-thin);
+  text-align: right;
+  &:first-child { text-align: left; }
+
+  @include m(align-left) {
+    text-align: left;
+  }
+
+  padding-bottom: 0.5em;
+
+  @include m(with-sorting) {
+    &:after {
+      @include color($green);
+      @include fa(arrow-both, $margin: (direction: left, value: 5px));
+    }
+  }
+
+  &.is-sorted-asc {
+    &:after {
+      @include color($green);
+      @include fa(arrow-up, $margin: (direction: left, value: 5px));
+    }
+  }
+
+  &.is-sorted-desc {
+    &:after {
+      @include color($green);
+      @include fa(arrow-down, $margin: (direction: left, value: 5px));
+    }
+  }
+
+  @include m(no-arrows) {
+    &:before, &:after { content: null; }
+  }
+}

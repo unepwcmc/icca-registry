@@ -1,0 +1,4 @@
+@include e(body) {
+  @include text(body);
+  @extend %color-base;
+}

@@ -1,16 +1,15 @@
 <li id="<%= dom_id(icca_site) %>">
-  <div class="item">
-    <div class="btn-group btn-group-sm">
-      <%= link_to t('.edit'), edit_admin_icca_site_path(icca_site), :class => 'btn btn-default' %>
-      <%= link_to_cms_page(icca_site, @site) %>
-    </div>
-    <div class="item-content">
-      <div class="item-title">
-        <%= link_to icca_site.name, edit_admin_icca_site_path(icca_site) %>
-      </div>
-      <div class="item-meta">
+  <div class="icca-site">
+    <div class="icca-site__content">
+      <h5><%= link_to icca_site.name, edit_admin_icca_site_path(icca_site), class: "icca-site__title" %></h5>
+      <div class="icca_site-meta">
         <strong>Lat:</strong> <%= icca_site.lat %> | <strong>Lon:</strong> <%= icca_site.lon %>
       </div>
+    </div>
+    <div class="btn-group btn-group-sm">
+      <%= link_to t('.edit'), edit_admin_icca_site_path(icca_site), class: 'btn btn-outline-secondary' %>
+      <%= link_to_cms_page(icca_site, @site) %>
+      <%= link_to t('.destroy'), admin_icca_site_path(icca_site), method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'}  %>
     </div>
   </div>
 </li>
