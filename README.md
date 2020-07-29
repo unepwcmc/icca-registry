@@ -1,4 +1,4 @@
-ICCA Registry - CMS upgrade to 2.0.17
+ICCA Registry 
 ===========================
 
 The ICCA Registry website is an online information platform for Indigenous and
@@ -9,7 +9,7 @@ analysis on featured ICCAs around the world.
 # Installation
 
 icca-registry is a pretty standard Rails application, backed by a Postgres
-database, using bower to load the protectedplanet-frontend framework.
+database, with Webpacker and Yarn to manage JS dependencies.
 Part 1:
 
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
@@ -17,8 +17,6 @@ Part 1:
 - `bundle install`
 - get a copy of the latest .env file
 - `rails db:create`
-
-Note that this branch now utilises Ruby version 2.3.1, and Rails v.5.2.4.3.
 
 - In `photo.rb` and `resource.rb` in `app/models`, comment out lines 4-5 and uncomment out line 2
 
@@ -49,8 +47,6 @@ starting the server, create a copy of the file `.env.example` (removing the
 Or if you successfully migrated, but your app breaks on accessing the Files section of the CMS:
 
 2) Access the Rails console via `rails console`. The relevant table you will want to inspect is `Comfy::Cms::File`. Run the command `Comfy::Cms::File.all.pluck(:file_file_name)` and cross-check with the Paperclip file names that you have locally in `public/system`. If you cannot find any, run the command `Comfy::Cms::File.destroy_all`, which delete all of the records in the database for that table, leaving you able to access the page. If you'd rather not utilise a dangerous method such as the one above, you can manually delete selected records using `Comfy::Cms::File.where(file_file_name: [filename, make sure to put it in quotation marks]).destroy`. 
-
-If it breaks upon accessing a page (which shouldn't really happen), the table to be accessed is `Comfy::Cms::Page` for pages, and `Comfy::Cms::Fragment` for individual ICCA case studies.
 
 # Adding Translations
 
