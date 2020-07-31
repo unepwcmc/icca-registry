@@ -1,3 +1,8 @@
+### 1.0.1
+
+* Changed CartoDB links in the HEAD to use HTTPS instead of HTTP.
+* Photos are no longer excessively stretched on the case study pages if only two are present.
+
 ### 1.0.0 
 
 * Migrated to ActiveStorage from Paperclip
