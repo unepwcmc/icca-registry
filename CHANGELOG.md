@@ -1,3 +1,12 @@
+### 1.0.2
+
+* Fixed a bug that would cause the case study pages to break if only one photo is present
+
+### 1.0.1
+
+* Changed CartoDB links in the HEAD to use HTTPS instead of HTTP.
+* Photos are no longer excessively stretched on the case study pages if only two are present.
+
 ### 1.0.0 
 
 * Migrated to ActiveStorage from Paperclip

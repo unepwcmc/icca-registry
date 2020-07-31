@@ -9,7 +9,7 @@
   </div>
   <% elsif @cms_page.photos.count == 1 %>
   <div class="gallery__body--active">
-    <img class="gallery__photo" src="<%= url_for(@cms_page.photo.file) %>" alt="Photos relevant to the case study" />
+    <img class="gallery__photo" src="<%= url_for(@cms_page.photos.first.file) %>" alt="Photos relevant to the case study" />
   </div>
   <% else %>
     <div id='v-app' v-cloak>
