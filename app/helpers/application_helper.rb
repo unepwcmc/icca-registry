@@ -11,4 +11,12 @@ module ApplicationHelper
   def get_local_classes local_assigns
     (local_assigns.has_key? :classes) ? local_assigns[:classes] : ''
   end
+
+  # Fallback hero image for individual news and articles page
+  def fallback_hero
+    image = cms_fragment_render(:image, @cms_page)
+    
+    return image unless image.blank?
+    image_path('hero_image_news-and-stories.jpg')
+  end
 end

@@ -1,0 +1,46 @@
+.hero-small {
+  background-size: cover;
+  background-position: center;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  height: 315px;
+  
+  &__container {
+    margin-bottom: 75px;
+  }
+
+  &--news-index {
+    @extend .hero-small;
+    background-image: url('hero_image_news-and-stories.jpg');
+    position: relative;
+    
+    &::before {
+      background-color: $white;
+      content: '';
+      opacity: 0.85;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    &__content {
+      @include text(xlarge);     
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+  }
+
+  &--article {
+    @extend .hero-small;
+  }
+
+
+}
