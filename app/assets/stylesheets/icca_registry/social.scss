@@ -1,0 +1,40 @@
+//--------------------------------------------------
+// mixins
+//--------------------------------------------------
+@mixin social-basic ($image) {
+  background-image: image-url($image);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: inline-block;
+
+  &:hover { opacity: .75; } 
+}
+
+@mixin social-icon ($image) {
+  @include social-basic($image);
+  width: 41px;
+  height: 41px;
+  margin-right: 14px;
+}
+
+//--------------------------------------------------
+// classes
+//--------------------------------------------------
+.social {
+//--------------------------------------------------
+// following or sharing via social media 
+//--------------------------------------------------
+  &--media {
+    margin-top: 65px;
+    display: flex;
+    position: relative;
+
+    .social__icon {
+      &--facebook { @include social-icon('icons/facebook.svg'); }
+      &--linkedin { @include social-icon('icons/linkedin.svg'); }
+      &--twitter { @include social-icon('icons/twitter.svg'); }
+    }
+  }  
+}

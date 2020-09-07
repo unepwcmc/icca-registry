@@ -1,0 +1,22 @@
+.news-article {
+  // TODO - this margin bottom will be moved into a mixin 
+  &__content {
+    margin-bottom: 20px;
+  }
+
+  &__date {
+    @include text(small);
+    color: $grey-77;
+    margin-bottom: 20px;
+  }
+
+  &__links {
+    @include text(headline);
+  }
+
+  &__title {
+    @include text(large, bold);
+    margin-bottom: 20px;
+  }
+
+}

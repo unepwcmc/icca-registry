@@ -1,7 +1,38 @@
 <div class="page--news">
   <%= render partial: "cms/hero-article", locals: { 
-    classes: @cms_page[:slug],
     image: fallback_hero
   } %>
 
+  <section class="news-article__content container--medium">
+    <p class="news-article__date"><%= cms_fragment_content("published_date").strftime("%d %B %y") %></p>
+    <h3 class="news-article__title"><%= cms_fragment_render("title") %></h3>
+    <%= cms_fragment_render("content") %>
+  </section>
+
+  <section class="news-article__links container--medium">
+    <ul class="list--links">
+      <% unless @cms_page.resources.blank? %>
+        <li class="list__li">
+          <span><%= @cms_page.resources.first.label %></span>
+          <% link_to 'File', @cms_page.resources.first, title: @cms_page.resources.first.label, class: "list__a", target: '_blank' %>
+        </li>
+      <% end %>
+      <% unless @cms_page.related_links.blank? %>
+        <li class="list__li">
+          <span><%= @cms_page.related_links.first.label %></span>
+          <% link_to 'Link', @cms_page.related_links.first.url, title: @cms_page.related_links.first.label, class: "list__a", target: '_blank' %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+
+  <section class="container--medium">
+    <%= render partial: "cms/article/social-share" %>
+  </section>
+
+  <!--
+  <section class="container spacer-small--bottom">
+    <%#= render "partials/cards/articles" %>
+  </section>
+  -->
 </div>

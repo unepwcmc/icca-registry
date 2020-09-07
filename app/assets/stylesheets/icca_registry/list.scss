@@ -1,0 +1,19 @@
+.list {
+  &--links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .list {
+      &__li {
+        display: flex;
+        align-items: center;
+        justify-items: space-between;
+        background-color: $grey-5;
+        padding: 14px 20px;
+      }
+
+      &__a { margin-left: 18px; }
+    }
+  }
+}
