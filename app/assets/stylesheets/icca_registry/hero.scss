@@ -12,7 +12,7 @@
     position: relative;
     
     &__content {
-      @include text(large);     
+      @include text(xlarge);     
       display: flex;
       align-items: center;
       position: absolute;
