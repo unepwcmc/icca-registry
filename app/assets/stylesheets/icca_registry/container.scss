@@ -5,5 +5,12 @@
   &--medium {
     @extend .container;
     max-width: 768px;
+    
+    // Temporary fix for clearfix which is now obsolete
+    &:after {
+      clear: none;
+      display: none;
+    }
+
   }
 }

@@ -28,8 +28,10 @@
 //--------------------------------------------------
   &--media {
     margin-top: 65px;
-    display: flex;
     position: relative;
+    display: flex;
+    justify-content: center;
+
 
     .social__icon {
       &--facebook { @include social-icon('icons/facebook.svg'); }
