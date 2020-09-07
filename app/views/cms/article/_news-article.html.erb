@@ -11,7 +11,7 @@
   <section class="news-article__content container--medium">
     <%= cms_fragment_render("content") %>
   </section>
-  
+
   <section class="news-article__links container--medium">
     <ul class="list--links">
       <% unless @cms_page.resources.blank? %>
@@ -33,9 +33,7 @@
     <%= render partial: "cms/article/social-share" %>
   </section>
 
-  <!--
-  <section class="container spacer-small--bottom">
-    <%#= render "partials/cards/articles" %>
+  <section class="container">
+    <%= render "cms/article/other-articles" %>
   </section>
-  -->
 </div>
