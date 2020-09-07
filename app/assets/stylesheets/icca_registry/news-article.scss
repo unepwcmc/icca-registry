@@ -1,6 +1,11 @@
 .news-article {
   // TODO - this margin bottom will be moved into a mixin 
+  &__top {
+    margin-bottom: 20px; 
+  }
+
   &__content {
+    @include text(body);
     margin-bottom: 20px;
   }
 

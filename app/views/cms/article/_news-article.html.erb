@@ -6,9 +6,12 @@
   <section class="news-article__content container--medium">
     <p class="news-article__date"><%= cms_fragment_content("published_date").strftime("%d %B %y") %></p>
     <h3 class="news-article__title"><%= cms_fragment_render("title") %></h3>
-    <%= cms_fragment_render("content") %>
   </section>
 
+  <section class="news-article__content container--medium">
+    <%= cms_fragment_render("content") %>
+  </section>
+  
   <section class="news-article__links container--medium">
     <ul class="list--links">
       <% unless @cms_page.resources.blank? %>
