@@ -7,4 +7,8 @@ module ApplicationHelper
       'to' =>   protected_area.bounds.last
     }
   end
+
+  def get_local_classes local_assigns
+    (local_assigns.has_key? :classes) ? local_assigns[:classes] : ''
+  end
 end

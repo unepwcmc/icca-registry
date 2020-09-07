@@ -1,0 +1,20 @@
+.hero {
+  &__content {
+    width: 70%;
+  }
+
+  &__container {
+    margin-bottom: 30px;
+  }
+
+  &--small {
+    background-color: $white;
+    background-size: cover;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+  }
+
+}

@@ -1,0 +1,20 @@
+<div class="page--news">
+  <%= render partial: "cms/hero-small", locals: { 
+    classes: @cms_page[:slug],
+    image: image_path("hero_image_news-and-stories.jpg"),
+    title: @cms_page.label
+  } %>
+
+  <!-- <listing-page
+    endpoint-search="/en/search-cms"
+    :filter-groups="<%#= get_category_filters %>"
+    :page-id="<%#= @cms_page.id %>"
+    :results="<%#=  %>"
+    sm-trigger-element="sm-listing"
+    template="news"
+    text-clear="<%#= t('search.clear') %>"
+    text-filters-close="View Results"
+    text-filter-trigger="<%#= t('search.filters') %>"
+    text-no-results="No Results"
+  ></listing-page> --> 
+</div>
