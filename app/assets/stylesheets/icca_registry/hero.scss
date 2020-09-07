@@ -1,20 +1,37 @@
 .hero {
-  &__content {
-    width: 70%;
-  }
-
   &__container {
-    margin-bottom: 30px;
+    margin-bottom: 75px;
   }
 
   &--small {
-    background-color: $white;
     background-size: cover;
+    background-position: center;
     padding-top: 30px;
     padding-bottom: 40px;
-    min-height: 150px;
-    display: flex;
-    align-items: center;
+    height: 315px;
+    position: relative;
+    
+    &__content {
+      @include text(large);     
+      display: flex;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $white;
+      opacity: 0.85;
+    }
   }
 
 }
