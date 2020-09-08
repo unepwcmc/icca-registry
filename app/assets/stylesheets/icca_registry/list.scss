@@ -16,12 +16,18 @@
 
       &__a { 
         margin-left: rem-calc(18); 
-        
-        &--link-external {
-
-        }
-      
       }
     }
+  }
+}
+
+// Buttons on page
+.button {
+  &--link-external {
+    @include button-external;
+  }
+
+  &--download {
+
   }
 }

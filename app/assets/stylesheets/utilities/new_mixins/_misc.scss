@@ -22,6 +22,7 @@
   &:hover { text-decoration: none; }
 }
 
+
 @mixin button-font {
   @include responsive(font-size, rem-calc(16), rem-calc(18), rem-calc(18));
 }
@@ -35,6 +36,15 @@
     content: '';
     margin-left: rem-calc(10);
     display: inline-block;
+  }
+}
+
+@mixin button-external {
+  @include button-with-icon;
+  &::after { 
+    @include icon-arrow-external; 
+    display: inline-block;
+
   }
 }
 
@@ -62,6 +72,11 @@
 @mixin icon-circle-chevron-black() {
   @include icon-basic;
   @include icon-image('circle-chevron-black.svg', rem-calc(34), rem-calc(34));
+}
+
+@mixin icon-arrow-external() {
+  @include icon-basic;
+  @include icon-image('arrow-external.svg', rem-calc(17), rem-calc(12));
 }
 
 // Images
