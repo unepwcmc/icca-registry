@@ -13,7 +13,7 @@
       <article-card-news
         key="<%= index %>"
         date="<%= cms_fragment_content("published_date").strftime("%d %B %y") %>"
-        image="<%= cms_fragment_render(:image, card) %>"
+        image="<%= cms_fragment_render(:hero_image, card) %>"
         summary="<%= truncate(cms_fragment_content(:content, card), length: 200) %>"
         title="<%= card[:label].truncate(59, separator: ' ') %>"
         url="<%= get_cms_url(card[:full_path]) %>"
