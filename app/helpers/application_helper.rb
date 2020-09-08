@@ -35,7 +35,7 @@ module ApplicationHelper
 
   def get_cms_url(path)
     # Get rid of leading slash from path
-    locale_root_url(locale: 'en').concat(path)
+    locale_root_url(locale: locale.to_s).concat(path)
   end
 
   #  article's attached files

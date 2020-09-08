@@ -15,4 +15,7 @@
     text-filter-trigger="<%#= t('search.filters') %>"
     text-no-results="No Results"
   ></listing-page> --> 
+  <section class="container">
+    <%= render "cms/article/other-articles", locals: { get_all: true } %>
+  </section>
 </div>
