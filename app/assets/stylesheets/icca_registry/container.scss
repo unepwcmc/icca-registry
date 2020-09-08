@@ -1,6 +1,8 @@
 .container {
   max-width: $large;
   margin: 0 auto;
+  padding-left: rem-calc(30);
+  padding-right: rem-calc(30);
 
   &--medium {
     @extend .container;
