@@ -1,10 +1,10 @@
 .container {
-  max-width: 1200px;
+  max-width: $large;
   margin: 0 auto;
 
   &--medium {
     @extend .container;
-    max-width: 768px;
+    max-width: $medium;
     
     // Temporary fix for clearfix which is now obsolete
     &:after {

@@ -1,10 +1,9 @@
 .hero-small {
   background-size: cover;
   background-position: center;
-  padding-top: 30px;
-  padding-bottom: 40px;
-  margin-bottom: 75px;
-  height: 315px;
+  padding: rem-calc(30 0 40 0);
+  margin-bottom: rem-calc(75);
+  height: rem-calc(315);
 
   &--news-index {
     @extend .hero-small;
@@ -12,25 +11,17 @@
     position: relative;
     
     &::before {
+      @include overlay;
       background-color: $white;
       content: '';
       opacity: 0.85;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
     }
 
     &__content {
+      @include flex;
+      @include flex-v-center;
+      @include overlay;
       @include text(xlarge);     
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
     }
     
   }

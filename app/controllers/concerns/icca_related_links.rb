@@ -11,7 +11,7 @@ module IccaRelatedLinks
         link = @page.related_links.new(label: related_link[:label], url: related_link[:url])
         unless link.save
           flash[:error] = link.errors.full_messages.join(', ')
-          redirect_to action: :edit
+          redirect_to edit_comfy_admin_cms_site_page(@site, @page)
         end
       end
     end

@@ -12,7 +12,7 @@ module IccaPhotos
         image = @page.photos.new(file: image)
         unless image.save
           flash[:error] = image.errors.full_messages.join(', ')
-          redirect_to action: :edit
+          redirect_to edit_comfy_admin_cms_site_page(@site, @page)
         end
       end
     end

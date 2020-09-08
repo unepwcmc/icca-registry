@@ -1,5 +1,7 @@
 .page {
   &--news {
-    // TODO - add responsive width
+    section {
+      @include space-small(margin-bottom);
+    }
   }
 }

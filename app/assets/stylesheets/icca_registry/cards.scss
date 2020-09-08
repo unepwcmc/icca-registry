@@ -1,0 +1,88 @@
+// LOCAL MIXINS
+@mixin card-news {
+    .card {
+      background-color: $grey-5;
+      margin-bottom: rem-calc(20);
+      text-decoration: none;
+      width: 100%;
+  
+      @include breakpoint($small) {
+        margin-bottom: rem-calc(30);
+        width: 48.5%;
+      }
+    }
+    
+    .card__content {
+      @include responsive(padding, rem-calc(26 20), rem-calc(28 20), rem-calc(30 20));
+    }
+      
+    .card__date { 
+      @include text(small);
+      color: $grey-77;
+      font-size: rem-calc(14);
+      margin: 0; 
+    }
+  
+    .card__h3 { 
+      @include text(headline, bold);
+      margin: .5em 0; 
+    }
+  
+    .card__icon { @include image-placeholder(); }
+    
+    .card__image {
+      @include flex-center;
+      background-color: $grey-15;
+      background-position: center;
+      background-size: cover;
+      width: 100%; height: rem-calc(265);
+    }
+  
+    .card__summary { 
+      @include text(body);
+      margin: 0;
+    } 
+}
+
+@mixin button-all($small: false) {
+  @include button-with-icon;
+  @include flex-no-shrink;
+  &::after { @include icon-circle-chevron-black; }
+
+  @if $small {
+    @include breakpoint($medium) { font-size: rem-calc(16); }
+
+    &::after {
+      height: rem-calc(21);
+      width: rem-calc(21);
+    }
+  }
+}
+//------------------------------------------------------------------------------
+
+.cards--articles {
+  @include card-news;
+  margin-bottom: rem-calc(80);
+  
+  &__title {
+    @include text(large);
+  }
+
+  .cards {
+    &__cards {
+      @include flex;
+      @include flex-h-between;
+      @include flex-wrap;
+      margin-top: rem-calc(20);
+    }
+  }
+}
+
+// View all link
+
+.button {
+  &--all {
+    @include button-all;
+    @include text(body);
+  }
+}

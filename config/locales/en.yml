@@ -134,4 +134,8 @@ en:
         url: https://www.linkedin.com/shareArticle?url=%{url} 
   
   articles:
-    view_all: 'View all'
+    view_all: 'View All'
+
+  global:
+    button:
+      download: 'Download'

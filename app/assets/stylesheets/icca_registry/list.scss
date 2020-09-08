@@ -6,14 +6,22 @@
 
     .list {
       &__li {
-        display: flex;
-        align-items: center;
-        justify-items: space-between;
+        @include flex;
+        @include flex-v-center;
+        @include flex-h-between;
         background-color: $grey-5;
-        padding: 14px 20px;
+        padding: rem-calc(14 20);
+        margin-bottom: rem-calc(13);
       }
 
-      &__a { margin-left: 18px; }
+      &__a { 
+        margin-left: rem-calc(18); 
+        
+        &--link-external {
+
+        }
+      
+      }
     }
   }
 }

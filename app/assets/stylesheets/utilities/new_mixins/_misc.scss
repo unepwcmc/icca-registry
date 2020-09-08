@@ -1,0 +1,88 @@
+// Miscellaneous mixins - TODO most of them will need to be moved to their own stylesheets separated by category 
+
+// Spacing
+@mixin space-small($property) {
+  #{$property}: rem-calc(20);
+}
+
+// Forms
+@mixin input-custom-focus {
+  outline: 0;
+}
+
+// Buttons
+@mixin button-basic {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+  &:focus { @include input-custom-focus; }
+  &:hover { text-decoration: none; }
+}
+
+@mixin button-font {
+  @include responsive(font-size, rem-calc(16), rem-calc(18), rem-calc(18));
+}
+
+@mixin button-with-icon {
+  @include button-basic;
+  @include button-font;
+  @include flex;
+  @include flex-v-center;
+  &::after {
+    content: '';
+    margin-left: rem-calc(10);
+    display: inline-block;
+  }
+}
+
+
+// Icons
+@mixin icon-basic() {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  
+  display: block;
+}
+
+@mixin icon-image($filename, $width, $height) {
+  background-image: image_url("icons/#{$filename}");
+  width: $width; height: $height;
+}
+
+
+@mixin icon-placeholder-image() {
+  @include icon-basic;
+  @include icon-image('no-image.svg', rem-calc(114), rem-calc(91));
+}
+
+@mixin icon-circle-chevron-black() {
+  @include icon-basic;
+  @include icon-image('circle-chevron-black.svg', rem-calc(34), rem-calc(34));
+}
+
+// Images
+@mixin image-placeholder($width: 100%, $height: rem-calc(265)) {
+  @include flex-center;
+  background-color: $grey-33;
+  background-position: center;
+  background-size: cover;
+  width: $width; height: $height;
+
+  &::after { 
+    @include icon-placeholder-image; 
+    width: 30%;
+    content: '';
+  }
+}
+
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

@@ -20,7 +20,8 @@ module ApplicationHelper
     image_path('hero_image_news-and-stories.jpg')
   end
 
-  def get_news_items all = false
+  # News articles partial
+  def get_news_items(all = false)
     news_page = @cms_site.pages.find_by_slug('news-and-stories')
     published_pages = news_page.children.published
     sorted_cards = published_pages.sort_by { |c| c.fragments.where(identifier: 'published_date').first.datetime }.reverse
@@ -32,7 +33,27 @@ module ApplicationHelper
     }
   end
 
-  def get_cms_url path
-    root_path + path
+  def get_cms_url(path)
+    root_url.concat(path)
+  end
+
+  #  article's attached files
+  def get_resources
+    resources = @cms_page.resources
+
+    resources.map do |resource|
+      next unless resource.file.present?
+      {
+        button: I18n.t('global.button.download'),
+        title: resource.label,
+        url: linkify(resource.file)
+      }
+    end
+  end
+
+  # Turns link[:url] value into a valid link if no http:// or https:// supplied
+  # Also sanitises it in the case of a download link
+  def linkify(file)
+    url_for(file)
   end
 end

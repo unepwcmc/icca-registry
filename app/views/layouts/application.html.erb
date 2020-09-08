@@ -22,15 +22,16 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <main class="body-container">
-    <header>
-      <%= render 'layouts/application/navbar' %>
-      <%= yield :header %>
-    </header>
+  <div id='v-app' v-cloak>
+    <main class="body-container">
+      <header>
+        <%= render 'layouts/application/navbar' %>
+        <%= yield :header %>
+      </header>
 
-    <%= yield %>
-  </main>
-
+      <%= yield %>
+    </main>
+  </div>
   <%= render "layouts/application/footer" %>
 
 

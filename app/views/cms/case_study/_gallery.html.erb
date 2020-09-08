@@ -12,13 +12,11 @@
     <img class="gallery__photo" src="<%= url_for(@cms_page.photos.first.file) %>" alt="Photos relevant to the case study" />
   </div>
   <% else %>
-    <div id='v-app' v-cloak>
       <carousel-flickity class="gallery__body">
         <% @cms_page.photos.each do |photo| %>
           <img class="gallery__photo" src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
         <% end %>
       </carousel-flickity>
-    </div>
   <% end %>
 <% end %>
 

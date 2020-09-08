@@ -1,18 +1,12 @@
 .news-article { 
-  // TODO - this margin bottom will be moved into a mixin 
-  &__top {
-    margin-bottom: 20px; 
-  }
-
   &__content {
     @include text(body);
-    margin-bottom: 20px;
   }
 
   &__date {
+    @include space-small(margin-bottom);
     @include text(small);
     color: $grey-77;
-    margin-bottom: 20px;
   }
 
   &__links {
@@ -21,7 +15,6 @@
 
   &__title {
     @include text(large, bold);
-    margin-bottom: 20px;
   }
 
 }
