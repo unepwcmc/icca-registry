@@ -16,7 +16,7 @@
         image="<%= cms_fragment_render(:image, card) %>"
         summary="<%= truncate(cms_fragment_content(:content, card), length: 200) %>"
         title="<%= card[:label].truncate(59, separator: ' ') %>"
-        url="<%= card[:url] %>"
+        url="<%= get_cms_url(card[:full_path]) %>"
       ></article-card-news>
     <% end %>
   </div>

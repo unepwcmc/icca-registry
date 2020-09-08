@@ -27,7 +27,11 @@ Rails.application.routes.draw do
     resources :interest_submissions, only: [:create]
   end
 
-  # Make sure this routeset is defined last
-  comfy_route :cms_admin, :path => '/admin'
-  comfy_route :cms, :path => '/', :sitemap => false
+  scope "/:locale", locale: /en|es|fr/ do
+    get '/', to: 'home#index', as: :locale_root
+  end
+
+    # Make sure this routeset is defined last
+    comfy_route :cms_admin, :path => '/admin'
+    comfy_route :cms, :path => '/', :sitemap => false
 end
