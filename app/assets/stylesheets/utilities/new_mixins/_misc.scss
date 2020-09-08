@@ -79,6 +79,11 @@
   @include icon-image('arrow-external.svg', rem-calc(17), rem-calc(12));
 }
 
+@mixin icon-download() {
+  @include icon-basic;
+  @include icon-image('download.svg', rem-calc(20), rem-calc(19));
+}
+
 // Images
 @mixin image-placeholder($width: 100%, $height: rem-calc(265)) {
   @include flex-center;

@@ -12,6 +12,7 @@
         background-color: $grey-5;
         padding: rem-calc(14 20);
         margin-bottom: rem-calc(13);
+        max-height: rem-calc(55);
       }
 
       &__a { 
@@ -28,6 +29,15 @@
   }
 
   &--download {
+    @include button-with-icon;
+    background-color: $brown;
+    border-radius: 3px;
+    color: $white;
+    padding: rem-calc(10 14);
 
+    &::after { 
+      @include icon-download; 
+      display: inline-block;
+    }
   }
 }
