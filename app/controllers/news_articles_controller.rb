@@ -2,19 +2,21 @@ class NewsArticlesController < ApplicationController
   def index
     _options = {
       page: news_params[:requested_page],
-      per_page: news_params[:items_per_page]
+      size: news_params[:items_per_page]
     }
+    results = @cms_page.children.where(is_published: true)
 
-    @results = NewsSerializer.new(@cms_page.children.where(is_published: true), _options).serialize
+    @results = NewsSerializer.new(results, _options).serialize
+
     respond_to do |format|
       format.html
-      format.js { render json: @results }
+      format.json { render json: @results }
     end
   end
 
   private
 
   def news_params
-    params.permit(:type, :requested_page, :items_per_page, :filters)
+    params.permit(:requested_page, :items_per_page, :filters)
   end
 end

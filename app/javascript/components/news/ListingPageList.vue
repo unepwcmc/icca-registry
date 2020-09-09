@@ -4,7 +4,6 @@
   >
     <div
       v-show="hasResults" 
-      sm-trigger-element="test"
     >
       <div class="cards__cards">
         <article-card-news

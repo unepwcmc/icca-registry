@@ -1,7 +1,4 @@
 module ApplicationHelper
-  # Total pages variable for pagination
-  TOTAL_PAGES = 6
-
   def map_bounds protected_area=nil
     return Rails.application.credentials[Rails.env.to_sym][:default_map_bounds] unless protected_area
 
@@ -65,11 +62,13 @@ module ApplicationHelper
 
   # For infinite scroll on news index page
   def get_initial_news_pages
+    size = NewsSerializer::DEFAULT_PAGE_SIZE
+
     _options = {
       page: 1,
-      size: NewsSerializer::DEFAULT_PAGE_SIZE
+      size: size
     }
-    pages = @cms_page.children.where(is_published: true)
+    pages = sort_by_date(@cms_page.children.where(is_published: true))
 
     NewsSerializer.new(pages, _options).serialize
   end

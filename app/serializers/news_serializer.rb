@@ -30,8 +30,8 @@ class NewsSerializer
       {
         total: total,
         totalPages: total_pages,
-        page: @options[:requested_page],
-        size: @options[:items_per_page],
+        page: @options[:page],
+        size: @options[:size],
         results: sorted_pages.map do |record|
           {
             date: date(record),
@@ -51,7 +51,7 @@ class NewsSerializer
 
   def sorted_pages
     return [] if @results.blank?
-    @results.sort_by do |p|
+    @results.each_slice(DEFAULT_PAGE_SIZE.to_i).to_a[@options[:page] - 1].sort_by do |p|
       p.fragments.where(identifier: 'published_date').first.datetime
     end.reverse
   end
