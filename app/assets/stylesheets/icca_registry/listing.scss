@@ -1,0 +1,21 @@
+.listing {
+  &__results-wrapper { 
+    @include flex-grow;
+  }
+  
+  &__spinner {
+    margin-top: rem-calc(55);
+    margin-right: auto;
+    margin-bottom: rem-calc(55);
+    margin-left: auto;
+  }
+}
+
+// Spinner
+.icon {
+  &--loading-spinner { 
+    @include icon-loading-spinner; 
+  
+    visibility: hidden;
+  }
+}

@@ -22,7 +22,7 @@
         v-on:toggle:filter-pane="toggleFilterPane"
       /> -->
       
-      <!-- <div class="listing__results-wrapper"> -->
+      <div class="listing__results-wrapper">
         <listing-page-list
           :results="newResults"
           :sm-trigger-element="smTriggerElement"
@@ -31,8 +31,8 @@
           v-on:reset-pagination="resetPagination"
           v-show="!updatingResults"
         />
-        <span :class="['icon--loading-spinner margin-center listing__spinner', { 'icon-visible': loadingResults } ]" />
-      <!-- </div> -->
+        <span :class="['icon--loading-spinner listing__spinner', { 'icon-visible': loadingResults } ]" />
+      </div>
       
     <!-- </div> -->
   </div>
@@ -143,13 +143,12 @@ export default {
       //     filters: filters,
       //     items_per_page: this.itemsPerPage,
       //     requested_page: requestedPage,
-      //     search_index: 'cms'
       //   }
       // }
 
       // this.axiosSetHeaders()
 
-      // axios.get(this.endpointSearch, data)
+      // axios.get(this.endpoint, data)
       //   .then(response => {
           
       //     if(pagination){

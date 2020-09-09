@@ -8,9 +8,12 @@ import ListingPage from '../components/news/ListingPage.vue';
 
 Vue.use(TurbolinksAdapter)
 
+export const eventHub = new Vue();
+
 document.addEventListener('turbolinks:load', () => {
     if(document.getElementById('v-app')) {
-        new Vue({
+        Vue.prototype.$eventHub = new Vue()
+        const app = new Vue({
             el: '#v-app',
             components: {
                 CarouselFlickity,
