@@ -46,11 +46,15 @@ module ApplicationHelper
     end
   end
 
+  def sort_by_date(pages)
+    pages.sort_by { |c| c.fragments.where(identifier: 'published_date').first.datetime }.reverse
+  end
+
   # News articles partial
   def get_news_items
     news_page = @cms_site.pages.find_by_slug('news-and-stories')
     published_pages = news_page.children.published
-    sorted_cards = published_pages.sort_by { |c| c.fragments.where(identifier: 'published_date').first.datetime }.reverse
+    sorted_cards = sort_by_date(published_pages)
 
     @items = {
       title: news_page.label,
@@ -61,8 +65,8 @@ module ApplicationHelper
 
   # For infinite scroll on news index page
   def get_all_news_pages
-    pages = @cms_page.children.where(is_published: true)
-
+    pages = sort_by_date(@cms_page.children.where(is_published: true))
+    
     {
       results: get_news_card_attributes(pages),
       total: pages.count,
