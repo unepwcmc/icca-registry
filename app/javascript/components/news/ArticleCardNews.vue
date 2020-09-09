@@ -37,7 +37,7 @@
 
 <script>
 export default {
-  name: 'listing-page-card-news',
+  name: 'article-card-news',
 
   props: {
     date: String,

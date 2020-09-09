@@ -4,15 +4,10 @@
   } %>
 
   <section class="container">
-  <!-- <listing-page
-    // endpoint-search="/en/search-cms"
-    // :filter-groups="<%#= get_category_filters %>"
-    :page-id="<%#= @cms_page.id %>"
-    :results="<%#= get_all_news_pages %>"
-    // sm-trigger-element="sm-listing"
-    // text-clear="<%#= t('search.clear') %>"
-    // text-filters-close="View Results"
-    // text-filter-trigger="<%#= t('search.filters') %>"
+  <listing-page
+    :page-id="<%= @cms_page.id %>"
+    :results="<%= get_all_news_pages %>"
+    sm-trigger-element="sm-listing"
     text-no-results="No Results"
   ></listing-page> --> 
   </section>

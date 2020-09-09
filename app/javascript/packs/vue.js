@@ -4,7 +4,7 @@ import Vue from 'vue/dist/vue.esm'
 import CarouselFlickity from '../components/carousel/CarouselFlickity.vue';
 
 import ArticleCardNews from '../components/news/ArticleCardNews.vue';
-// import Filters from '../filters/Filters.vue';
+import ListingPage from '../components/news/ListingPage.vue';
 
 Vue.use(TurbolinksAdapter)
 
@@ -15,7 +15,7 @@ document.addEventListener('turbolinks:load', () => {
             components: {
                 CarouselFlickity,
                 ArticleCardNews,
-                // Filters
+                ListingPage
             }
         })
     }

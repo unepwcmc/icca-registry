@@ -23,6 +23,11 @@ module ApplicationHelper
     image_path('hero_image_news-and-stories.jpg')
   end
 
+  # Strip html tags
+  def parse_html_content(content)
+    Nokogiri::HTML(content).css("p").first.text rescue "No description available."
+  end
+
   # For the news article cards
   def get_news_card_attributes(cards)
     # Maximum length of the attributes (in characters)
@@ -34,7 +39,7 @@ module ApplicationHelper
       key: index,
       date: cms_fragment_content("published_date", card).strftime("%d %B %y"),
       image: cms_fragment_render(:hero_image, card),
-      summary: truncate(cms_fragment_content(:content, card), length: summary_length),
+      summary: truncate(parse_html_content(cms_fragment_content(:content, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
       url: get_cms_url(card[:full_path])
     }
@@ -56,12 +61,12 @@ module ApplicationHelper
 
   # For infinite scroll on news index page
   def get_all_news_pages
-    pages = @cms_pages.children.where(is_published: true)
+    pages = @cms_page.children.where(is_published: true)
 
     {
-      results: get_news_card_attributes(pages).map(&:to_json),
+      results: get_news_card_attributes(pages),
       total: pages.count,
-      total_pages: TOTAL_PAGES
+      totalPages: TOTAL_PAGES
     }.to_json
   end
 

@@ -26,7 +26,6 @@
         <listing-page-list
           :results="newResults"
           :sm-trigger-element="smTriggerElement"
-          :template="template"
           :text-no-results="textNoResults"
           v-on:request-more="requestMore"
           v-on:reset-pagination="resetPagination"
@@ -44,7 +43,7 @@ import axios from 'axios'
 import mixinAxiosHelpers from '../../mixins/mixin-axios-helpers'
 // import FilterTrigger from '../filters/FilterTrigger.vue'
 // import Filters from '../filters/FiltersSearch.vue'
-import ListingPageList from '../listing/ListingPageList.vue'
+import ListingPageList from './ListingPageList.vue'
 
 export default {
   name: 'ListingPage',
@@ -58,10 +57,10 @@ export default {
   mixins: [ mixinAxiosHelpers ],
 
   props: {
-    endpointSearch: {
-      required: true,
-      type: String
-    },
+    // endpointSearch: {
+    //   required: true,
+    //   type: String
+    // },
     // filterGroups: {
     //   required: true,
     //   type: Array // [ { title: String, filters: [ { id: String, name: String, title: String, options: [ { id: String, title: String }], type: String } ] } ]
@@ -79,10 +78,6 @@ export default {
       type: Object // { title: String, total: Number, results: [{ date: String, image: String, summary: String, title: String, url: String }
     },
     smTriggerElement: {
-      required: true,
-      type: String
-    },
-    template: {
       required: true,
       type: String
     },
@@ -126,7 +121,7 @@ export default {
   },
 
   created () {
-    this.handleQueryString()
+    // this.handleQueryString()
   },
 
   mounted() {
@@ -141,34 +136,34 @@ export default {
         this.updatingResults = true 
       }
 
-      let filters = {...this.activeFilterOptions, ...{ ancestor: this.pageId }}
+      // let filters = {...this.activeFilterOptions, ...{ ancestor: this.pageId }}
 
-      let data = {
-        params: {
-          filters: filters,
-          items_per_page: this.itemsPerPage,
-          requested_page: requestedPage,
-          search_index: 'cms'
-        }
-      }
+      // let data = {
+      //   params: {
+      //     filters: filters,
+      //     items_per_page: this.itemsPerPage,
+      //     requested_page: requestedPage,
+      //     search_index: 'cms'
+      //   }
+      // }
 
-      this.axiosSetHeaders()
+      // this.axiosSetHeaders()
 
-      axios.get(this.endpointSearch, data)
-        .then(response => {
+      // axios.get(this.endpointSearch, data)
+      //   .then(response => {
           
-          if(pagination){
-            this.newResults.results = this.newResults.results.concat(response.data.results)
-          } else {
-            this.updateProperties(response, resetFilters)
-          }
+      //     if(pagination){
+      //       this.newResults.results = this.newResults.results.concat(response.data.results)
+      //     } else {
+      //       this.updateProperties(response, resetFilters)
+      //     }
 
-          this.loadingMoreResults = false
-          this.updatingResults = false
-        })
-        .catch(function (error) {
-          console.log('error', error)
-        })
+      //     this.loadingMoreResults = false
+      //     this.updatingResults = false
+      //   })
+      //   .catch(function (error) {
+      //     console.log('error', error)
+      //   })
     },
 
     /**
@@ -176,35 +171,35 @@ export default {
      * Initialise the state of the component based on its parameters
      * @see created()
      */
-    handleQueryString () {
-      const paramsFromUrl = new URLSearchParams(window.location.search)
+    // handleQueryString () {
+    //   const paramsFromUrl = new URLSearchParams(window.location.search)
 
-      let params = []
+    //   let params = []
 
-      this.config.queryStringParams.forEach(param => {
-        if(paramsFromUrl.has(param)) { params.push(param) }
-      })
+    //   this.config.queryStringParams.forEach(param => {
+    //     if(paramsFromUrl.has(param)) { params.push(param) }
+    //   })
 
-      let filterParams = []
+    //   let filterParams = []
 
-      this.config.queryStringParamsFilters.forEach(param => {
-        if(paramsFromUrl.has(`filters[${param}][]`)) { filterParams.push(param) }
-      })
+    //   this.config.queryStringParamsFilters.forEach(param => {
+    //     if(paramsFromUrl.has(`filters[${param}][]`)) { filterParams.push(param) }
+    //   })
 
-      this.filterGroups.map(filterGroup => {
-        return filterGroup.filters.map(filter => {
-          filterParams.forEach(key => {
-            if(filter.id == key){
-              filter.preSelected = paramsFromUrl.getAll(`filters[${key}][]`)
-            }
-          })
+    //   this.filterGroups.map(filterGroup => {
+    //     return filterGroup.filters.map(filter => {
+    //       filterParams.forEach(key => {
+    //         if(filter.id == key){
+    //           filter.preSelected = paramsFromUrl.getAll(`filters[${key}][]`)
+    //         }
+    //       })
 
-          return filter
-        })
-      })
+    //       return filter
+    //     })
+    //   })
       
-      this.filterGroupsWithPreSelected = this.filterGroups
-    },
+    //   this.filterGroupsWithPreSelected = this.filterGroups
+    // },
 
     // getFilteredSearchResults() {
     //   this.ajaxSubmission()

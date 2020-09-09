@@ -1,20 +1,20 @@
 <template>
   <div 
-    class="listing__results"
+    class="cards--articles"
   >
     <div
       v-show="hasResults" 
       sm-trigger-element="test"
     >
-      <div class="listing__cards-news">
+      <div class="cards__cards">
         <article-card-news
-          v-for="results, index in results.results"
-          :key="results.key"
-          :date="results.date"
-          :image="results.image"
-          :summary="results.summary"
-          :title="results.title"
-          :url="results.url"
+          v-for="result, index in results.results"
+          :key="result.key"
+          :date="result.date"
+          :image="result.image"
+          :summary="result.summary"
+          :title="result.title"
+          :url="result.url"
         />
       </div>
       <pagination-infinity-scroll 
@@ -35,14 +35,14 @@
 </template>
 
 <script>
-import ArticleCardNews from '../listing/ArticleCardNews.vue'
+import ArticleCardNews from './ArticleCardNews.vue'
 import PaginationInfinityScroll from '../pagination/PaginationInfinityScroll.vue'
 
 export default {
   name: 'listing-page-list',
 
   components: { 
-    ListingPageCardNews,
+    ArticleCardNews,
     PaginationInfinityScroll
   },
   
@@ -51,10 +51,6 @@ export default {
       type: Object // { title: String, total: Number, results: [{ date: String, image: String, summary: String, title: String, url: String }
     },
     smTriggerElement: {
-      required: true,
-      type: String
-    },
-    template: {
       required: true,
       type: String
     },
