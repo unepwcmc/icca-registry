@@ -7,9 +7,9 @@
       sm-trigger-element="test"
     >
       <div class="listing__cards-news">
-        <listing-page-card-news
+        <article-card-news
           v-for="results, index in results.results"
-          :key="results._uid"
+          :key="results.key"
           :date="results.date"
           :image="results.image"
           :summary="results.summary"

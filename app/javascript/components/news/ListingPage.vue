@@ -1,17 +1,17 @@
 <template>
   <div>
-    <div class="listing__bar">
+    <!-- <div class="listing__bar">
       <div class="listing__bar-content">
         <filter-trigger
           class="listing__filters-trigger"
           :text="textFilterTrigger"
           v-on:toggle:filter-pane="toggleFilterPane"
         />
+      </div>
     </div>
-    </div>
-
-    <div class="listing__main">
-      <filters-search
+ -->
+    <!-- <div class="listing__main"> -->
+      <!-- <filters-search
         class="listing__filters"
         :filter-close-text="textFiltersClose"
         :filter-groups="filterGroupsWithPreSelected"
@@ -20,9 +20,9 @@
         :title="textFilterTrigger"
         v-on:update:filter-group="updateFilters"
         v-on:toggle:filter-pane="toggleFilterPane"
-      />
+      /> -->
       
-      <div class="listing__results-wrapper">
+      <!-- <div class="listing__results-wrapper"> -->
         <listing-page-list
           :results="newResults"
           :sm-trigger-element="smTriggerElement"
@@ -33,23 +33,27 @@
           v-show="!updatingResults"
         />
         <span :class="['icon--loading-spinner margin-center listing__spinner', { 'icon-visible': loadingResults } ]" />
-      </div>
+      <!-- </div> -->
       
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import mixinAxiosHelpers from '../../mixins/mixin-axios-helpers'
-import FilterTrigger from '../filters/FilterTrigger.vue'
-import Filters from '../filters/FiltersSearch.vue'
+// import FilterTrigger from '../filters/FilterTrigger.vue'
+// import Filters from '../filters/FiltersSearch.vue'
 import ListingPageList from '../listing/ListingPageList.vue'
 
 export default {
   name: 'ListingPage',
 
-  components: { FilterTrigger, FiltersSearch, ListingPageList },
+  components: { 
+    // FilterTrigger, 
+    // FiltersSearch, 
+    ListingPageList 
+  },
   
   mixins: [ mixinAxiosHelpers ],
 
@@ -58,10 +62,10 @@ export default {
       required: true,
       type: String
     },
-    filterGroups: {
-      required: true,
-      type: Array // [ { title: String, filters: [ { id: String, name: String, title: String, options: [ { id: String, title: String }], type: String } ] } ]
-    },
+    // filterGroups: {
+    //   required: true,
+    //   type: Array // [ { title: String, filters: [ { id: String, name: String, title: String, options: [ { id: String, title: String }], type: String } ] } ]
+    // },
     itemsPerPage: {
       default: 6,
       type: Number
@@ -82,18 +86,18 @@ export default {
       required: true,
       type: String
     },
-    textClear: {
-      required: true,
-      type: String
-    },
-    textFiltersClose: {
-      required: true,
-      type: String
-    },
-    textFilterTrigger: {
-      required: true,
-      type: String
-    },
+    // textClear: {
+    //   required: true,
+    //   type: String
+    // },
+    // textFiltersClose: {
+    //   required: true,
+    //   type: String
+    // },
+    // textFilterTrigger: {
+    //   required: true,
+    //   type: String
+    // },
     textNoResults: {
       required: true,
       type: String
@@ -126,7 +130,7 @@ export default {
   },
 
   mounted() {
-    this.filterGroupsWithPreSelected = this.filterGroups
+    // this.filterGroupsWithPreSelected = this.filterGroups
   },
 
   methods: {
@@ -202,9 +206,9 @@ export default {
       this.filterGroupsWithPreSelected = this.filterGroups
     },
 
-    getFilteredSearchResults() {
-      this.ajaxSubmission()
-    },
+    // getFilteredSearchResults() {
+    //   this.ajaxSubmission()
+    // },
 
     requestMore (requestedPage) {
       this.ajaxSubmission(false, true, requestedPage)
@@ -214,46 +218,46 @@ export default {
       this.$eventHub.$emit('reset:pagination')
     },
 
-    toggleFilterPane () {
-      this.isFilterPaneActive = !this.isFilterPaneActive
-    },
+    // toggleFilterPane () {
+    //   this.isFilterPaneActive = !this.isFilterPaneActive
+    // },
 
-    updateFilters (filters) {
-      this.$eventHub.$emit('reset:pagination')
-      this.activeFilterOptions = filters
-      this.getFilteredSearchResults()
-      this.updateQueryString({ filters: filters })
-    },
+    // updateFilters (filters) {
+    //   this.$eventHub.$emit('reset:pagination')
+    //   this.activeFilterOptions = filters
+    //   this.getFilteredSearchResults()
+    //   this.updateQueryString({ filters: filters })
+    // },
 
-    updateProperties (response, resetFilters) {
-      this.newResults = response.data
+    // updateProperties (response, resetFilters) {
+    //   this.newResults = response.data
       
-      if(resetFilters) this.filterGroupsWithPreSelected = response.data.filters
-    },
+    //   if(resetFilters) this.filterGroupsWithPreSelected = response.data.filters
+    // },
 
-    updateQueryString (params) {
-      let searchParams = new URLSearchParams(window.location.search)
-      const key = Object.keys(params)[0]
+    // updateQueryString (params) {
+    //   let searchParams = new URLSearchParams(window.location.search)
+    //   const key = Object.keys(params)[0]
   
-      if(key == 'filters') {
-        const filters = params.filters
+    //   if(key == 'filters') {
+    //     const filters = params.filters
 
-        Object.keys(filters).forEach(key => {
-          let queryKey = `filters[${key}][]`
-          let queryValues = filters[key]
+    //     Object.keys(filters).forEach(key => {
+    //       let queryKey = `filters[${key}][]`
+    //       let queryValues = filters[key]
           
-          if(searchParams.has(queryKey)) { searchParams.delete(queryKey) }
+    //       if(searchParams.has(queryKey)) { searchParams.delete(queryKey) }
           
-          queryValues.forEach(value => {
-              searchParams.append(queryKey, value)
-          })
-        })
-      }
+    //       queryValues.forEach(value => {
+    //           searchParams.append(queryKey, value)
+    //       })
+    //     })
+    //   }
 
-      const newUrl = `${window.location.pathname}?${searchParams.toString()}`
+    //   const newUrl = `${window.location.pathname}?${searchParams.toString()}`
 
-      window.history.pushState({ query: 1 }, null, newUrl)
-    }
+    //   window.history.pushState({ query: 1 }, null, newUrl)
+    // }
   }
 }
 </script>

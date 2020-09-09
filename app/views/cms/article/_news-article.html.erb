@@ -38,6 +38,6 @@
   </section>
 
   <section class="container">
-    <%= render "cms/article/other-articles" %>
+    <%= render "cms/article/other-articles", locals: { items: get_news_items } %>
   </section>
 </div>

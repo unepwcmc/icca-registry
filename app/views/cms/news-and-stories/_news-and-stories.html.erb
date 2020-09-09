@@ -3,19 +3,18 @@
     title: t('news-and-stories')
   } %>
 
+  <section class="container">
   <!-- <listing-page
-    endpoint-search="/en/search-cms"
-    :filter-groups="<%#= get_category_filters %>"
+    // endpoint-search="/en/search-cms"
+    // :filter-groups="<%#= get_category_filters %>"
     :page-id="<%#= @cms_page.id %>"
-    :results="<%#=  %>"
-    sm-trigger-element="sm-listing"
-    template="news"
-    text-clear="<%#= t('search.clear') %>"
-    text-filters-close="View Results"
-    text-filter-trigger="<%#= t('search.filters') %>"
+    :results="<%#= get_all_news_pages %>"
+    // sm-trigger-element="sm-listing"
+    // text-clear="<%#= t('search.clear') %>"
+    // text-filters-close="View Results"
+    // text-filter-trigger="<%#= t('search.filters') %>"
     text-no-results="No Results"
   ></listing-page> --> 
-  <section class="container">
-    <%= render "cms/article/other-articles", locals: { get_all: true } %>
   </section>
+    
 </div>
