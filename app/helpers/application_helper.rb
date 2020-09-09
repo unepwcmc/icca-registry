@@ -64,18 +64,19 @@ module ApplicationHelper
   end
 
   # For infinite scroll on news index page
-  def get_all_news_pages
-    pages = sort_by_date(@cms_page.children.where(is_published: true))
-    
-    {
-      results: get_news_card_attributes(pages),
-      total: pages.count,
-      totalPages: TOTAL_PAGES
-    }.to_json
+  def get_initial_news_pages
+    _options = {
+      page: 1,
+      size: Search::CmsSerializer::DEFAULT_PAGE_SIZE
+    }
+    # Wonder if this works...
+    pages = @cms_page.children.where(is_published: true)
+
+    NewsSerializer.new(pages, _options).serialize
   end
 
   def get_cms_url(path)
-    locale_root_url(locale: locale.to_s).concat(path)
+    locale_root_url(locale: I18n.locale.to_s).concat(path)
   end
 
   #  article's attached files

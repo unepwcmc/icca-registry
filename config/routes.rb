@@ -27,11 +27,14 @@ Rails.application.routes.draw do
     resources :interest_submissions, only: [:create]
   end
 
+  # News articles json
+  get '/news-articles', to: 'news_articles#index', as: :news_articles
+
   scope "/:locale", locale: /en|es|fr/ do
     get '/', to: 'home#index', as: :locale_root
   end
 
-    # Make sure this routeset is defined last
-    comfy_route :cms_admin, :path => '/admin'
-    comfy_route :cms, :path => '/', :sitemap => false
+  # Make sure this routeset is defined last
+  comfy_route :cms_admin, :path => '/admin'
+  comfy_route :cms, :path => '/', :sitemap => false
 end
