@@ -67,9 +67,8 @@ module ApplicationHelper
   def get_initial_news_pages
     _options = {
       page: 1,
-      size: Search::CmsSerializer::DEFAULT_PAGE_SIZE
+      size: NewsSerializer::DEFAULT_PAGE_SIZE
     }
-    # Wonder if this works...
     pages = @cms_page.children.where(is_published: true)
 
     NewsSerializer.new(pages, _options).serialize

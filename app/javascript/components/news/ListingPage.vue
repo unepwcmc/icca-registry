@@ -57,10 +57,10 @@ export default {
   mixins: [ mixinAxiosHelpers ],
 
   props: {
-    // endpointSearch: {
-    //   required: true,
-    //   type: String
-    // },
+    endpoint: {
+      required: true,
+      type: String
+    },
     // filterGroups: {
     //   required: true,
     //   type: Array // [ { title: String, filters: [ { id: String, name: String, title: String, options: [ { id: String, title: String }], type: String } ] } ]
@@ -138,31 +138,32 @@ export default {
 
       // let filters = {...this.activeFilterOptions, ...{ ancestor: this.pageId }}
 
-      // let data = {
-      //   params: {
-      //     filters: filters,
-      //     items_per_page: this.itemsPerPage,
-      //     requested_page: requestedPage,
-      //   }
-      // }
+      let data = {
+        params: {
+          // filters: filters,
+          items_per_page: this.itemsPerPage,
+          requested_page: requestedPage,
+        }
+      }
 
-      // this.axiosSetHeaders()
+      this.axiosSetHeaders()
 
-      // axios.get(this.endpoint, data)
-      //   .then(response => {
+      axios.get(this.endpoint, data)
+        .then(response => {
           
-      //     if(pagination){
-      //       this.newResults.results = this.newResults.results.concat(response.data.results)
-      //     } else {
-      //       this.updateProperties(response, resetFilters)
-      //     }
+          if(pagination){
+            this.newResults.results = this.newResults.results.concat(response.data.results)
+          } 
+          // else {
+          //   this.updateProperties(response, resetFilters)
+          // }
 
-      //     this.loadingMoreResults = false
-      //     this.updatingResults = false
-      //   })
-      //   .catch(function (error) {
-      //     console.log('error', error)
-      //   })
+          this.loadingMoreResults = false
+          this.updatingResults = false
+        })
+        .catch(function (error) {
+          console.log('error', error)
+        })
     },
 
     /**
