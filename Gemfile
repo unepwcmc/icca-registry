@@ -10,7 +10,7 @@ gem 'aws-sdk', '~> 1.6'
 # Accessing S3 bucket using AWS gem instead of open-uri
 gem 'aws-sdk-s3'
 gem 'appsignal', '~> 2.2.1'
-gem 'invisible_captcha', '~> 0.9.2'
+gem 'invisible_captcha'
 gem 'paperclip'
 
 # Assets
@@ -19,6 +19,8 @@ gem 'sassc', '~> 1.9'
 gem 'turbolinks'
 gem 'comfy_bootstrap_form', '~> 4.0.3'
 gem 'webpacker'
+# Needed to load in custom JS into the CMS - added back in
+gem 'coffee-rails'
 
 # DB
 gem 'pg', '~> 0.18.4'
@@ -26,6 +28,7 @@ gem 'pg_search'
 
 group :development, :test do
   gem 'byebug'
+  gem 'letter_opener'
   gem 'rspec-rails', '~> 3.9'
 end
 

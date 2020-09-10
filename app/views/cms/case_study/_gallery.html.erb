@@ -1,9 +1,15 @@
 <% if @cms_page.photos.any? %>
-  <% if @cms_page.photos.count < 3 %>
+  <% if 1 < @cms_page.photos.count && @cms_page.photos.count < 3 %>
   <div class="gallery__body--active">
     <% @cms_page.photos.each do |photo| %>
-      <img class="gallery__photo" src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
+      <div class="gallery__slide">
+        <img src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
+      </div>
     <% end %>
+  </div>
+  <% elsif @cms_page.photos.count == 1 %>
+  <div class="gallery__body--active">
+    <img class="gallery__photo" src="<%= url_for(@cms_page.photos.first.file) %>" alt="Photos relevant to the case study" />
   </div>
   <% else %>
     <div id='v-app' v-cloak>
