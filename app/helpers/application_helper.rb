@@ -47,16 +47,20 @@ module ApplicationHelper
     pages.sort_by { |c| c.fragments.where(identifier: 'published_date').first.datetime }.reverse
   end
 
-  # News articles partial
-  def get_news_items
+  def sorted_news_articles
     news_page = @cms_site.pages.find_by_slug('news-and-stories')
     published_pages = news_page.children.published
-    sorted_cards = sort_by_date(published_pages)
+    { page: news_page, cards: sort_by_date(published_pages) }
+  end
+
+  # News articles partial
+  def get_news_items
+    news = sorted_news_articles
 
     @items = {
-      title: news_page.label,
-      url: get_cms_url(news_page.full_path),
-      cards: get_news_card_attributes(sorted_cards.first(2))
+      title: news[:page].label,
+      url: get_cms_url(news[:page].full_path),
+      cards: get_news_card_attributes(news[:cards].first(2))
     }
   end
 

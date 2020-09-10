@@ -152,7 +152,6 @@ export default {
         .then(response => {
           
           if(pagination){
-            console.log(response.data);
             this.newResults.results = this.newResults.results.concat(response.data.results)
           } 
           // else {

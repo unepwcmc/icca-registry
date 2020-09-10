@@ -4,14 +4,13 @@ class NewsArticlesController < ApplicationController
       page: news_params[:requested_page],
       size: news_params[:items_per_page]
     }
-    results = @cms_page.children.where(is_published: true)
+
+    news_page = @site.pages.find_by_slug('news-and-stories')
+    results = news_page.children.where(is_published: true)
 
     @results = NewsSerializer.new(results, _options).serialize
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @results }
-    end
+    render json: @results
   end
 
   private

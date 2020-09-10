@@ -51,9 +51,11 @@ class NewsSerializer
 
   def sorted_pages
     return [] if @results.blank?
-    @results.each_slice(DEFAULT_PAGE_SIZE.to_i).to_a[@options[:page] - 1].sort_by do |p|
+    req_page = @options[:page].to_i - 1
+    page_size = @options[:size].to_i
+    @results.sort_by do |p|
       p.fragments.where(identifier: 'published_date').first.datetime
-    end.reverse
+    end.reverse.each_slice(page_size).to_a[req_page]
   end
 
   def image(page)
