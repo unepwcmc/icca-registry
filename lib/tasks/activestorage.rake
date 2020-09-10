@@ -3,6 +3,7 @@ namespace :activestorage do
     files_directory = Rails.root.join("public/system/files")
     Dir.children(files_directory).each do |f|
       Dir.children(files_directory.join("#{f}/original")).each do |file| 
+      begin
         comfy_file = Comfy::Cms::File.find(Integer(f))
         local_path = files_directory.join("#{f}/original/#{file}")
         puts "Attaching #{local_path} to File #{f}"
