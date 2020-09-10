@@ -19,4 +19,4 @@ module IccaPhotos
   end
 end
 
-Comfy::Admin::Cms::PagesController.send(:include, IccaPhotos)
+# Comfy::Admin::Cms::PagesController.send(:include, IccaPhotos)

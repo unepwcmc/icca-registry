@@ -18,4 +18,4 @@ module IccaRelatedLinks
   end
 end
 
-Comfy::Admin::Cms::PagesController.send(:include, IccaRelatedLinks)
+# Comfy::Admin::Cms::PagesController.send(:include, IccaRelatedLinks)

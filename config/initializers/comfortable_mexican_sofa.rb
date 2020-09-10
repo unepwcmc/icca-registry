@@ -119,6 +119,4 @@ ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY
 #     return true
 #   end
 # end
-require File.expand_path("../../../app/controllers/concerns/icca_photos.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/icca_resources.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/icca_related_links.rb", __FILE__)
+

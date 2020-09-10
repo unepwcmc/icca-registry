@@ -18,4 +18,4 @@ module IccaResources
   end
 end
 
-Comfy::Admin::Cms::PagesController.send(:include, IccaResources)
+# Comfy::Admin::Cms::PagesController.send(:include, IccaResources)
