@@ -9,8 +9,8 @@ module IccaLinks
     has_many :resources
     has_many :related_links
 
-    before_save :link_icca_site, dependent: :destroy
-    before_save :link_country, dependent: :destroy
+    before_save :link_icca_site
+    before_save :link_country
 
     def link_icca_site
       return true if self.parent.try(:country_id).nil?
