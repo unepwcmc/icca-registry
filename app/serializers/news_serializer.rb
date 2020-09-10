@@ -13,7 +13,7 @@ class NewsSerializer
     image: ''
   }.freeze
 
-  def initialize(results, opts={})
+  def initialize(results, opts = {})
     @results = results
     @options = opts
   end
@@ -22,6 +22,8 @@ class NewsSerializer
   DEFAULT_OBJ = {
     total: 0,
     totalPages: 1,
+    page: 1,
+    size: DEFAULT_PAGE_SIZE.to_i,
     results: [DEFAULT_RESULT]
   }.freeze
 
@@ -73,7 +75,7 @@ class NewsSerializer
   def url(path)
     locale = I18n.locale.to_s
     site = Comfy::Cms::Site.find_by(locale: locale)
-    !path.blank? ? site.hostname.concat("/#{locale}/").concat(path) : ''
+    !path.blank? ? root_url.concat("#{locale}#{path}") : '#'
   end
 
   def title(title)
