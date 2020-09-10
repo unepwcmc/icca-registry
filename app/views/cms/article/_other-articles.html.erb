@@ -4,16 +4,18 @@
     <%= link_to t('articles.view_all'), @items[:url], title: t('articles.view_all'), class: 'button--all' %>
   </div>
 
-  <div class="cards__cards">
-    <% @items[:cards].each do |card| %>
-      <article-card-news
-        key="<%= card[:index] %>"
-        date="<%= card[:date] %>"
-        image="<%= card[:image] %>"
-        summary="<%= card[:summary] %>"
-        title="<%= card[:title] %>"
-        url="<%= card[:url] %>"
-      ></article-card-news>
-    <% end %>
+  <div id="v-articles" v-cloak>
+    <div class="cards__cards">
+      <% @items[:cards].each do |card| %>
+        <article-card-news
+          key="<%= card[:index] %>"
+          date="<%= card[:date] %>"
+          image="<%= card[:image] %>"
+          summary="<%= card[:summary] %>"
+          title="<%= card[:title] %>"
+          url="<%= card[:url] %>"
+        ></article-card-news>
+      <% end %>
+    </div>
   </div>
 </div>

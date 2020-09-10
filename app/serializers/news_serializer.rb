@@ -84,8 +84,8 @@ class NewsSerializer
   end
 
   def summary(page)
-    summary_length = 200
-    _content = cms_fragment_content(:content, page)
+    summary_length = 130
+    _content = cms_fragment_content(:summary, page)
     parsed_content = Nokogiri::HTML(_content).css("p").first.text rescue "No description available."
     truncate(parsed_content, length: summary_length)
   end

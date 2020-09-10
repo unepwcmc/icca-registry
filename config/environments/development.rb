@@ -45,7 +45,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
   
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  Rails.application.routes.default_url_options[:protocol] = 'https'
+  Rails.application.routes.default_url_options[:protocol] = 'http'
   # config.action_mailer.smtp_settings = {
   #   domain: ENV['MAILER_DOMAIN'],
   #   address: ENV['MAILER_ADDRESS'],

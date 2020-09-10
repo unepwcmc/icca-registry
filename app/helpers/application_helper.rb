@@ -36,7 +36,7 @@ module ApplicationHelper
       key: index,
       date: cms_fragment_content("published_date", card).strftime("%d %B %y"),
       image: cms_fragment_render(:hero_image, card),
-      summary: truncate(parse_html_content(cms_fragment_content(:content, card)), length: summary_length),
+      summary: truncate(parse_html_content(cms_fragment_content(:summary, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
       url: get_cms_url(card[:full_path])
     }

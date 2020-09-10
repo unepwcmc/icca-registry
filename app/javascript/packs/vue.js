@@ -11,15 +11,36 @@ Vue.use(TurbolinksAdapter)
 export const eventHub = new Vue();
 
 document.addEventListener('turbolinks:load', () => {
-    if(document.getElementById('v-app')) {
-        Vue.prototype.$eventHub = new Vue()
-        const app = new Vue({
-            el: '#v-app',
+    if(document.getElementById('v-carousel')) {
+        
+        new Vue({
+            el: '#v-carousel',
             components: {
-                CarouselFlickity,
-                ArticleCardNews,
+                CarouselFlickity
+            }
+        })
+        
+    }
+
+    if(document.getElementById('v-articles')) {
+        new Vue({
+            el: '#v-articles',
+            components: {
+                ArticleCardNews
+            }
+        })
+    }
+
+    if(document.getElementById('v-listing')) {
+
+        Vue.prototype.$eventHub = new Vue()
+
+        new Vue({
+            el: '#v-listing',
+            components: {
                 ListingPage
             }
         })
     }
 })
+
