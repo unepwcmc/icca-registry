@@ -1,22 +1,26 @@
 namespace :activestorage do
+  desc "Reattach files"
   task :reattach_files => :environment do |t|
-    files_directory = Rails.root.join("public/system/files")
-    Dir.children(files_directory).each do |f|
-      Dir.children(files_directory.join("#{f}/original")).each do |file| 
-      begin
-        comfy_file = Comfy::Cms::File.find(Integer(f))
-        local_path = files_directory.join("#{f}/original/#{file}")
-        puts "Attaching #{local_path} to File #{f}"
-        comfy_file.attachment.attach io: File.open(local_path), filename: comfy_file.file_file_name
-      rescue ActiveRecord::RecordNotFound
-        warn "Did not find Comfy::Cms::File #{f}"
+    files_directory = Rails.root.join("public/system/comfy/cms/files/files/000/000")
+    Dir.entries(files_directory).each do |f|
+      next if f == '.' || f == '..'
+      Dir.entries(files_directory.join("#{f}/original")).each do |file| 
+        next if file == '.' || file == '..'
+        begin
+          comfy_file = Comfy::Cms::File.find(f.to_i)
+          local_path = files_directory.join("#{f}/original/#{file}")
+          puts "Attaching #{local_path} to File #{f}"
+          comfy_file.attachment.attach io: File.open(local_path), filename: comfy_file.file_file_name
+        rescue ActiveRecord::RecordNotFound
+          warn "Did not find Comfy::Cms::File #{f}"
+        end
       end
     end
   end
 
-   # You should have a valid .env before attempting this task - it will obviously fail otherwise!
-   desc "Paperclip to ActiveStorage: Copy over paperclip public/system files into ActiveStorage's storage folder"
-   task :paperclip_to_activestorage => :environment do |t|
+  # You should have a valid .env before attempting this task - it will obviously fail otherwise!
+  desc "Paperclip to ActiveStorage: Copy over paperclip public/system files into ActiveStorage's storage folder"
+  task :paperclip_to_activestorage => :environment do |t|
     def upload_to_s3(source, attachment, s3)
       bucket = s3.buckets["#{ENV["AWS_BUCKET_#{Rails.env.upcase}"]}"]
     
