@@ -8,12 +8,13 @@ import CarouselFlickity from '../carousel/CarouselFlickity.vue';
 Vue.use(TurbolinksAdapter)
 
 document.addEventListener('turbolinks:load', () => {
-    if(document.getElementById('v-app')) {
-        new Vue({
-            el: '#v-app',
-            components: {
-                CarouselFlickity
-            }
-        })
-    }
+  if (document.getElementById('v-app')) {
+    new Vue({
+      el: '#v-app',
+      components: {
+        CarouselFlickity
+      }
+    })
+  }
 })
+
