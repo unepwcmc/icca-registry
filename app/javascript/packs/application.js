@@ -22,7 +22,7 @@ require("../modules/interest_form")
 require("../modules/map")
 require("../modules/toggle")
 require("../modules/ui_state")
-require("../common")
+require("../modules/common")
 require("./vue")
 
 
