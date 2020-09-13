@@ -12,36 +12,36 @@ export const eventHub = new Vue();
 
 // Have to set it up like this because Vue is only being used for certain views
 document.addEventListener('turbolinks:load', () => {
-    if(document.getElementById('v-carousel')) {
-        
-        new Vue({
-            el: '#v-carousel',
-            components: {
-                CarouselFlickity
-            }
-        })
-        
-    }
+  if (document.getElementById('v-carousel')) {
 
-    if(document.getElementById('v-articles')) {
-        new Vue({
-            el: '#v-articles',
-            components: {
-                ArticleCardNews
-            }
-        })
-    }
+    new Vue({
+      el: '#v-carousel',
+      components: {
+        CarouselFlickity
+      }
+    })
 
-    if(document.getElementById('v-listing')) {
+  }
 
-        Vue.prototype.$eventHub = new Vue()
+  if (document.getElementById('v-articles')) {
+    new Vue({
+      el: '#v-articles',
+      components: {
+        ArticleCardNews
+      }
+    })
+  }
 
-        new Vue({
-            el: '#v-listing',
-            components: {
-                ListingPage
-            }
-        })
-    }
+  if (document.getElementById('v-listing')) {
+
+    Vue.prototype.$eventHub = new Vue()
+
+    new Vue({
+      el: '#v-listing',
+      components: {
+        ListingPage
+      }
+    })
+  }
 })
 
