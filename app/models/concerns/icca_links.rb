@@ -9,15 +9,15 @@ module IccaLinks
     has_many :resources
     has_many :related_links
 
-    before_save :link_icca_site, dependent: :destroy
-    before_save :link_country, dependent: :destroy
+    before_save :link_icca_site
+    before_save :link_country
 
     def link_icca_site
       return true if self.parent.try(:country_id).nil?
 
       if self.icca_site 
         IccaSite.where(id: self.icca_site.id).update(name: self.label)
-        normalised_label = I18n.transliterate(self.label)
+        normalised_label = I18n.transliterate(self.label).gsub(/[():']/, '')
         self.slug = normalised_label.downcase.split.join('-')
       else
         self.icca_site = IccaSite.find_or_create_by(

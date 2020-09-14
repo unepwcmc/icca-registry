@@ -19,3 +19,6 @@ document.addEventListener('turbolinks:load', () => {
         })
     }
 })
+
+
+
