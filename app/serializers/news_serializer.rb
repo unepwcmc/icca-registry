@@ -2,6 +2,7 @@ class NewsSerializer
   include ActionView::Helpers::TextHelper
   include Rails.application.routes.url_helpers
   include Comfy::CmsHelper
+  include ApplicationHelper
 
   DEFAULT_PAGE_SIZE = 6.0
 
@@ -68,7 +69,7 @@ class NewsSerializer
   end
 
   def date(page)
-    _date = cms_fragment_content(:published_date, page)
+    _date = cms_fragment_content_datetime(:published_date, page)
     _date.present? && _date.respond_to?(:strftime) ? _date.strftime('%d %B %y') : _date
   end
 

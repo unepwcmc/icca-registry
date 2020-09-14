@@ -34,7 +34,7 @@ module ApplicationHelper
     cards.map.with_index do |card, index|
     {
       key: index,
-      date: cms_fragment_content("published_date", card).strftime("%d %B %y"),
+      date: cms_fragment_content_datetime(:published_date, card).strftime("%d %B %y"),
       image: cms_fragment_render(:hero_image, card),
       summary: truncate(parse_html_content(cms_fragment_content(:summary, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
@@ -93,5 +93,11 @@ module ApplicationHelper
         url: url_for(resource.file)
       }
     end
+  end
+
+  def cms_fragment_content_datetime(identifier, page)
+    # Might not be able to find that particular tag and identifier combo -  hence the try
+    date = page.fragments.find_by(tag: 'date_not_null', identifier: identifier).try(:datetime)
+    date ? date : cms_fragment_content(identifier, page)
   end
 end
