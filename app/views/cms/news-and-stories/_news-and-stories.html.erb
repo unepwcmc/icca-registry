@@ -3,16 +3,15 @@
     title: t('news-and-stories')
   } %>
 
-  <!-- <listing-page
-    endpoint-search="/en/search-cms"
-    :filter-groups="<%#= get_category_filters %>"
-    :page-id="<%#= @cms_page.id %>"
-    :results="<%#=  %>"
-    sm-trigger-element="sm-listing"
-    template="news"
-    text-clear="<%#= t('search.clear') %>"
-    text-filters-close="View Results"
-    text-filter-trigger="<%#= t('search.filters') %>"
-    text-no-results="No Results"
-  ></listing-page> --> 
+  <section class="container">
+    <div id="v-listing" v-cloak>
+      <listing-page
+        endpoint="/news-articles"
+        :page-id="<%= @cms_page.id %>"
+        :results="<%= get_initial_news_pages %>"
+        sm-trigger-element="sm-listing"
+        text-no-results="No Results"
+      ></listing-page> 
+    </div>
+  </section>
 </div>

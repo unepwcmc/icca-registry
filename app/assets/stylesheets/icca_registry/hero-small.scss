@@ -1,9 +1,9 @@
 .hero-small {
+  @include responsive(height, rem-calc(150), rem-calc(315), rem-calc(315));
   background-size: cover;
   background-position: center;
   padding: rem-calc(30 0 40 0);
   margin-bottom: rem-calc(75);
-  height: rem-calc(315);
 
   &--news-index {
     @extend .hero-small;
@@ -19,9 +19,14 @@
 
     &__content {
       @include flex;
+      @include flex-h-start;
       @include flex-v-center;
       @include overlay;
-      @include text(xlarge);     
+      @include text(large);
+      
+      @include breakpoint($medium) {
+        @include text(xlarge); 
+      }
     }
     
   }

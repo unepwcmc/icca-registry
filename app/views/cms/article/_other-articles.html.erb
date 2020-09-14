@@ -1,23 +1,21 @@
-<% get_all = false if local_assigns[:get_all].nil? %>
-<% get_news_items get_all %>
-
-
 <div class="cards--articles">
   <div class="flex flex-v-center flex-h-between">
     <h2 class="cards--articles__title"><%= @items[:title] %></h2>
     <%= link_to t('articles.view_all'), @items[:url], title: t('articles.view_all'), class: 'button--all' %>
   </div>
 
-  <div class="cards__cards">
-    <% @items[:cards].each_with_index do |card, index| %>
-      <article-card-news
-        key="<%= index %>"
-        date="<%= cms_fragment_content("published_date").strftime("%d %B %y") %>"
-        image="<%= cms_fragment_render(:hero_image, card) %>"
-        summary="<%= truncate(cms_fragment_content(:content, card), length: 200) %>"
-        title="<%= card[:label].truncate(59, separator: ' ') %>"
-        url="<%= get_cms_url(card[:full_path]) %>"
-      ></article-card-news>
-    <% end %>
+  <div id="v-articles" v-cloak>
+    <div class="cards__cards">
+      <% @items[:cards].each do |card| %>
+        <article-card-news
+          key="<%= card[:index] %>"
+          date="<%= card[:date] %>"
+          image="<%= card[:image] %>"
+          summary="<%= card[:summary] %>"
+          title="<%= card[:title] %>"
+          url="<%= card[:url] %>"
+        ></article-card-news>
+      <% end %>
+    </div>
   </div>
 </div>

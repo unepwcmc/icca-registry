@@ -22,7 +22,6 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <div id='v-app' v-cloak>
     <main class="body-container">
       <header>
         <%= render 'layouts/application/navbar' %>
@@ -31,7 +30,6 @@
 
       <%= yield %>
     </main>
-  </div>
   <%= render "layouts/application/footer" %>
 
 
