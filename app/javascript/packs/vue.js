@@ -12,6 +12,7 @@ export const eventHub = new Vue();
 
 // Have to set it up like this because Vue is only being used for certain views
 document.addEventListener('turbolinks:load', () => {
+
   if (document.getElementById('v-carousel')) {
 
     new Vue({
@@ -20,7 +21,6 @@ document.addEventListener('turbolinks:load', () => {
         CarouselFlickity
       }
     })
-
   }
 
   if (document.getElementById('v-articles')) {
