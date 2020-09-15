@@ -20,6 +20,7 @@ module OpengraphHelper
   end
 
   def og_url
-    request.absolute_url
+    # TODO - Check this works in production...
+    request.url
   end
 end
