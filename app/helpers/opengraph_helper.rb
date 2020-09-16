@@ -10,6 +10,14 @@ module OpengraphHelper
     fallback_hero
   end
 
+  def og_image_alt
+    if @cms_page.parent.label == 'News and Stories'
+      'Hero image of the ICCA Registry article'
+    else
+      'Default hero image of the ICCA Registry news and stories section'
+    end
+  end
+
   def og_title
     title = cms_fragment_content(:label, @cms_page)
     title.blank? ? t('social.fallback_title') : title
