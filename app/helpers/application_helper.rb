@@ -10,8 +10,8 @@ module ApplicationHelper
 
   # Fallback hero image for individual news and articles page
   def fallback_hero
-    image = cms_fragment_render(:hero_image, @cms_page)
-    image.blank? ? image_path('hero_image_news-and-stories.jpg') : image    
+    image = URI.join(root_url, helpers.url_for(cms_fragment_render(:hero_image, @cms_page)))
+    image.blank? ? URI.join(root_url, helpers.image_path('hero_image_news-and-stories.jpg')) : image 
   end
 
   # Strip html tags
