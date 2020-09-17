@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ActionView::Helpers::UrlHelper
+
   def map_bounds protected_area=nil
     return Rails.application.credentials[Rails.env.to_sym][:default_map_bounds] unless protected_area
 
@@ -10,8 +12,8 @@ module ApplicationHelper
 
   # Fallback hero image for individual news and articles page
   def fallback_hero
-    image = URI.join(root_url, helpers.url_for(cms_fragment_render(:hero_image, @cms_page)))
-    image.blank? ? URI.join(root_url, helpers.image_path('hero_image_news-and-stories.jpg')) : image 
+    image = URI.join(root_url, url_for(cms_fragment_render(:hero_image, @cms_page)))
+    image.blank? ? URI.join(root_url, image_path('hero_image_news-and-stories.jpg')) : image 
   end
 
   # Strip html tags
