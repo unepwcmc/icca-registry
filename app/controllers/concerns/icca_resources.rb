@@ -11,7 +11,7 @@ module IccaResources
         resource = @page.resources.new(label: resource[:label], file: resource[:file])
         unless resource.save
           flash[:error] = resource.errors.full_messages.join(', ')
-          redirect_to action: :edit
+          redirect_to edit_comfy_admin_cms_site_page(@site, @page)
         end
       end
     end

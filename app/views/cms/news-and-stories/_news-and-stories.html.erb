@@ -1,0 +1,17 @@
+<div class="page--news">
+  <%= render partial: "cms/hero-news-index", locals: { 
+    title: t('news-and-stories')
+  } %>
+
+  <section class="container">
+    <div id="v-listing" v-cloak>
+      <listing-page
+        endpoint="/news-articles"
+        :page-id="<%= @cms_page.id %>"
+        :results="<%= get_initial_news_pages %>"
+        sm-trigger-element="sm-listing"
+        text-no-results="No Results"
+      ></listing-page> 
+    </div>
+  </section>
+</div>

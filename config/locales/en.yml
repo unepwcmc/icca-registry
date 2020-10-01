@@ -6,6 +6,7 @@ en:
   country: "Country"
   current_language: "English"
   explore: "Explore"
+  news-and-stories: "News & Stories"
   filters: "Filters"
   home: "Home"
   icca_countries: "Countries"
@@ -119,3 +120,22 @@ en:
             file:
               attached: 'not attached'
 
+  # TODO - Placed here for now, but need to try and move it into a proper yaml on its own
+  social:
+    share:
+      twitter:
+        title: Share on Twitter
+        url: https://twitter.com/intent/tweet/?url=%{url}
+      facebook:
+        title: Share on Facebook
+        url: https://facebook.com/sharer/sharer.php?u=%{url}
+      linkedin:
+        title: Share on LinkedIn
+        url: https://www.linkedin.com/shareArticle?url=%{url} 
+  
+  articles:
+    view_all: 'View All'
+
+  global:
+    button:
+      download: 'Download'

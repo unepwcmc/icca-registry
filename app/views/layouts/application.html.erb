@@ -22,15 +22,14 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <main class="body-container">
-    <header>
-      <%= render 'layouts/application/navbar' %>
-      <%= yield :header %>
-    </header>
+    <main class="body-container">
+      <header>
+        <%= render 'layouts/application/navbar' %>
+        <%= yield :header %>
+      </header>
 
-    <%= yield %>
-  </main>
-
+      <%= yield %>
+    </main>
   <%= render "layouts/application/footer" %>
 
 

@@ -1,0 +1,39 @@
+.hero-small {
+  @include responsive(height, rem-calc(150), rem-calc(315), rem-calc(315));
+  background-size: cover;
+  background-position: center;
+  padding: rem-calc(30 0 40 0);
+  margin-bottom: rem-calc(75);
+
+  &--news-index {
+    @extend .hero-small;
+    background-image: url('hero_image_news-and-stories.jpg');
+    position: relative;
+    
+    &::before {
+      @include overlay;
+      background-color: $white;
+      content: '';
+      opacity: 0.85;
+    }
+
+    &__content {
+      @include flex;
+      @include flex-h-start;
+      @include flex-v-center;
+      @include overlay;
+      @include text(large);
+      
+      @include breakpoint($medium) {
+        @include text(xlarge); 
+      }
+    }
+    
+  }
+
+  &--article {
+    @extend .hero-small;
+  }
+
+
+}
