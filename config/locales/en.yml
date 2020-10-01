@@ -132,7 +132,9 @@ en:
       linkedin:
         title: Share on LinkedIn
         url: https://www.linkedin.com/shareArticle?url=%{url} 
-  
+    fallback_title: 'The ICCA Registry'
+    fallback_description: 'Welcome to the global ICCA Registry. Explore the world of ICCAs through the interactive map and case studies.'
+
   articles:
     view_all: 'View All'
 

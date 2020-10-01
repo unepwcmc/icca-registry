@@ -2,6 +2,7 @@ class NewsSerializer
   include ActionView::Helpers::TextHelper
   include Rails.application.routes.url_helpers
   include Comfy::CmsHelper
+  include ApplicationHelper
 
   DEFAULT_PAGE_SIZE = 6.0
 
@@ -32,8 +33,8 @@ class NewsSerializer
       {
         total: total,
         totalPages: total_pages,
-        page: @options[:page],
-        size: @options[:size],
+        page: req_page,
+        size: page_size,
         results: sorted_pages.map do |record|
           {
             date: date(record),
@@ -51,13 +52,19 @@ class NewsSerializer
 
   OLDEST_DATE = DateTime.new(0).freeze
 
+  def page_size
+    @options[:size].nil? ? DEFAULT_PAGE_SIZE.to_i : @options[:size].to_i 
+  end
+
+  def req_page
+    @options[:page].nil? ? 1 : @options[:page].to_i - 1
+  end
+
   def sorted_pages
     return [] if @results.blank?
-    req_page = @options[:page].to_i - 1
-    page_size = @options[:size].to_i
     @results.sort_by do |p|
       p.fragments.where(identifier: 'published_date').first.datetime
-    end.reverse.each_slice(page_size).to_a[req_page]
+    end.reverse.each_slice(page_size).to_a[req_page - 1]
   end
 
   def image(page)
@@ -68,7 +75,7 @@ class NewsSerializer
   end
 
   def date(page)
-    _date = cms_fragment_content(:published_date, page)
+    _date = cms_fragment_content_datetime(:published_date, page)
     _date.present? && _date.respond_to?(:strftime) ? _date.strftime('%d %B %y') : _date
   end
 
