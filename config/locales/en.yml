@@ -135,6 +135,7 @@ en:
   
   articles:
     view_all: 'View All'
+    no_text: "<h3>No Results</h3>"
 
   global:
     button:

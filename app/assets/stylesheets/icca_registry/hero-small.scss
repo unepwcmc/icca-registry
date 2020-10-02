@@ -7,7 +7,7 @@
 
   &--news-index {
     @extend .hero-small;
-    background-image: url('hero_image_news-and-stories.jpg');
+    background-image: image_url('hero_image_news-and-stories.jpg');
     position: relative;
     
     &::before {

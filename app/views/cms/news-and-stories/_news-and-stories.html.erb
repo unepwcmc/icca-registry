@@ -10,7 +10,7 @@
         :page-id="<%= @cms_page.id %>"
         :results="<%= get_initial_news_pages %>"
         sm-trigger-element="sm-listing"
-        text-no-results="No Results"
+        text-no-results="<%= t('articles.no_text') %>"
       ></listing-page> 
     </div>
   </section>
