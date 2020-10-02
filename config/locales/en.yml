@@ -136,6 +136,7 @@ en:
     fallback_description: 'Welcome to the global ICCA Registry. Explore the world of ICCAs through the interactive map and case studies.'
     fallback_image_alt: 'Default hero image of the ICCA Registry news and stories section'
     image_alt: 'Hero image of the ICCA Registry article'
+    twitter_card_type: 'summary_large_image'
 
   articles:
     view_all: 'View All'
