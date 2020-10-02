@@ -134,10 +134,13 @@ en:
         url: https://www.linkedin.com/shareArticle?url=%{url} 
     fallback_title: 'The ICCA Registry'
     fallback_description: 'Welcome to the global ICCA Registry. Explore the world of ICCAs through the interactive map and case studies.'
+    fallback_image_alt: 'Default hero image of the ICCA Registry news and stories section'
+    image_alt: 'Hero image of the ICCA Registry article'
 
   articles:
     view_all: 'View All'
     no_text: "<h3>No Results</h3>"
+
 
   global:
     button:
