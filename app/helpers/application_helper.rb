@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ActionView::Helpers::UrlHelper
+
   def map_bounds protected_area=nil
     return Rails.application.credentials[Rails.env.to_sym][:default_map_bounds] unless protected_area
 
@@ -8,16 +10,10 @@ module ApplicationHelper
     }
   end
 
-  def get_local_classes local_assigns
-    (local_assigns.has_key? :classes) ? local_assigns[:classes] : ''
-  end
-
   # Fallback hero image for individual news and articles page
   def fallback_hero
-    image = cms_fragment_render(:hero_image, @cms_page)
-
-    return image unless image.blank?
-    image_path('hero_image_news-and-stories.jpg')
+    image = URI.join(root_url, url_for(cms_fragment_render(:hero_image, @cms_page)))
+    image.blank? ? URI.join(root_url, image_path('hero_image_news-and-stories.jpg')) : image 
   end
 
   # Strip html tags
@@ -34,7 +30,7 @@ module ApplicationHelper
     cards.map.with_index do |card, index|
     {
       key: index,
-      date: cms_fragment_content("published_date", card).strftime("%d %B %y"),
+      date: cms_fragment_content_datetime(:published_date, card).strftime("%d %B %y"),
       image: cms_fragment_render(:hero_image, card),
       summary: truncate(parse_html_content(cms_fragment_content(:summary, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
@@ -93,5 +89,11 @@ module ApplicationHelper
         url: url_for(resource.file)
       }
     end
+  end
+
+  def cms_fragment_content_datetime(identifier, page)
+    # Might not be able to find that particular tag and identifier combo -  hence the try
+    date = page.fragments.find_by(tag: 'date_not_null', identifier: identifier).try(:datetime)
+    date ? date : cms_fragment_content(identifier, page)
   end
 end

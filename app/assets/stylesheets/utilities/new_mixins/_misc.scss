@@ -89,7 +89,6 @@
   @include icon-image('loading-spinner.svg', rem-calc(40), rem-calc(40));
 }
 
-
 // Images
 @mixin image-placeholder($width: 100%, $height: rem-calc(265)) {
   @include flex-center;
