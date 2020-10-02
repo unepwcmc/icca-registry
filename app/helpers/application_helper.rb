@@ -12,8 +12,9 @@ module ApplicationHelper
 
   # Fallback hero image for individual news and articles page
   def fallback_hero
-    image = URI.join(root_url, url_for(cms_fragment_render(:hero_image, @cms_page)))
-    image.blank? ? URI.join(root_url, image_path('hero_image_news-and-stories.jpg')) : image 
+    hero_image = cms_fragment_render(:hero_image, @cms_page)
+    image = URI.join(root_url, url_for(hero_image))
+    hero_image.blank? ? image_url('hero_image_news-and-stories.jpg') : image 
   end
 
   # Strip html tags
@@ -21,17 +22,21 @@ module ApplicationHelper
     Nokogiri::HTML(content).css("p").first.text rescue "No description available."
   end
 
+  def card_image(card)
+    hero_image = cms_fragment_render(:hero_image, card)
+    hero_image.blank? ? image_url('hero_image_news-and-stories.jpg') : hero_image
+  end
+
   # For the news article cards
   def get_news_card_attributes(cards)
     # Maximum length of the attributes (in characters)
     summary_length = 200
     title_length = 59
-
     cards.map.with_index do |card, index|
     {
       key: index,
       date: cms_fragment_content_datetime(:published_date, card).strftime("%d %B %y"),
-      image: cms_fragment_render(:hero_image, card),
+      image: card_image(card),
       summary: truncate(parse_html_content(cms_fragment_content(:summary, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
       url: get_cms_url(card[:full_path])
@@ -52,7 +57,7 @@ module ApplicationHelper
   # News articles partial
   def get_news_items
     news = sorted_news_articles
-
+    
     @items = {
       title: news[:page].label,
       url: get_cms_url(news[:page].full_path),

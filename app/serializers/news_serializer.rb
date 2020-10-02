@@ -1,4 +1,5 @@
 class NewsSerializer
+  include ActionView::Helpers::AssetUrlHelper
   include ActionView::Helpers::TextHelper
   include Rails.application.routes.url_helpers
   include Comfy::CmsHelper
@@ -69,7 +70,7 @@ class NewsSerializer
 
   def image(page)
     image = page.fragments.find_by(identifier: "hero_image").try(:attachments).first
-    return if image.nil?
+    return image_url('hero_image_news-and-stories.jpg') if image.nil?
     # TODO - double check that this works in production
     rails_blob_url(image, only_path: true)
   end
