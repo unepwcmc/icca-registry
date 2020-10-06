@@ -4,6 +4,27 @@
   <meta charset="utf-8">
   <title>ICCA Registry</title>
 
+  <!-- Meta tags --> 
+  <meta property="og:site_name" content="The ICCA Registry">  
+  <meta property="og:title" content="<%= og_title %>">  
+  <meta property="og:description" content="<%= og_description %>">  
+  <meta property="og:url" content="<%= og_url %>">  
+  <meta property="og:type" content="<%= og_type %>">  
+  <meta property="og:image" content="<%= og_image %>" >  
+  <meta property="og:image:alt" content="<%= og_image_alt %>">
+  <meta property="og:image:width" content="1200" >  
+  <meta property="og:image:height" content="630" >  
+  <meta property="og:locale" content="en_GB" >
+
+  <!-- Twitter tags -->
+
+  <meta name="twitter:card" content="<%= t('social.twitter_card_type') %>" />  
+  <meta name="twitter:site" content="@unepwcmc">  
+  <meta name="twitter:creator" content="@unepwcmc">
+  <meta name="twitter:title" content="<%= og_title %>">  
+  <meta name="twitter:description" content="<%= og_description %>">  
+  <meta name="twitter:image" content="<%= og_image %>">  
+
   <!-- IE stuff -->
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
  
@@ -22,15 +43,14 @@
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <main class="body-container">
-    <header>
-      <%= render 'layouts/application/navbar' %>
-      <%= yield :header %>
-    </header>
+    <main class="body-container">
+      <header>
+        <%= render 'layouts/application/navbar' %>
+        <%= yield :header %>
+      </header>
 
-    <%= yield %>
-  </main>
-
+      <%= yield %>
+    </main>
   <%= render "layouts/application/footer" %>
 
 

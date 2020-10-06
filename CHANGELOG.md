@@ -1,3 +1,7 @@
+### 1.0.2
+
+* Fixed a bug that would cause the case study pages to break if only one photo is present
+
 ### 1.0.1
 
 * Changed CartoDB links in the HEAD to use HTTPS instead of HTTP.

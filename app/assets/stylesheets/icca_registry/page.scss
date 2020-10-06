@@ -1,0 +1,7 @@
+.page {
+  &--news {
+    section {
+      @include space-small(margin-bottom);
+    }
+  }
+}

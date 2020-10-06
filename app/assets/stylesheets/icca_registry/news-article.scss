@@ -1,0 +1,20 @@
+.news-article { 
+  &__content {
+    @include text(body);
+  }
+
+  &__date {
+    @include space-small(margin-bottom);
+    @include text(small);
+    color: $grey-77;
+  }
+
+  &__links {
+    @include text(headline);
+  }
+
+  &__title {
+    @include text(large, bold);
+  }
+
+}

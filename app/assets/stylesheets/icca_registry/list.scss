@@ -1,0 +1,43 @@
+.list {
+  &--links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .list {
+      &__li {
+        @include flex;
+        @include flex-v-center;
+        @include flex-h-between;
+        background-color: $grey-5;
+        padding: rem-calc(14 20);
+        margin-bottom: rem-calc(13);
+        max-height: rem-calc(55);
+      }
+
+      &__a { 
+        margin-left: rem-calc(18); 
+      }
+    }
+  }
+}
+
+// Buttons on page
+.button {
+  &--link-external {
+    @include button-external;
+  }
+
+  &--download {
+    @include button-with-icon;
+    background-color: $brown;
+    border-radius: 3px;
+    color: $white;
+    padding: rem-calc(10 14);
+
+    &::after { 
+      @include icon-download; 
+      display: inline-block;
+    }
+  }
+}
