@@ -10,7 +10,6 @@ analysis on featured ICCAs around the world.
 
 icca-registry is a pretty standard Rails application, backed by a Postgres
 database, with Webpacker and Yarn to manage JS dependencies.
-Part 1:
 
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
 - `cd icca-registry`
@@ -20,7 +19,7 @@ Part 1:
 
 - In `photo.rb` and `resource.rb` in `app/models`, comment out lines 4-5 and uncomment out line 2
 
-- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. You will have to delete all Comfy::Cms::File records in the database (they are safe to delete as their attached files do not exist on disk and will not be downloaded from the bucket) if you want to access the 'Files' section of the CMS. Follow the instructions below. 
+- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. 
 
 - `rake db:migrate`
 
@@ -34,19 +33,19 @@ Part 1:
 
 - Start the server.
 
-icca-registry uses the `dotenv` gem to manage environment variables. Before
+Before
 starting the server, create a copy of the file `.env.example` (removing the
 `.example` bit) and edit the needed variables. After this final step, `rails server` should work like a charm.
 
 ## Known issues
 -  Potentially you may encounter a 404 error when trying to access the Explore page via your localhost. In that instance, access the CMS admin interface via `localhost:3000/admin`, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
-- If at any point, either during or after DB migration, you experience an error with the format `... was delegated to attachment, but attachment is nil`, this issue is caused by the use of a database dump with attached CMS files that do not exist locally, thus Rails either cannot locate the file, or there are records present for files which are missing in reality. First, double check whether you have all files from production available in the correct location and:
+- If at any point, either during or after DB migration, you experience an error with the format `... was delegated to attachment, but attachment is nil`, this issue is caused one of two things: Rails either cannot locate the file, even though it exists on your system, or there are records present for files which are missing in reality. First, double check whether you have all files from production available in the correct location and:
 
 1) Re-run the migration. 
 
 Or if you successfully migrated, but your app breaks on accessing the Files section of the CMS:
 
-2) Access the Rails console via `rails console`. The relevant table you will want to inspect is `Comfy::Cms::File`. Run the command `Comfy::Cms::File.all.pluck(:file_file_name)` and cross-check with the Paperclip file names that you have locally in `public/system`. If you cannot find any, run the command `Comfy::Cms::File.destroy_all`, which delete all of the records in the database for that table, leaving you able to access the page. If you'd rather not utilise a dangerous method such as the one above, you can manually delete selected records using `Comfy::Cms::File.where(file_file_name: [filename, make sure to put it in quotation marks]).destroy`. 
+2) Run the rake task to reattach Comfy files - `rake activestorage:reattach_files` 
 
 # Adding Translations
 

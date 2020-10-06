@@ -2,7 +2,11 @@
   border: solid 1px $grey-33;
   margin-right: 0.625rem;
   width: 50%; height: 400px;
-
+  justify-content: center;
   align-items: center;
   display: flex;
+
+  img {
+    max-height: 400px;
+  }
 }
