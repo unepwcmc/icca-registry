@@ -24,7 +24,7 @@ window.Map = class Map
       map.addControl(L.control.zoom(position: 'bottomright'))
 
       access_token = 'pk.eyJ1IjoidW5lcHdjbWMiLCJhIjoiY2lreHdmcmVlMDA0YndsbTQ5aHFwdm5vZyJ9.KsDsvf9FRGyv1BQYXblI0Q'
-      L.tileLayer("https://api.mapbox.com/v4/unepwcmc.l8gj1ihl/{z}/{x}/{y}.png?access_token=#{access_token}").addTo(map)
+      L.tileLayer("https://api.mapbox.com/styles/v1/unepwcmc/ck6hsqzns0vx31iqxdcgccgow/tiles/{z}/{x}/{y}?access_token=#{access_token}").addTo(map)
       @addMarkers()
     )
 
