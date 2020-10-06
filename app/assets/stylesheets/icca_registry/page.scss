@@ -3,5 +3,13 @@
     section {
       @include space-small(margin-bottom);
     }
+
+    p {
+      @include text(body);
+    }
+  
+    h3 {
+      @include text(large, bold);
+    }
   }
 }

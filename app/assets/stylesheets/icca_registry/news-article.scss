@@ -12,9 +12,4 @@
   &__links {
     @include text(headline);
   }
-
-  &__title {
-    @include text(large, bold);
-  }
-
 }
