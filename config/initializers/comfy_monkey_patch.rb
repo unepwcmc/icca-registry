@@ -1,4 +1,5 @@
 Rails.configuration.to_prepare do
+  # Enable Comfy pages to be indexed, as well as creating links to countries and ICCA sites
   Comfy::Cms::Page.class_eval do
     has_many :photos, dependent: :destroy
     has_many :resources, dependent: :destroy
@@ -46,12 +47,14 @@ Rails.configuration.to_prepare do
     end
   end
 
+  # Enable fragments to be indexed in the search 
   Comfy::Cms::Fragment.class_eval do
     include PgSearch
 
     multisearchable against: :content, if: -> (record) { record.identifier == 'content' }
   end
 
+  # Allow photos, links and resources (all custom models) to be saved for each page
   Comfy::Admin::Cms::PagesController.class_eval do
     before_action :create_photos, only: [:create, :update]
     before_action :create_related_links, only: [:create, :update]
@@ -63,10 +66,7 @@ Rails.configuration.to_prepare do
 
       params[:images].each do |image|
         image = @page.photos.new(file: image)
-        unless image.save
-          flash[:error] = image.errors.full_messages.join(', ')
-          redirect_to action: :edit
-        end
+        redirect_if_error(image)
       end
     end
 
@@ -75,10 +75,7 @@ Rails.configuration.to_prepare do
 
       params[:related_links].each do |related_link|
         link = @page.related_links.new(label: related_link[:label], url: related_link[:url])
-        unless link.save
-          flash[:error] = link.errors.full_messages.join(', ')
-          redirect_to action: :edit
-        end
+        redirect_if_error(link)
       end
     end
 
@@ -87,10 +84,14 @@ Rails.configuration.to_prepare do
 
       params[:resources].each do |resource|
         resource = @page.resources.new(label: resource[:label], file: resource[:file])
-        unless resource.save
-          flash[:error] = resource.errors.full_messages.join(', ')
-          redirect_to action: :edit
-        end
+        redirect_if_error(resource)
+      end
+    end
+
+    def redirect_if_error(object)
+      unless object.save
+        flash[:error] = object.errors.full_messages.join(', ')
+        redirect_to action: :edit
       end
     end
   end
