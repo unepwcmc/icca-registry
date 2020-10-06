@@ -7,7 +7,15 @@
     p {
       @include text(body);
     }
-  
+    
+    h1 {
+      @include text(xxlarge, bold);
+    }
+
+    h2 {
+      @include text(xlarge, bold);
+    }
+
     h3 {
       @include text(large, bold);
     }
