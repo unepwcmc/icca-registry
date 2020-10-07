@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # Custom CMS tag making published date required
-require 'comfy/date_not_null'
+require 'comfy_tags/date_not_null'
 
 ComfortableMexicanSofa.configure do |config|
   # Title of the admin area
