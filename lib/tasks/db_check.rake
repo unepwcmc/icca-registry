@@ -1,15 +1,19 @@
 namespace :db_check do
+  CREDS = Rails.application.credentials[Rails.env.to_sym]
+
   desc 'Checks to see if your DB is valid prior to ActiveStorage installation and if files are completely up to date'
   task import: :environment do |_t|
     def download(target)
       s3 = AWS::S3.new(
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+        access_key_id: CREDS[:access_key_id],
+        secret_access_key: CREDS[:secret_access_key]
       )
+
+      bucket = CREDS[Rails.env.to_sym][:bucket].to_s
 
       if target == 'db'
         return 'You\'re in production - no download needed' if Rails.env.production?
-        target_object = s3.buckets[(ENV['AWS_BUCKET']).to_s].objects.with_prefix((ENV["AWS_BUCKET_#{target.upcase}"]).to_s).to_a.last
+        target_object = s3.buckets[bucket].objects.with_prefix(bucket).to_a.last
 
         FileUtils.mkdir_p('temp')
 
@@ -28,9 +32,10 @@ namespace :db_check do
       else
         return if target.empty?
         file_paths = []
+        production_bucket = CREDS[:production][:bucket].to_s
 
-        photos = s3.buckets[(ENV['AWS_BUCKET_PRODUCTION']).to_s].objects.with_prefix('photos/files/000/000/')
-        resources = s3.buckets[(ENV['AWS_BUCKET_PRODUCTION']).to_s].objects.with_prefix('resources/files/000/000/')
+        photos = s3.buckets[production_bucket].objects.with_prefix('photos/files/000/000/')
+        resources = s3.buckets[production_bucket].objects.with_prefix('resources/files/000/000/')
         photos.to_a.each { |photo| file_paths << photo.key }
         resources.to_a.each { |resource| file_paths << resource.key }
         puts 'Downloading files to your designated folder'

@@ -47,13 +47,13 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   Rails.application.routes.default_url_options[:protocol] = 'http'
   # config.action_mailer.smtp_settings = {
-  #   domain: ENV['MAILER_DOMAIN'],
-  #   address: ENV['MAILER_ADDRESS'],
+  #   domain: Rails.application.credentials[Rails.env.to_sym][:mailer_domain],
+  #   address: Rails.application.credentials[Rails.env.to_sym][:mailer_address],
   #   port: 587,
   #   authentication: :login,
   #   enable_starttls_auto: true,
-  #   user_name: ENV['MAILER_USERNAME'],
-  #   password: ENV['MAILER_PASSWORD']
+  #   user_name: Rails.application.credentials[Rails.env.to_sym][:mailer_username],
+  #   password: Rails.application.credentials[Rails.env.to_sym][:mailer_password]
   # }
 
   # Raises error for missing translations

@@ -22,7 +22,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.serve_static_files = false
 
   # Compress JavaScripts and CSS.
   # config.assets.css_compressor = :sass
@@ -77,17 +77,17 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => ENV['MAILER_PRODUCTION_HOST'] }
+  config.action_mailer.default_url_options = { :host => Rails.application.credentials[Rails.env.to_sym][:mailer_host] }
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.smtp_settings = {
-    domain: ENV['MAILER_DOMAIN'],
-    address: ENV['MAILER_ADDRESS'],
+    domain: Rails.application.credentials[Rails.env.to_sym][:mailer_domain],
+    address: Rails.application.credentials[Rails.env.to_sym][:mailer_address],
     port: 587,
     authentication: :login,
     enable_starttls_auto: true,
-    user_name: ENV['MAILER_USERNAME'],
-    password: ENV['MAILER_PASSWORD']
+    user_name: Rails.application.credentials[Rails.env.to_sym][:mailer_username],
+    password: Rails.application.credentials[Rails.env.to_sym][:mailer_password]
   }
 
   # Store files on Amazon S3.

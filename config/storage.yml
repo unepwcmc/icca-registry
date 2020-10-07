@@ -10,22 +10,22 @@ test:
 
 development:
   service: S3
-  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
-  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  access_key_id: <%= Rails.application.credentials[Rails.env.to_sym][:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials[Rails.env.to_sym][:secret_access_key] %>
   region: eu-west-1
-  bucket: <%= ENV["AWS_BUCKET_DEVELOPMENT"] %>
+  bucket: <%= Rails.application.credentials[Rails.env.to_sym][:bucket] %>
 
 
 staging:
   service: S3
-  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
-  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  access_key_id: <%= Rails.application.credentials[Rails.env.to_sym][:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials[Rails.env.to_sym][:secret_access_key] %>
   region: eu-west-1
-  bucket: <%= ENV["AWS_BUCKET_STAGING"] %>
+  bucket: <%= Rails.application.credentials[Rails.env.to_sym][:bucket] %>
 
 production:
   service: S3
-  access_key_id: <%= ENV["AWS_ACCESS_KEY_ID"] %>
-  secret_access_key: <%= ENV["AWS_SECRET_ACCESS_ID"] %>
+  access_key_id: <%= Rails.application.credentials[Rails.env.to_sym][:access_key_id] %>
+  secret_access_key: <%= Rails.application.credentials[Rails.env.to_sym][:secret_access_key] %>
   region: eu-west-1
-  bucket: <%= ENV["AWS_BUCKET_PRODUCTION"] %>
+  bucket: <%= Rails.application.credentials[Rails.env.to_sym][:bucket] %>
