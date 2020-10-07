@@ -22,6 +22,7 @@ export default {
         initialIndex: 0,
         prevNextButtons: true,
         pageDots: true,
+        lazyLoad: true,
         wrapAround: true,
         imagesLoaded: true
       }
