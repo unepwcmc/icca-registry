@@ -1,3 +1,7 @@
+### 1.0.3
+* Updated map styles as old Mapbox styles were deprecated.
+* Fixed images that were too high for gallery. 
+
 ### 1.0.2
 
 * Fixed a bug that would cause the case study pages to break if only one photo is present
