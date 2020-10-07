@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
   def load_cms_pages
     pages = Comfy::Cms::Page
     @site  = Comfy::Cms::Site.find_by_locale(I18n.locale)
+    news_and_stories_slug = I18n.t('news_and_stories').downcase.split.join('-')
 
     @explore_page     = pages.find_by_slug_and_site_id("explore", @site.id)
-    @news_page        = pages.find_by_slug_and_site_id("news-and-stories", @site.id)
+    @news_page        = pages.find_by_slug_and_site_id(news_and_stories_slug, @site.id)
     @contact_us_page  = pages.find_by_slug_and_site_id("contact-us", @site.id)
     @about_page       = pages.where(slug: "about", site: @site).includes(:children).first
     @participate_page = pages.where(slug: "participate", site: @site).includes(:children).first
