@@ -5,23 +5,23 @@
     }
 
     p {
-      @include text(body);
       @include space-small(margin-top);
+      @include text(body);
     }
     
     h1 {
-      @include text(xxlarge, bold);
       @include space-small(margin-top);
+      @include text(xxlarge, bold);
     }
 
     h2 {
-      @include text(xlarge, bold);
       @include space-small(margin-top);
+      @include text(xlarge, bold);
     }
 
     h3 {
-      @include text(large, bold);
       @include space-small(margin-top);
+      @include text(large, bold);
     }
 
     img {

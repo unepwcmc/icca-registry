@@ -1,6 +1,11 @@
 .news-article { 
   &__content {
     @include text(body);
+
+    a { 
+      @include text(body, bold);
+      text-decoration: underline;
+    }
   }
 
   &__date {
