@@ -6,12 +6,12 @@ import CarouselFlickity from '../components/carousel/CarouselFlickity.vue';
 import ArticleCardNews from '../components/news/ArticleCardNews.vue';
 import ListingPage from '../components/news/ListingPage.vue';
 
-Vue.use(TurbolinksAdapter)
+// Vue.use(TurbolinksAdapter)
 
 export const eventHub = new Vue();
 
 // Have to set it up like this because Vue is only being used for certain views
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('v-carousel')) {
 
     new Vue({
