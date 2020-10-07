@@ -15,7 +15,7 @@
     <div id="v-carousel" v-cloak>
       <carousel-flickity class="gallery__body">
         <% @cms_page.photos.each do |photo| %>
-          <img class="gallery__photo" src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
+          <img class="gallery__photo" data-flickity-lazyload-src="<%= url_for(photo.file) %>" alt="Photos relevant to the case study" />
         <% end %>
       </carousel-flickity>
     </div>
