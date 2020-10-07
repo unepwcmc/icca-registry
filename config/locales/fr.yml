@@ -11,6 +11,7 @@ fr:
   icca_countries: "Pays"
   learn_more: "En apprendre plus"
   links: "Liens importants"
+  news_and_stories: "Nouvelles et Histoires"
   participate: "Participer"
   resources: "Resources utiles"
   search: "Recherche"
@@ -83,3 +84,30 @@ fr:
     questionnaire: "Questionnaire de l’ICCA Registry"
     registration_documents: "Documents d’inscription"
     supporting_information: "Informations complémentaires"
+
+  # TODO - Placed here for now, but need to try and move it into a proper yaml on its own
+  social:
+    share:
+      twitter:
+        title: Partager sur Twitter
+        url: https://twitter.com/intent/tweet/?url=%{url}
+      facebook:
+        title: Partager sur Facebook
+        url: https://facebook.com/sharer/sharer.php?u=%{url}
+      linkedin:
+        title: Partager sur LinkedIn
+        url: https://www.linkedin.com/shareArticle?url=%{url} 
+    fallback_title: 'Le registre mondial des APAC'
+    fallback_description: 'Bienvenue dans le registre mondial des APAC. Explorez le monde des APAC grâce à la carte interactive et aux études de cas.'
+    fallback_image_alt: 'Défaut image de héros de la section nouvelles et histoires du registre mondial des APAC'
+    image_alt: "Image de héros de l'article du registre mondial des APAC"
+    twitter_card_type: 'summary_large_image'
+
+  articles:
+    view_all: 'Voir tout'
+    no_text: "<h3>Aucun Résultat</h3>"
+
+
+  global:
+    button:
+      download: 'Télécharger'

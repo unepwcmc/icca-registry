@@ -12,6 +12,7 @@ es:
   learn_more: "Aprenda más"
   links: "Enlaces importantes"
   no_select: "No"
+  news_and_stories: "Noticias et Historias"
   participate: "Participar"
   resources: "Recursos útiles"
   search: "Buscar"
@@ -84,3 +85,30 @@ es:
     questionnaire: "Cuestionario de Registro de TICCAs"
     registration_documents: "Documentos de registro"
     supporting_information: "Información de soporte"
+
+  # TODO - Placed here for now, but need to try and move it into a proper yaml on its own
+  social:
+    share:
+      twitter:
+        title: Compartir en Twitter
+        url: https://twitter.com/intent/tweet/?url=%{url}
+      facebook:
+        title: Compartir en Facebook
+        url: https://facebook.com/sharer/sharer.php?u=%{url}
+      linkedin:
+        title: Compartir en LinkedIn
+        url: https://www.linkedin.com/shareArticle?url=%{url} 
+    fallback_title: 'El Registro de TICCA'
+    fallback_description: 'Bienvenido al Registro Global de TICCA. Explore el mundo de los TICCAs a través del mapa interactivo y los estudios de caso.'
+    fallback_image_alt: 'Imagen de héroe predeterminada de la sección de noticias e historias del Registro ICCA'
+    image_alt: 'Imagen heroica del artículo del Registro TICCA'
+    twitter_card_type: 'summary_large_image'
+
+  articles:
+    view_all: 'Ver todo'
+    no_text: "<h3>No hay resultados</h3>"
+
+
+  global:
+    button:
+      download: 'Descargar'
