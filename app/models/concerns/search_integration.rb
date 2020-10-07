@@ -17,6 +17,4 @@ end
 
 
 Comfy::Cms::Page.send(:include, SearchForPages)
-
-# Search integration not working at the moment
-# Comfy::Cms::Fragment.send(:include, FragmentSearch)
+Comfy::Cms::Fragment.send(:include, FragmentSearch)
