@@ -123,3 +123,6 @@ ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY
 #   end
 # end
 
+require File.expand_path("../../../app/models/concerns/icca_links.rb", __FILE__)
+require File.expand_path("../../../app/models/concerns/fragment_search.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/photos_links_resources.rb", __FILE__)
