@@ -50,7 +50,8 @@ module ApplicationHelper
   end
 
   def sorted_news_articles
-    news_page = @cms_site.pages.find_by_slug('news-and-stories')
+    news_and_stories_slug = I18n.t('news_and_stories').downcase.split.join('-')
+    news_page = @cms_site.pages.find_by_slug(news_and_stories_slug)
     published_pages = news_page.children.published
     { page: news_page, cards: sort_by_date(published_pages) }
   end
