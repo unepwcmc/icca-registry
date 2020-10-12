@@ -38,3 +38,12 @@ module IccaRegistry
     config.railties_order = [ActiveStorage::Engine, :main_app, :all]
   end
 end
+
+# The following is required to make 'Comfy::Cms::Fragment.send(:include, FragmentSearch)' work.
+# ActiveStorage seems to initialize and inject its methods into ActiveRecord after Rails config/initializers are loaded,
+# hence why, without the below, the above line of code throws an 'undefined_method :has_many_attached' error.
+# See more here: https://github.com/sferik/rails_admin/issues/3025#issuecomment-680015400
+require "active_storage/attached"
+ActiveSupport.on_load(:active_record) do
+  extend ActiveStorage::Attached::Macros
+end
