@@ -36,7 +36,7 @@ module ApplicationHelper
     cards.map.with_index do |card, index|
     {
       key: index,
-      date: cms_fragment_content_datetime(:published_date, card).strftime("%d %B %y"),
+      date: cms_fragment_content_datetime(:published_date, card).strftime("%Y-%m-%d"),
       image: card_image(card),
       summary: truncate(parse_html_content(cms_fragment_content(:summary, card)), length: summary_length),
       title: card[:label].truncate(title_length, separator: ' '),
