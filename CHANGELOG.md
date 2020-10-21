@@ -1,3 +1,9 @@
+### 1.1.0
+* Updated with news and stories section 
+    - Index page of articles with pagination enabled
+    - Individual article page with social sharing links
+* Small miscellaneous fixes, including language switching, update of map styles etc.
+
 ### 1.0.3
 * Updated map styles as old Mapbox styles were deprecated.
 * Fixed images that were too high for gallery. 
