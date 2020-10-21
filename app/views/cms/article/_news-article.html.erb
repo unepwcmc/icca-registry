@@ -4,7 +4,7 @@
   } %>
 
   <section class="news-article__content container--medium">
-    <p class="news-article__date"><%= cms_fragment_content_datetime(:published_date, @cms_page).strftime("%d %B %y") %></p>
+    <p class="news-article__date"><%= cms_fragment_content_datetime(:published_date, @cms_page).strftime("%Y-%m-%d") %></p>
     <h2 class="news-article__title"><%= cms_fragment_render("title") %></h2>
   </section>
 

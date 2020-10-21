@@ -77,7 +77,7 @@ class NewsSerializer
 
   def date(page)
     _date = cms_fragment_content_datetime(:published_date, page)
-    _date.present? && _date.respond_to?(:strftime) ? _date.strftime('%d %B %y') : _date
+    _date.present? && _date.respond_to?(:strftime) ? _date.strftime("%Y-%m-%d") : _date
   end
 
   def url(path)
