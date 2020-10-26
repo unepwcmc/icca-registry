@@ -9,7 +9,7 @@ module SaveResources
 
       params[:resources].each do |resource|
         resource = @page.resources.new(label: resource[:label], file: resource[:file])
-        redirect_if_error(resource)
+        save_or_redirect_on_error(resource)
       end
     end
   end

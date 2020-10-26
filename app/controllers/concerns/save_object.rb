@@ -1,8 +1,8 @@
-module RedirectIfError
+module SaveObject
   extend ActiveSupport::Concern
 
   included do
-    def redirect_if_error(object)
+    def save_or_redirect_on_error(object)
       unless object.save
         flash[:error] = object.errors.full_messages.join(', ')
         redirect_to action: :edit
@@ -11,4 +11,4 @@ module RedirectIfError
   end
 end
 
-Comfy::Admin::Cms::PagesController.send(:include, RedirectIfError)
+Comfy::Admin::Cms::PagesController.send(:include, SaveObject)

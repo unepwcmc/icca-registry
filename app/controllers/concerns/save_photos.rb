@@ -10,7 +10,7 @@ module SavePhotos
 
       params[:images].each do |image|
         image = @page.photos.new(file: image)
-        redirect_if_error(image)
+        save_or_redirect_on_error(image)
       end
     end
   end

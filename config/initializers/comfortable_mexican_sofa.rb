@@ -128,7 +128,7 @@ require File.expand_path("../../../app/models/concerns/has_many_custom.rb", __FI
 require File.expand_path("../../../app/models/concerns/link_icca_site.rb", __FILE__)
 require File.expand_path("../../../app/models/concerns/link_country.rb", __FILE__)
 require File.expand_path("../../../app/models/concerns/search_integration.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/redirect_if_error.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/save_object.rb", __FILE__)
 require File.expand_path("../../../app/controllers/concerns/save_photos.rb", __FILE__)
 require File.expand_path("../../../app/controllers/concerns/save_links.rb", __FILE__)
 require File.expand_path("../../../app/controllers/concerns/save_resources.rb", __FILE__)

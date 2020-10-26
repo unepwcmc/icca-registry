@@ -9,7 +9,7 @@ module SaveLinks
 
       params[:related_links].each do |related_link|
         link = @page.related_links.new(label: related_link[:label], url: related_link[:url])
-        redirect_if_error(link)
+        save_or_redirect_on_error(link)
       end
     end
   end
