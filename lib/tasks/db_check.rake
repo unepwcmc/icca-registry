@@ -1,103 +1,93 @@
 namespace :db_check do
   desc 'Checks to see if your DB is valid prior to ActiveStorage installation and if files are completely up to date'
   task import: :environment do |_t|
-    def download(target)
-      s3 = AWS::S3.new(
+    def open_session
+      AWS::S3.new(
         access_key_id: ENV['AWS_ACCESS_KEY_ID'],
         secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
       )
-
-      if target == 'db'
-        return 'You\'re in production - no download needed' if Rails.env.production?
-        target_object = s3.buckets[(ENV['AWS_BUCKET']).to_s].objects.with_prefix((ENV["AWS_BUCKET_#{target.upcase}"]).to_s).to_a.last
-
-        FileUtils.mkdir_p('temp')
-
-        File.open("temp/#{target}.tar", 'wb') do |file|
-          puts 'File will be downloaded to a temp folder in your Rails app'
-          target_object.read { |chunk| file.write(chunk) }
-        end
-
-        puts 'Killing all db connections and dropping the old database...'
-        tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
-        tasks.each do |t|
-          puts "Running #{t}..."
-          Rake::Task[t].invoke([target]) if t == tasks[3]
-          Rake::Task[t].invoke
-        end
-      else
-        return if target.empty?
-        file_paths = []
-
-        photos = s3.buckets[(ENV['AWS_BUCKET_PRODUCTION']).to_s].objects.with_prefix('photos/files/000/000/')
-        resources = s3.buckets[(ENV['AWS_BUCKET_PRODUCTION']).to_s].objects.with_prefix('resources/files/000/000/')
-        photos.to_a.each { |photo| file_paths << photo.key }
-        resources.to_a.each { |resource| file_paths << resource.key }
-        puts 'Downloading files to your designated folder'
-
-        union = file_paths & target
-
-        download_missing_files(photos, resources, union)
-      end
     end
 
-    def download_missing_files(photos, resources, missing_files)
-      missing_files.each_with_index do |filepath, index|
-        [photos, resources].each do |filetype|
-          filetype.each do |path|
-            next if filepath != path.key
-            dest_dir = FileUtils.mkdir_p(File.join('public/system', path.key.split('/')[0..-2].join('/'))).first
-            File.open(File.join(dest_dir, path.key.split('/').last), 'wb') do |file|
-              path.read { |chunk| file.write(chunk) }
-            end
-          end
-        end
-        break if index == missing_files.size - 1
-      end
-
-      puts 'All missing files downloaded'
+    def remove_temp_folder
+      FileUtils.remove_dir('temp')
+      puts 'Temp folder removed'
     end
 
-    def file_check
-      Rails.application.eager_load!
-      models = ActiveRecord::Base.descendants.reject(&:abstract_class?)
+    def download_db
+      return 'You\'re in production - no download needed' if Rails.env.production?
+      s3 = open_session
+      target_object = s3.buckets[ENV['AWS_BUCKET_BACKUP']].objects.with_prefix((ENV["AWS_BUCKET_DB"]).to_s).to_a.last
 
-      files_to_download = []
+      FileUtils.mkdir_p('temp')
 
-      models.each do |model|
-        attachments = model.column_names.map do |c|
-          Regexp.last_match(1) if c =~ /(.+)_file_name$/
-        end.compact
+      File.open("temp/#{target}.tar", 'wb') do |file|
+        puts 'File will be downloaded to a temp folder in your Rails app'
+        target_object.read { |chunk| file.write(chunk) }
+      end
 
-        next if attachments.blank?
+      puts 'Killing all db connections and dropping the old database...'
+      tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
+      tasks.each do |t|
+        puts "Running #{t}..."
+        Rake::Task[t].invoke([target]) if t == tasks[3]
+        Rake::Task[t].invoke
+      end
 
-        model.find_each.each do |instance|
-          attachments.each do |attachment|
-            next unless instance.send(attachment).path.blank? || !File.exist?(instance.send(attachment).path)
-            next if instance.send(attachment).path.nil?
-            file_path = instance.send(attachment).path
-            split_point = file_path.split('/').index(model.name.downcase)
-            files_to_download << file_path.split('/').slice(split_point..-1).join('/')
+      remove_temp_folder
+    end
+
+    def check_for_missing_files
+      missing_files = []
+
+      ActiveStorage::Attachment.find_each do |attachment|
+        folder = attachment.blob.key.slice(0..1)
+        sub_folder = attachment.blob.key.slice(2..3)
+        
+        file_path = File.join('storage', folder, sub_folder, attachment.blob.key)
+
+        missing_files << attachment.blob.key unless File.exist?(file_path)
+      end
+
+      download_files(missing_files)
+    end
+
+    def download_files(missing_files)
+      return 'No files are missing' if missing_files.empty?
+
+      s3 = open_session
+
+      bucket = s3.buckets[ENV['AWS_BUCKET_PRODUCTION']]
+
+      missing_files.each do |file|
+        folder = file.slice(0..1)
+        sub_folder = file.slice(2..3)
+        FileUtils.mkdir_p("storage/#{folder}/#{sub_folder}")
+        File.open("storage/#{folder}/#{sub_folder}/#{file}", 'wb') do |f|
+          begin
+            bucket.objects[file].read { |chunk| f.write(chunk) }
+          rescue AWS::S3::Errors::NoSuchKey
+            puts "No file with key: #{file} found in the bucket"
+            next
           end
         end
       end
-
-      files_to_download
     end
+
 
     # First, download DB
-	puts question = """Do you wish to download a new version of the database? 
-	Bear in mind your old one will be erased: Yes/No"""
+    puts question = "Do you wish to download a new version of the database?
+	  Bear in mind your old one will be erased: Yes/No"
     answer = STDIN.gets.chomp
     until answer == 'Yes' || answer == 'No'
       puts question
       answer = STDIN.gets.chomp
     end
 
-    download('db') if answer.downcase.capitalize == 'Yes'
+    download_db if answer.downcase.capitalize == 'Yes'
     puts 'Checking your files...'
     puts 'Downloading any files needed'
-    download(file_check)
+    check_for_missing_files
+    puts 'Complete'
   end
 
   desc 'Kills all active connections of your current database'
@@ -116,6 +106,7 @@ namespace :db_check do
 
   desc 'Fetches data from latest backup bucket and imports it into your app'
   task :unzip_and_import, [:filename] => :environment do |_task, args|
+    return 'No db found' unless args[:filename][0] == 'db'
     ` tar -xvzf temp/#{args[:filename][0]}.tar -C temp/ `
     if args[:filename][0] == 'db'
       ` bzip2 -dk temp/icca_registry_daily/databases/PostgreSQL.sql.bz2 `
