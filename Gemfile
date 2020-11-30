@@ -11,7 +11,6 @@ gem 'aws-sdk', '~> 1.6'
 gem 'aws-sdk-s3'
 gem 'appsignal', '~> 2.2.1'
 gem 'invisible_captcha'
-gem 'paperclip'
 
 # Assets
 gem 'sassc-rails', '~> 1.3.0'

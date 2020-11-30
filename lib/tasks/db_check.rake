@@ -1,11 +1,13 @@
 namespace :db_check do
   desc 'Checks to see if your DB is valid prior to ActiveStorage installation and if files are completely up to date'
   task import: :environment do |_t|
-    def open_session
-      AWS::S3.new(
-        access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-        secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-      )
+    s3 = AWS::S3.new(
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    )
+
+    def download_s3_file(target, file)
+      target.read { |chunk| file.write(chunk) }
     end
 
     def remove_temp_folder
@@ -15,14 +17,13 @@ namespace :db_check do
 
     def download_db
       return 'You\'re in production - no download needed' if Rails.env.production?
-      s3 = open_session
       target_object = s3.buckets[ENV['AWS_BUCKET_BACKUP']].objects.with_prefix((ENV["AWS_BUCKET_DB"]).to_s).to_a.last
 
       FileUtils.mkdir_p('temp')
 
       File.open("temp/#{target}.tar", 'wb') do |file|
         puts 'File will be downloaded to a temp folder in your Rails app'
-        target_object.read { |chunk| file.write(chunk) }
+        download_s3_file(target_object, file)
       end
 
       puts 'Killing all db connections and dropping the old database...'
@@ -54,17 +55,14 @@ namespace :db_check do
     def download_files(missing_files)
       return 'No files are missing' if missing_files.empty?
 
-      s3 = open_session
-
       bucket = s3.buckets[ENV['AWS_BUCKET_PRODUCTION']]
 
       missing_files.each do |file|
-        folder = file.slice(0..1)
-        sub_folder = file.slice(2..3)
-        FileUtils.mkdir_p("storage/#{folder}/#{sub_folder}")
-        File.open("storage/#{folder}/#{sub_folder}/#{file}", 'wb') do |f|
+        file_path = "storage/#{file.slice(0..1)}/#{file.slice(2..3)}"
+        FileUtils.mkdir_p(file_path)
+        File.open(File.join(file_path, file), 'wb') do |f|
           begin
-            bucket.objects[file].read { |chunk| f.write(chunk) }
+            download_s3_file(bucket.objects[file], f)
           rescue AWS::S3::Errors::NoSuchKey
             puts "No file with key: #{file} found in the bucket"
             next
