@@ -17,16 +17,21 @@ class ApplicationController < ActionController::Base
   def load_cms_pages
     pages = Comfy::Cms::Page
     @site  = Comfy::Cms::Site.find_by_locale(I18n.locale)
-    news_and_stories_slug = I18n.t('news_and_stories').downcase.split.join('-')
 
-    @explore_page     = pages.find_by_slug_and_site_id("explore", @site.id)
-    @news_page        = pages.find_by_slug_and_site_id(news_and_stories_slug, @site.id)
-    @contact_us_page  = pages.find_by_slug_and_site_id("contact-us", @site.id)
-    @about_page       = pages.where(slug: "about", site: @site).includes(:children).first
-    @participate_page = pages.where(slug: "participate", site: @site).includes(:children).first
+    @explore_page     = pages.find_by_slug_and_site_id(yml_key_to_slug('explore'), @site.id)
+    @news_page        = pages.find_by_slug_and_site_id(yml_key_to_slug('news_and_stories'), @site.id)
+    @contact_us_page  = pages.find_by_slug_and_site_id(yml_key_to_slug('contact_us'), @site.id)
+    @about_page       = pages.where(slug: yml_key_to_slug('about'), site: @site).includes(:children).first
+    @participate_page = pages.where(slug: yml_key_to_slug('participate'), site: @site).includes(:children).first
   end
 
   def set_host
     Rails.application.routes.default_url_options[:host] = request.base_url
+  end
+
+  private
+
+  def yml_key_to_slug(slug)
+    I18n.t(slug).downcase.split.join('-')
   end
 end
