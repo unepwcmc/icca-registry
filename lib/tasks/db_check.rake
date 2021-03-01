@@ -16,10 +16,11 @@ namespace :db_check do
       return 'You\'re in production - no download needed' if Rails.env.production?
 
       target_object = @s3.latest_backup
+      name = target_object.key.split('/').last
 
       FileUtils.mkdir_p('temp')
 
-      File.open("temp/#{target_object}.tar", 'wb') do |file|
+      File.open("temp/#{name}", 'wb') do |file|
         puts 'File will be downloaded to a temp folder in your Rails app'
         download_s3_file(target_object, file)
       end
@@ -28,7 +29,7 @@ namespace :db_check do
       tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
       tasks.each do |t|
         puts "Running #{t}..."
-        Rake::Task[t].invoke(['db']) if t == tasks[3]
+        Rake::Task[t].invoke([name]) if t == tasks[3]
         Rake::Task[t].invoke
       end
 
@@ -41,7 +42,7 @@ namespace :db_check do
       ActiveStorage::Attachment.find_each do |attachment|
         folder = attachment.blob.key.slice(0..1)
         sub_folder = attachment.blob.key.slice(2..3)
-        
+
         file_path = File.join('storage', folder, sub_folder, attachment.blob.key)
 
         missing_files << attachment.blob.key unless File.exist?(file_path)
@@ -53,7 +54,7 @@ namespace :db_check do
     def download_files(missing_files)
       return 'No files are missing' if missing_files.empty?
 
-      bucket = @s3.buckets[Rails.application.credentials.dig(:default, :production_db)]
+      bucket = @s3.get_bucket(Rails.application.credentials.dig(:default, :production_db))
 
       missing_files.each do |file|
         file_path = "storage/#{file.slice(0..1)}/#{file.slice(2..3)}"
@@ -69,10 +70,11 @@ namespace :db_check do
       end
     end
 
-
     # First, download DB
-    puts question = "Do you wish to download a new version of the database?
-	  Bear in mind your old one will be erased: Yes/No"
+    puts question = "
+    Do you wish to download a new version of the database?
+    Bear in mind your old one will be erased: Yes/No
+    "
     answer = STDIN.gets.chomp
     until answer == 'Yes' || answer == 'No'
       puts question
@@ -102,13 +104,11 @@ namespace :db_check do
 
   desc 'Fetches data from latest backup bucket and imports it into your app'
   task :unzip_and_import, [:filename] => :environment do |_task, args|
-    return 'No db found' unless args[:filename][0] == 'db'
-    ` tar -xvzf temp/#{args[:filename][0]}.tar -C temp/ `
-    if args[:filename][0] == 'db'
-      ` bzip2 -dk temp/icca_registry_daily/databases/PostgreSQL.sql.bz2 `
-      puts 'Loading database into app...'
-      ` psql icca_registry_#{Rails.env} < temp/icca_registry_daily/databases/PostgreSQL.sql  `
-      puts 'Database successfully copied over'
-    end
+    abort('No db found') unless args[:filename][0] == 'icca_registry_daily.tar'
+    ` tar -xvzf temp/#{args[:filename][0]} -C temp/ `
+    ` bzip2 -dk temp/icca_registry_daily/databases/PostgreSQL.sql.bz2 `
+    puts 'Loading database into app...'
+    ` psql icca_registry_#{Rails.env} < temp/icca_registry_daily/databases/PostgreSQL.sql`
+    puts 'Database successfully copied over'
   end
 end

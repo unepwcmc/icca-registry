@@ -12,4 +12,8 @@ class S3
   def latest_backup
     @s3.buckets[AWS_BUCKET].objects.with_prefix(PRODUCTION_DB_PATH.to_s).to_a.last
   end
+
+  def get_bucket(bucket)
+    @s3.buckets[bucket]
+  end
 end
