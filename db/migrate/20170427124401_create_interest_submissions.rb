@@ -1,4 +1,4 @@
-class CreateInterestSubmissions < ActiveRecord::Migration
+class CreateInterestSubmissions < ActiveRecord::Migration[4.2]
   def change
     create_table :interest_submissions do |t|
       t.text :icca_name

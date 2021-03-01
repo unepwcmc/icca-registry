@@ -1,4 +1,4 @@
-class CreateRelatedLinks < ActiveRecord::Migration
+class CreateRelatedLinks < ActiveRecord::Migration[4.2]
   def change
     create_table :related_links do |t|
       t.integer :page_id
