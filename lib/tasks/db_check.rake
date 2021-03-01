@@ -1,10 +1,7 @@
 namespace :db_check do
   desc 'Checks to see if your DB is valid prior to ActiveStorage installation and if files are completely up to date'
   task import: :environment do |_t|
-    s3 = AWS::S3.new(
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-    )
+    @s3 = S3.new
 
     def download_s3_file(target, file)
       target.read { |chunk| file.write(chunk) }
@@ -17,11 +14,12 @@ namespace :db_check do
 
     def download_db
       return 'You\'re in production - no download needed' if Rails.env.production?
-      target_object = s3.buckets[ENV['AWS_BUCKET_BACKUP']].objects.with_prefix((ENV["AWS_BUCKET_DB"]).to_s).to_a.last
+
+      target_object = @s3.latest_backup
 
       FileUtils.mkdir_p('temp')
 
-      File.open("temp/#{target}.tar", 'wb') do |file|
+      File.open("temp/#{target_object}.tar", 'wb') do |file|
         puts 'File will be downloaded to a temp folder in your Rails app'
         download_s3_file(target_object, file)
       end
@@ -30,7 +28,7 @@ namespace :db_check do
       tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
       tasks.each do |t|
         puts "Running #{t}..."
-        Rake::Task[t].invoke([target]) if t == tasks[3]
+        Rake::Task[t].invoke(['db']) if t == tasks[3]
         Rake::Task[t].invoke
       end
 
@@ -55,7 +53,7 @@ namespace :db_check do
     def download_files(missing_files)
       return 'No files are missing' if missing_files.empty?
 
-      bucket = s3.buckets[ENV['AWS_BUCKET_PRODUCTION']]
+      bucket = @s3.buckets[Rails.application.credentials.dig(:default, :production_db)]
 
       missing_files.each do |file|
         file_path = "storage/#{file.slice(0..1)}/#{file.slice(2..3)}"
