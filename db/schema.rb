@@ -173,8 +173,8 @@ ActiveRecord::Schema.define(version: 2021_03_01_221411) do
     t.integer "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "lon", precision: 5, scale: 2
-    t.decimal "lat", precision: 4, scale: 2
+    t.decimal "lon", precision: 10, scale: 7
+    t.decimal "lat", precision: 9, scale: 7
   end
 
   create_table "interest_submissions", id: :serial, force: :cascade do |t|
