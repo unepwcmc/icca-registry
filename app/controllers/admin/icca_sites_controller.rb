@@ -23,7 +23,7 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
       )
       redirect_to action: :index
     else
-      flash[:error] = @icca_site.errors.full_messages.first
+      flash[:error] = @icca_site.errors.full_messages.join(', ')
       redirect_to action: :edit
     end
   end
