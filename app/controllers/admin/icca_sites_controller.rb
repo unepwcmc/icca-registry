@@ -14,14 +14,15 @@ class Admin::IccaSitesController < Comfy::Admin::Cms::BaseController
     updated_site = @icca_site.update(icca_site_params)
 
     if updated_site
-      # CMS pages do not automatically update to reflect the new name of the 
-      # ICCA site!
+      # CMS pages do not automatically update to reflect the new name of the ICCA site!
+      normalised_name = I18n.transliterate(name).gsub(/[():'&]/, '')
+
       @icca_site.pages.update(
         label: name,
-        slug: name.downcase.split.join('-')
+        slug: normalised_name.downcase.split.join('-')
       )
       redirect_to action: :index
-    else 
+    else
       flash[:error] = @icca_site.errors.full_messages.first
       redirect_to action: :edit
     end
