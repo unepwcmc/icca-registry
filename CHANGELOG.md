@@ -1,3 +1,8 @@
+### 1.1.1
+* Fix for sites not appearing on the world map
+* Validations for ICCA site coordinates to stop invalid coordinates from being entered in.
+* Ensure that page slugs are transliterated when the corresponding ICCA site is updated. 
+
 ### 1.1.0
 * Updated with news and stories section 
     - Index page of articles with pagination enabled

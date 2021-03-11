@@ -6,7 +6,11 @@
   }
 
   @include m(main) {
-    height: $map--main__height;
+    height: 400px;
+
+    @include breakpoint($medium) {
+      height: $map--main__height;
+    }
   }
 
   @include m(double) {

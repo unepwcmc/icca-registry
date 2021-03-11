@@ -14,13 +14,15 @@ window.Map = class Map
         scrollWheelZoom: false,
         zoomControl: false,
         center: bounds.getCenter(),
-        zoom: 3
+        minZoom: 2 
       })
 
       map.on('dragstart click', @hideExplore)
 
-
-      map.fitBounds(bounds)
+      map.setMaxBounds([
+          [90, 180],
+          [-90, -180]
+      ])
       map.addControl(L.control.zoom(position: 'bottomright'))
 
       access_token = 'pk.eyJ1IjoidW5lcHdjbWMiLCJhIjoiY2lreHdmcmVlMDA0YndsbTQ5aHFwdm5vZyJ9.KsDsvf9FRGyv1BQYXblI0Q'
