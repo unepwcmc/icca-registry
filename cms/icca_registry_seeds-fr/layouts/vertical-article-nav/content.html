@@ -1,0 +1,26 @@
+[attributes]
+---
+label: Vertical article navigation on left, article on the right
+app_layout: application
+position: 2
+
+[content]
+<main class="container--profile container--right-padded">
+  <nav class="breadcrumbs">
+    {{ cms:partial cms/breadcrumbs }}
+  </nav>
+
+  <aside class="one-fourths">
+    {{ cms:partial cms/article_nav }}
+  </aside>
+
+  <article class="three-fourths article">
+    {{ cms:partial cms/title }}
+    {{ cms:wysiwyg content }}
+  </article>
+</main>
+
+[js]
+
+[css]
+

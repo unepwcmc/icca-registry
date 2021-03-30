@@ -1,0 +1,40 @@
+[attributes]
+---
+label: Single column article and countries with sites list
+app_layout: application
+position: 3
+
+[content]
+<main class="container--profile container--right-padded container--push-bottom">
+  <nav class="breadcrumbs">
+    <a class="breadcrumbs__link" href="/">Home</a> > ICCA Countries
+  </nav>
+
+  <h1 class="hero__title hero__title--article hero__title--push header-with-delimiter">
+    Explore Case Studies
+  </h1>
+  <article class="article col-nine">
+    <h2 class="article__title article__title--smaller">
+      ICCA Countries
+    </h2>
+    <div class="s-article">
+      {{ cms:wysiwyg before_the_map }}
+    </div>
+    
+    {{ cms:partial cms/explore_map }}
+
+    <div class="s-article row">
+      {{ cms:wysiwyg after_the_map }}
+    </div>
+
+    <h3 class="article__title article__title--paragraph">
+      Country list
+    </h3>
+    {{ cms:partial cms/countries_and_sites_list }}
+  </article>
+</main>
+
+[js]
+
+[css]
+

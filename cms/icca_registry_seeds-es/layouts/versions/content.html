@@ -1,0 +1,29 @@
+[attributes]
+---
+label: Versions
+app_layout: application
+position: 1
+
+[content]
+<main class="container--profile container--right-padded">
+  <nav class="breadcrumbs">
+    {{ cms:partial cms/breadcrumbs }}
+  </nav>
+
+  <aside class="one-fourths">
+    {{ cms:partial cms/versions/versions_nav }}
+  </aside>
+
+  <article class="three-fourths article">
+    {{ cms:partial cms/title }}
+    {{ cms:partial cms/versions/version_alert }}
+    <div class="s-article">
+      {{ cms:wysiwyg content }}
+    </div>
+  </article>
+</main>
+
+[js]
+
+[css]
+

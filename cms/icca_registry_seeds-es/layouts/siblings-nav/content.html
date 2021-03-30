@@ -1,0 +1,32 @@
+[attributes]
+---
+label: Siblings Nav
+app_layout: application
+position: 4
+
+[content]
+<div class="container--profile container--push-bottom container--right-padded">
+  <nav class="breadcrumbs">
+    {{ cms:partial cms/breadcrumbs }}
+  </nav>
+
+  <main>
+    {{ cms:partial cms/parent_title }}
+    <aside class="one-fourths">
+      {{ cms:partial cms/siblings_nav }}
+    </aside>
+
+    <article class="three-fourths article">
+      {{ cms:partial cms/title }}
+
+      <div class="s-article">
+        {{ cms:wysiwyg content }}
+      </div>
+    </article>
+  </main>
+</div>
+
+[js]
+
+[css]
+
