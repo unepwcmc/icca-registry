@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # gem 'rails', git: 'https://github.com/rails/rails/', branch: '5-2-stable'
 gem 'rails', '~> 5.2.4.3'
 gem 'comfortable_mexican_sofa', '~> 2.0.0'
-gem 'nokogiri', '~> 1.6.7.2'
+gem 'nokogiri', '~> 1.11.4'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'aws-sdk', '~> 1.6'
 # Accessing S3 bucket using AWS gem instead of open-uri
