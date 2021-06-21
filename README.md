@@ -14,10 +14,8 @@ database, with Webpacker and Yarn to manage JS dependencies.
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
 - `cd icca-registry`
 - `bundle install`
-- get a copy of the latest .env file
-- `rails db:create`
 
-- In `photo.rb` and `resource.rb` in `app/models`, comment out lines 4-5 and uncomment out line 2
+- `rails db:create`
 
 - `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. 
 
@@ -27,18 +25,14 @@ database, with Webpacker and Yarn to manage JS dependencies.
 
 - `rake activestorage:paperclip_to_activestorage` to copy all Paperclip files to the ActiveStorage location specified in the config file, whether local or remote. 
 
-- Uncomment out lines 4-5 of `photo.rb` and `resource.rb` to let the app use ActiveStorage, and comment out line 2 in each case (don't delete just in case something goes wrong and you need to revert back to using Paperclip). Now the photos should load on each page.
-
 - `yarn install`
 
-- Start the server.
+- Before starting the server, get a copy of the latest .env file.
 
-Before
-starting the server, create a copy of the file `.env.example` (removing the
-`.example` bit) and edit the needed variables. After this final step, `rails server` should work like a charm.
+- Start the server with `rails s`.
 
 ## Known issues
--  Potentially you may encounter a 404 error when trying to access the Explore page via your localhost. In that instance, access the CMS admin interface via `localhost:3000/admin`, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
+-  Potentially you may encounter a 404 error when trying to access the Explore page locally. In that instance, access the CMS admin interface via `localhost:3000/admin`, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
 - If at any point, either during or after DB migration, you experience an error with the format `... was delegated to attachment, but attachment is nil`, this issue is caused one of two things: Rails either cannot locate the file, even though it exists on your system, or there are records present for files which are missing in reality. First, double check whether you have all files from production available in the correct location and:
 
 1) Re-run the migration. 
