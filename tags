@@ -11,9 +11,9 @@ ContactUsControllerTest	test/controllers/contact_us_controller_test.rb	/^class C
 ContactUsHelper	app/helpers/contact_us_helper.rb	/^module ContactUsHelper$/;"	m
 Country	app/models/country.rb	/^class Country < ActiveRecord::Base$/;"	c	inherits:ActiveRecord.Base
 CountryTest	test/models/country_test.rb	/^class CountryTest < ActiveSupport::TestCase$/;"	c	inherits:ActiveSupport.TestCase
-CreateCms	db/migrate/20160211192643_create_cms.rb	/^class CreateCms < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
-CreateCountries	db/migrate/20160211163306_create_countries.rb	/^class CreateCountries < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
-CreateSites	db/migrate/20160211163045_create_sites.rb	/^class CreateSites < ActiveRecord::Migration$/;"	c	inherits:ActiveRecord.Migration
+CreateCms	db/migrate/20160211192643_create_cms.rb	/^class CreateCms < ActiveRecord::Migration[4.2]$/;"	c	inherits:ActiveRecord.Migration
+CreateCountries	db/migrate/20160211163306_create_countries.rb	/^class CreateCountries < ActiveRecord::Migration[4.2]$/;"	c	inherits:ActiveRecord.Migration
+CreateSites	db/migrate/20160211163045_create_sites.rb	/^class CreateSites < ActiveRecord::Migration[4.2]$/;"	c	inherits:ActiveRecord.Migration
 ExploreController	app/controllers/explore_controller.rb	/^class ExploreController < ApplicationController$/;"	c	inherits:ApplicationController
 ExploreControllerTest	test/controllers/explore_controller_test.rb	/^class ExploreControllerTest < ActionController::TestCase$/;"	c	inherits:ActionController.TestCase
 ExploreHelper	app/helpers/explore_helper.rb	/^module ExploreHelper$/;"	m

@@ -1,4 +1,4 @@
-class ChangeLatAndLonToIccaSites < ActiveRecord::Migration
+class ChangeLatAndLonToIccaSites < ActiveRecord::Migration[4.2]
   def change
     remove_column :icca_sites, :lon
     remove_column :icca_sites, :lat
