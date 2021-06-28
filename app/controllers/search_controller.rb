@@ -8,14 +8,7 @@ class SearchController < ApplicationController
   end
 
   def categorize_results
-    @countries = @case_studies = []
-
-    @results.each do |result|
-      if result.country.present?
-        @countries << result
-      elsif result.icca_site.present?
-        @case_studies << result
-      end
-    end
+    @countries = @results.select { |result| result.country.present? }
+    @case_studies = @results.select { |result| result.icca_site.present? }
   end
 end

@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 # Custom CMS tag making published date required
-require 'comfy/date_not_null'
+require 'comfy_tags/date_not_null'
 
 ComfortableMexicanSofa.configure do |config|
   # Title of the admin area
@@ -122,8 +122,13 @@ ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = ENV["COMFY
 #     return true
 #   end
 # end
-require File.expand_path("../../../app/models/concerns/icca_links.rb", __FILE__)
+
+# CONCERNS
+require File.expand_path("../../../app/models/concerns/has_many_custom.rb", __FILE__)
+require File.expand_path("../../../app/models/concerns/link_icca_site.rb", __FILE__)
+require File.expand_path("../../../app/models/concerns/link_country.rb", __FILE__)
 require File.expand_path("../../../app/models/concerns/search_integration.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/icca_photos.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/icca_resources.rb", __FILE__)
-require File.expand_path("../../../app/controllers/concerns/icca_related_links.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/save_object.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/save_photos.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/save_links.rb", __FILE__)
+require File.expand_path("../../../app/controllers/concerns/save_resources.rb", __FILE__)
