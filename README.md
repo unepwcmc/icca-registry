@@ -17,18 +17,21 @@ database, with Webpacker and Yarn to manage JS dependencies.
 
 - `rails db:create`
 
+- `rake db:migrate`
+
 - `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. 
 
-- `rake db:migrate`
+- `bundle exec rake pgsearch:rebuild` to index the various case studies into the search.
 
 - `yarn install`
 
 - Before starting the server, get a copy of the latest .env file.
 
 - Start the server with `rails s`.
+  
+- Access the CMS admin interface via `localhost:3000/admin`, sign in via the credentials in your ENV, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
 
 ## Known issues
--  Potentially you may encounter a 404 error when trying to access the Explore page via your localhost. In that instance, access the CMS admin interface via `localhost:3000/admin`, visit Sites and manually alter the hostname and path of each site to `localhost:3000` and locale respectively, where locale is en/es/fr for the three languages.
 - If at any point, either during or after DB migration, you experience an error with the format `... was delegated to attachment, but attachment is nil`, this issue is caused one of two things: Rails either cannot locate the file, even though it exists on your system, or there are records present for files which are missing in reality. To solve this, double check whether you have all files from production available in the correct location and run the rake task to reattach Comfy files - `rake activestorage:reattach_files` 
 
 # Adding Translations
