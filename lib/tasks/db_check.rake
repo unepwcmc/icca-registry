@@ -26,7 +26,7 @@ namespace :db_check do
       end
 
       puts 'Killing all db connections and dropping the old database...'
-      tasks = %w(db_check:kill_db_connections db:drop db:create db_check:unzip_and_import db:migrate)
+      tasks = %w(db_check:kill_db_connections db:drop db:create db:migrate db_check:unzip_and_import)
       tasks.each do |t|
         puts "Running #{t}..."
         Rake::Task[t].invoke([name]) if t == tasks[3]
@@ -70,6 +70,14 @@ namespace :db_check do
       end
     end
 
+    # This replaces the values for the hostnames of each site with localhost (as
+    # they use the actual URLs in production)
+    def change_host_sites
+      Comfy::Cms::Site.find_each do |site|
+        site.update(hostname: 'localhost:3000')
+      end
+    end
+
     # First, download DB
     puts question = "
     Do you wish to download a new version of the database?
@@ -85,6 +93,7 @@ namespace :db_check do
     puts 'Checking your files...'
     puts 'Downloading any files needed'
     check_for_missing_files
+    change_host_sites
     puts 'Complete'
   end
 

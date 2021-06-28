@@ -12,14 +12,16 @@ icca-registry is a pretty standard Rails application, backed by a Postgres
 database, with Webpacker and Yarn to manage JS dependencies.
 
 - `git clone https://github.com/unepwcmc/icca-registry.git icca-registry`
+  
 - `cd icca-registry`
+  
 - `bundle install`
 
 - `rails db:create`
 
 - `rake db:migrate`
 
-- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos as well. 
+- `rake db_check:import` - to download latest DB from the server (if you are setting up this version of the project for the first time) and downloads latest photos and other files as well. It will take a bit of time, so be patient.
 
 - `bundle exec rake pgsearch:rebuild` to index the various case studies into the search.
 
